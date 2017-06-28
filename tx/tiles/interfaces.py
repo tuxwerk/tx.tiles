@@ -59,7 +59,7 @@ class ITilesSettings(Interface):
     configuration = schema.Choice(
         source="tiles_configuration_choices",
         title=_(u"Tiles configuration"),
-        description=_(u"Choose a configuration. Configurations can be added in the control panel."),
+        description=_(u"Choose a configuration. Configurations can be added by the Site Manager in the control panel."),
         required=True
     )
 
@@ -94,6 +94,7 @@ class IPageTilesSettings(Interface):
 
     tiles = schema.List(
         title=_(u"Tiles"),
+        description=_(u"Use drag and drop to rearrange the tiles."),
         default=[]
     )
 

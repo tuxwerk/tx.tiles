@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="tx.tiles.configlet.ITilesControlPanelSchema">
-    <value key="configuration">
-      <element>Default:default:1000:400</element>
+    <value key="configuration" purge="false">
+      <element>2 Columns:2-columns:1000:400</element>
+      <element>3 Columns:3-columns:1000:400</element>
+      <element>4 Columns:4-columns:1000:400</element>
     </value>
   </records>
 </registry>

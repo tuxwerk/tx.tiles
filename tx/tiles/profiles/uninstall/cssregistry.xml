@@ -2,5 +2,6 @@
 <object name="portal_css">
 	
     <stylesheet id="++resource++tx-tiles-settings.css" remove="True" />
+    <stylesheet id="++resource++tx-tiles-viewlet.css" remove="True" />
 
 </object>

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tx.tiles\n"
-"POT-Creation-Date: 2017-06-16 13:56+0000\n"
+"POT-Creation-Date: 2017-06-28 15:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
 "Language-Team: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
@@ -14,15 +14,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tx.tiles\n"
 
+#: ./configure.zcml:39
+msgid "Add tiles to pages"
+msgstr "Kacheln zu Seiten hinzufügen"
+
 #: ./browser/forms.py:105
 msgid "Add/Update Tile"
-msgstr "Tile hinzufügen/editieren"
+msgstr "Kachel hinzufügen/editieren"
 
-#: ./interfaces.py:132
+#: ./interfaces.py:91
 msgid "Below content"
 msgstr "Unter dem Inhalt"
 
-#: ./interfaces.py:131
+#: ./interfaces.py:90
 msgid "Below title"
 msgstr "Unter dem Titel"
 
@@ -39,66 +43,54 @@ msgid "Changes saved."
 msgstr "Änderungen gespeichert."
 
 #: ./interfaces.py:62
-msgid "Choose a configuration. Configurations can be added in the control panel."
-msgstr "Wähle eine Konfiguration. Konfigurationen können im Plone Control Panel hinzugefügt werden."
+msgid "Choose a configuration. Configurations can be added by the Site Manager in the control panel."
+msgstr "Wähle eine Konfiguration. Konfigurationen können vom Website-Administrator im Plone Control Panel hinzugefügt werden."
 
-#: ./interfaces.py:146
+#: ./interfaces.py:106
 msgid "Choose a content item to link this tile to."
-msgstr "Bitte einen Inhalt wählen, der mit diesem Tiles verknüpft wird."
+msgstr "Bitte einen Inhalt wählen, der mit dieser Kachel verknüpft wird."
 
-#: ./configlet.py:55
+#: ./configlet.py:39
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: ./browser/forms.py:190
-msgid "Configure this tiles."
-msgstr "Diesen Tiles konfigurieren."
+#: ./configlet.py:50
+msgid "Default settings to use for all tiles."
+msgstr "Standardeinstellungen für alle Kacheln."
 
-#: ./configlet.py:97
-msgid "Default settings to use for all tiless."
-msgstr "Standardeinstellungen für alle Tiles."
+#: ./browser/forms.py:189
+msgid "Edit Tiles"
+msgstr "Kacheln bearbeiten"
 
 #: ./browser/forms.py:103
 msgid "Edit tile"
-msgstr "Tile bearbeiten"
+msgstr "Kachel bearbeiten"
 
-#: ./configlet.py:56
+#: ./configlet.py:40
 msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
-msgstr "Eine Konfigurations pro Zeile anlegen. Format: 'Name:css-klassen-name:breite:höhe'. css-klassen-name bekommt 'tx-tiles-' als Prefix. Hochgeladene Bilder werden auf die Breite skaliert."
-
-#: ./configlet.py:35
-msgid "Horizontal"
-msgstr "Horizontal"
+msgstr "Eine Konfiguration pro Zeile anlegen. Format: 'Name:css-klassen-name:breite:höhe'. css-klassen-name bekommt 'tx-tiles-' als Prefix. Hochgeladene Bilder werden auf die Breite skaliert."
 
 #: ./interfaces.py:68
 msgid "If unchecked tiles will be shown on subpages"
-msgstr "Wenn nicht ausgewählt, wird der Tiles auch auf Unterseiten angezeigt."
+msgstr "Wenn abgewählt, werden die Kacheln auch auf Unterseiten angezeigt."
 
-#: ./interfaces.py:152
+#: ./interfaces.py:112
 msgid "Image"
 msgstr "Bild"
 
-#: ./configure.zcml:47
-msgid "Install tx.tiles"
-msgstr "tx.tiles installieren"
-
-#: ./interfaces.py:145
+#: ./interfaces.py:105
 msgid "Link to content"
-msgstr "Verknüpfung mit Inhalt"
+msgstr "Verknüpfung zum Inhalt"
 
 #: ./browser/forms.py:121
 msgid "No changes made."
 msgstr "Keine Änderungen."
 
-#: ./configlet.py:30
-msgid "None"
-msgstr "Keine"
-
-#: ./interfaces.py:130
+#: ./interfaces.py:89
 msgid "Portal top"
 msgstr "Im Kopf der Seite"
 
-#: ./configure.zcml:55
+#: ./configure.zcml:47
 msgid "Removes tx.tiles"
 msgstr "Entfernt tx.tiles"
 
@@ -114,47 +106,47 @@ msgstr "Einstellungen"
 msgid "Show only on this page"
 msgstr "Nur auf dieser Seite anzeigen"
 
-#: ./interfaces.py:120
+#: ./interfaces.py:79
 msgid "Show the tiles"
-msgstr "Tiles anzeigen"
+msgstr "Kacheln anzeigen"
 
-#: ./browser/forms.py:189
-msgid "Tiles Settings"
-msgstr "Tiles Einstellungen"
+#: ./configure.zcml:39
+msgid "TX Tiles"
+msgstr "TX Tiles"
 
-#: ./interfaces.py:61
-msgid "Tiles configuration"
-msgstr "Konfiguration des Tiles"
-
-#: ./configlet.py:96
-msgid "Tiles default settings"
-msgstr "Tiles-Einstellungen"
-
-#: ./interfaces.py:127
-msgid "Tiles position"
-msgstr "Position des Tiles"
-
-#: ./browser/forms.py:183
-#: ./interfaces.py:137
-msgid "Tiles"
-msgstr "Tiles"
-
-#: ./interfaces.py:157
+#: ./interfaces.py:117
 msgid "Text"
 msgstr "Text"
 
-#: ./interfaces.py:121
+#: ./browser/forms.py:183
+#: ./interfaces.py:96
+msgid "Tiles"
+msgstr "Kacheln"
+
+#: ./interfaces.py:61
+msgid "Tiles configuration"
+msgstr "Konfiguration der Kacheln"
+
+#: ./configlet.py:49
+msgid "Tiles default settings"
+msgstr "Konfiguration der Kacheln"
+
+#: ./interfaces.py:86
+msgid "Tiles position"
+msgstr "Position der Kacheln"
+
+#: ./interfaces.py:80
 msgid "Uncheck to hide the tiles."
-msgstr "Abwählen um den Tiles zu verstecken."
+msgstr "Abwählen um die Kacheln zu verstecken."
+
+#: ./interfaces.py:97
+msgid "Use drag and drop to rearrange the tiles."
+msgstr "Sie können die Kacheln per Drag & Drop anordnen."
 
 #: ./browser/templates/tiles.pt:40
 msgid "add new tile"
-msgstr "Neues Tile hinzufügen"
+msgstr "Neue Kachel hinzufügen"
 
 #: ./configure.zcml:47
-msgid "tx.tiles"
-msgstr "tx.tiles"
-
-#: ./configure.zcml:55
 msgid "tx.tiles uninstall"
 msgstr "tx.tiles deinstallieren"

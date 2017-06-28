@@ -17,19 +17,17 @@ msgstr ""
 "X-Generator: Poedit 1.7.6\n"
 
 msgid "Remove tiles"
-msgstr "Tiles entfernen"
+msgstr "Kacheln entfernen"
 
 msgid "Tiles removed."
-msgstr "Der Tiles wurde entfernt."
+msgstr "Kacheln wurden entfernt."
 
 msgid "Add tiles"
-msgstr "Tiles hinzufügen"
+msgstr "Kacheln hinzufügen"
 
 msgid "Tiles added."
-msgstr "Der Tiles wurde hinzugefügt."
+msgstr "Kacheln wurden hinzugefügt."
 
 msgid "Tiles"
-msgstr "Tiles"
+msgstr "Kacheln"
 
-msgid "Tiles settings"
-msgstr "Tiles Einstellungen"

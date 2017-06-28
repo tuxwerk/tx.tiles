@@ -4,7 +4,15 @@
   <stylesheet 
       id="++resource++tx-tiles-settings.css" media="screen" rel="stylesheet" 
       expression="python: request.get('ACTUAL_URL').endswith('@@tx-tiles-settings')"
-      title="" 
+      cacheable="True" 
+      compression="safe" 
+      cookable="True"
+      enabled="True"
+      rendering="import"
+      />
+
+  <stylesheet 
+      id="++resource++tx-tiles-viewlet.css" media="screen" rel="stylesheet" 
       cacheable="True" 
       compression="safe" 
       cookable="True"

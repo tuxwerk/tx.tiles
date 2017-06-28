@@ -38,7 +38,6 @@ class ITilesControlPanelSchema(Interface):
     configuration = schema.List(
         title=_(u'Configuration'),
         description=_(u"Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."),
-        default=[u"Default:default:1000:400",],
         value_type=schema.TextLine(),
         required=True
     )
@@ -48,7 +47,7 @@ class ControlPanelForm(RegistryEditForm):
     form.extends(RegistryEditForm)
     schema = ITilesControlPanelSchema
     label = _(u"Tiles default settings")
-    description = _(u'Default settings to use for all tiless.')
+    description = _(u'Default settings to use for all tiles.')
     
 class ControlPanel(ControlPanelFormWrapper):
 

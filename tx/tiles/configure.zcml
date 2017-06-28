@@ -25,26 +25,26 @@
     />
 
   <utility provides="zope.schema.interfaces.IVocabularyFactory"
-             component=".configlet.configuration_choices"
-             name="tiles_configuration_choices"/>
+           component=".configlet.configuration_choices"
+           name="tiles_configuration_choices"/>
 
   <include package=".browser" />
 
   <genericsetup:registerProfile
     name="default"
-    title="tx.tiles"
+    title="TX Tiles"
     directory="profiles/default"
-    description='Install tx.tiles'
+    description='Add tiles to pages'
     provides="Products.GenericSetup.interfaces.EXTENSION"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
+    />
 
   <genericsetup:registerProfile
     name="uninstall"
-    title="tx.tiles uninstall"
+    title="Uninstall TX Tiles"
     directory="profiles/uninstall"
-    description="Removes tx.tiles"
+    description="Removes tx.tiles add-on"
     provides="Products.GenericSetup.interfaces.EXTENSION"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
+    />
 
   <include file="upgrades.zcml" />
 

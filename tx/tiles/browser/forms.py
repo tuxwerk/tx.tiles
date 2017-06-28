@@ -186,5 +186,4 @@ class TilesPageSettingsForm(FieldsetsEditForm):
 
     #our revised TilesWidget that only displays tiles really
     form_fields['tiles'].custom_widget = TilesWidget
-    label = _(u"Tiles Settings")
-    description = _(u'Configure this tiles.')
+    label = _(u"Edit Tiles")

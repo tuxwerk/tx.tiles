@@ -72,13 +72,6 @@ class BaseTilesViewlet(ViewletBase):
             return c[2] + ":" + c[3]
         return "1000:400"
 
-    @memoize
-    def padding(self):
-        c = self.configuration()
-        if c:
-            return str( (float(c[3]) / float(c[2])) * 100 )
-        return str( (400.0 / 1000.0) * 100 )
-                
     @property
     def tiles(self):
         return self.settings.tiles

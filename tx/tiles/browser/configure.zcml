@@ -116,5 +116,6 @@
   
   <browser:resource name="tx-tiles-settings.js"  file="files/settings.js" />
   <browser:resource name="tx-tiles-settings.css" file="files/settings.css" />
+  <browser:resource name="tx-tiles-viewlet.css"  file="files/viewlet.css" />
 
 </configure>

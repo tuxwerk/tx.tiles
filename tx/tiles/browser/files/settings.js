@@ -10,6 +10,7 @@ function tx_tile_remove() {
 
 function tx_tile_sortable() {
   $("#tx-tiles-widget ul").sortable({
+    connectWith: "#tx-tiles-widget ul",
     items: 'li',
     placeholder: 'sortable-placeholder',
     forcePlaceholderSize: true,
@@ -19,6 +20,7 @@ function tx_tile_sortable() {
       for(var i=0; i<tiles.length; i++){
         order.push(tiles.eq(i).attr('data-index'));
       }
+      console.log(order);
       $.ajax({
         url: $('base').attr('href') + '/../@@tx-tiles/all/@@order-tiles',
         type: 'POST',

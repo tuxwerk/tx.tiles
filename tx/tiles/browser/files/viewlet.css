@@ -1,0 +1,58 @@
+#content ul.tx-tiles-container,
+ul.tx-tiles-container {
+  list-style-type: none;
+  margin: 10px -10px !important;
+  padding: 0 !important;
+}
+
+ul.tx-tiles-container > li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block !important;
+}
+
+ul.tx-tiles-container > li > div.tx-tile {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  padding: 50% 0 0 0;
+  overflow: hidden;
+}
+
+ul.tx-tiles-container > li > div.tx-tile img {
+  position: absolute;
+  top: 0;
+}
+
+ul.tx-tiles-container > li > div.tx-tile div.tx-tile-content {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 10px;
+  padding: 0 0.375em;
+  background: rgb(255,255,255,0.5);
+  z-index: 10;
+}
+
+ul.tx-tiles-container > li > div.tx-tile div.tx-tile-content p {
+  line-height: 1.2em;
+  margin: 0.375em 0;
+  color: #000;
+}
+
+ul.tx-tiles-container > li > div.tx-tile a {
+  color: #000;
+}
+
+ul.tx-tiles-2-columns > li {
+  width: 50%;
+}
+
+ul.tx-tiles-3-columns > li {
+  width: 33.33%;
+}
+
+ul.tx-tiles-4-columns > li {
+  width: 25%;
+}
