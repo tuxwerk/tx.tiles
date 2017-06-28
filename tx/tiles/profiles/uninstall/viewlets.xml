@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<object>
+  <order manager="plone.portaltop">
+    <viewlet name="tx.slider.portaltop" remove="True" />
+  </order>
+  <order manager="plone.belowcontenttitle">
+    <viewlet name="tx.slider.belowcontenttitle" remove="True" />
+  </order>  
+  <order manager="plone.belowcontent">
+    <viewlet name="tx.slider.belowcontent" remove="True" />
+  </order>
+  <order manager="plone.htmlhead.links">
+    <viewlet name="tx.slider.head" remove="True" />
+  </order>
+</object>

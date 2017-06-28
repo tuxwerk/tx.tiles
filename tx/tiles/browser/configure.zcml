@@ -1,0 +1,127 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="tx.slider">
+
+  <include package="plone.app.contentmenu" />
+    
+  <adapter 
+    for="tx.slider.interfaces.ISliderPage"
+    provides="tx.slider.interfaces.ISliderSettings"
+    factory="tx.slider.settings.PageSliderSettings" />
+
+  <adapter 
+    for="tx.slider.interfaces.ISliderPage"
+    provides="tx.slider.interfaces.IPageSliderSettings"
+    factory="tx.slider.settings.PageSliderSettings" />
+    
+  <browser:page
+    name="tx-slider-settings"
+    for="tx.slider.interfaces.ISliderPage"
+    class=".forms.SliderPageSettingsForm"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="tx.slider.ManageSliderSettings" />
+    
+  <browser:page
+    name="image"
+    for="tx.slider.interfaces.ISlideContext"
+    class=".views.SlideImageView"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+  
+  <browser:page 
+    name="tx-slider-enable"
+    for="*"
+    permission="tx.slider.ManageSliderSettings"
+    allowed_interface="tx.slider.interfaces.ISliderUtilProtected"
+    attribute="enable"
+    layer="tx.slider.interfaces.ISliderLayer"
+    class=".utils.SliderUtilProtected" />
+    
+  <browser:page 
+    name="tx-slider-disable"
+    for="*"
+    permission="tx.slider.ManageSliderSettings"
+    allowed_interface="tx.slider.interfaces.ISliderUtilProtected"
+    attribute="disable"
+    layer="tx.slider.interfaces.ISliderLayer"
+    class=".utils.SliderUtilProtected" />
+                   
+   <browser:page 
+     name="slider_util"
+     for="*"
+     permission="zope2.View"
+     allowed_interface="tx.slider.interfaces.ISliderUtil"
+     layer="tx.slider.interfaces.ISliderLayer"
+     class=".utils.SliderUtil" />
+  
+  <browser:viewlet
+    name="tx.slider.portaltop"
+    manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+    class=".viewlet.SliderPortalTop"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+
+  <browser:viewlet
+    name="tx.slider.belowcontenttitle"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    class=".viewlet.SliderBelowContentTitle"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+    
+  <browser:viewlet
+    name="tx.slider.belowcontent"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    class=".viewlet.SliderBelowContent"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+        
+  <browser:viewlet
+    name="tx.slider.head"
+    manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+    class=".viewlet.SliderHead"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+  
+  <adapter factory=".forms.AddSlideAdapter" />
+
+  <browser:page
+    name="tx-slider-edit"
+    for="tx.slider.interfaces.ISliderPage"
+    class=".forms.AddSlideForm"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="tx.slider.ManageSliderSettings" />
+  
+  <browser:page
+    name="remove-slide"
+    for="tx.slider.interfaces.ISlideContext"
+    class=".views.RemoveSlideView"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="tx.slider.ManageSliderSettings" />
+
+  <browser:page
+    name="order-slides"
+    for="tx.slider.interfaces.ISlideContext"
+    class=".views.OrderSlides"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="tx.slider.ManageSliderSettings" />
+
+  <browser:page
+    name="tx-slides"
+    for="tx.slider.interfaces.ISliderPage"
+    class=".transient.SlidesContext"
+    layer="tx.slider.interfaces.ISliderLayer"
+    permission="zope2.View" />
+  
+  <browser:resource name="tx-slider-jquery.cycle2.js"            file="files/jquery.cycle2.js" />
+  <browser:resource name="tx-slider-jquery.cycle2.caption2.js"   file="files/jquery.cycle2.caption2.js" />
+  <browser:resource name="tx-slider-jquery.cycle2.scrollVert.js" file="files/jquery.cycle2.scrollVert.js" />
+  <browser:resource name="tx-slider-jquery.cycle2.swipe.js"      file="files/jquery.cycle2.swipe.js" />
+  <browser:resource name="tx-slider-jquery.cycle2.tile.js"       file="files/jquery.cycle2.tile.js" />
+  <browser:resource name="tx-slider-jquery.cycle2.css"           file="files/jquery.cycle2.css" />
+
+  <browser:resource name="tx-slider-settings.js"  file="files/settings.js" />
+  <browser:resource name="tx-slider-settings.css" file="files/settings.css" />
+
+</configure>

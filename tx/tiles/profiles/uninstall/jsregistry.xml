@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+    <javascript remove="True"
+		id="++resource++tx-slider-jquery.cycle2.js"/>
+    
+    <javascript remove="True"
+		id="++resource++tx-slider-jquery.cycle2.caption2.js"/>
+    
+    <javascript remove="True"
+		id="++resource++tx-slider-jquery.cycle2.scrollVert.js"/>
+    
+    <javascript remove="True"
+		id="++resource++tx-slider-jquery.cycle2.swipe.js"/>
+    
+    <javascript remove="True"
+		id="++resource++tx-slider-jquery.cycle2.tile.js"/>
+    
+    <javascript remove="True"
+		id="++resource++tx-slider-settings.js"/>
+
+</object>

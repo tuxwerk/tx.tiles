@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+  
+  <stylesheet 
+      id="++resource++tx-slider-jquery.cycle2.css" media="screen" rel="stylesheet" 
+      expression="here/@@slider_util/should_include"
+      title="" 
+      cacheable="True" 
+      compression="safe" 
+      cookable="True"
+      enabled="True"
+      rendering="import"
+      />
+  
+  <stylesheet 
+      id="++resource++tx-slider-settings.css" media="screen" rel="stylesheet" 
+      expression="python: request.get('ACTUAL_URL').endswith('@@tx-slider-settings')"
+      title="" 
+      cacheable="True" 
+      compression="safe" 
+      cookable="True"
+      enabled="True"
+      rendering="import"
+      />
+
+</object>

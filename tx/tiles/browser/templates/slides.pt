@@ -1,0 +1,42 @@
+<div id="tx-slider-widget"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="tx.slider">
+     
+  <style tal:content="structure view/css" type="text/css" />
+  
+  <ul>
+    <tal:repeat repeat="slide view/slides">
+      <li tal:attributes="data-index slide/uuid">
+	<div class="slide-wrapper">
+	  <div class="slider-container">
+            <div class="slide">
+	      <tal:if tal:condition="slide/html">
+		<div class="slide-text" tal:content="structure slide/html" />
+	      </tal:if>
+	      <tal:if tal:condition="slide/image_type">
+		<img class="slide-image" alt="" tal:attributes="src string:${view/slider_url}/@@tx-slides/${slide/uuid}/@@image" />
+	      </tal:if>		
+	    </div>
+	  </div>
+	  <div class="slide-buttons">
+            <a class="slide-link" tal:attributes="href string:${view/portal_url}${slide/link_reference}" target="_blank">
+	      <img tal:attributes="src string:${view/portal_url}/link_icon.png"/>
+	    </a>
+            <a class="slide-edit" tal:attributes="href string:${view/slider_url}/@@tx-slider-edit?index=${slide/uuid}">
+	      <img tal:attributes="src string:${view/portal_url}/edit.png"/>
+	    </a>
+            <a class="slide-remove" tal:attributes="href string:${view/slider_url}/@@tx-slides/${slide/uuid}/@@remove-slide" >
+	      <img tal:attributes="src string:${view/portal_url}/delete_icon.png"/>
+	    </a>
+	  </div>
+	</div>
+      </li>
+    </tal:repeat>
+  </ul>
+  <div class="slide-add-buttons">
+    <a class="slide-add" tal:attributes="href string:${view/slider_url}/@@tx-slider-edit" i18n:translate="">add new slide</a>
+  </div>
+</div>

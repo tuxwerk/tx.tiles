@@ -1,0 +1,6 @@
+recursive-include tx *
+recursive-include docs *
+global-exclude *pyc
+global-exclude .git*
+global-exclude .project
+global-exclude .pydevproject

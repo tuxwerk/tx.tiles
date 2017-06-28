@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+  <javascript
+      cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
+      expression="here/@@slider_util/should_include"
+      id="++resource++tx-slider-jquery.cycle2.js"/>
+
+  <javascript
+      cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
+      expression="here/@@slider_util/should_include"
+      id="++resource++tx-slider-jquery.cycle2.caption2.js"/>
+
+  <javascript
+      cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
+      expression="here/@@slider_util/should_include"
+      id="++resource++tx-slider-jquery.cycle2.scrollVert.js"/>
+
+  <javascript
+      cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
+      expression="here/@@slider_util/should_include"
+      id="++resource++tx-slider-jquery.cycle2.swipe.js"/>
+
+  <javascript
+      cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
+      expression="here/@@slider_util/should_include"
+      id="++resource++tx-slider-jquery.cycle2.tile.js"/>
+
+    <javascript 
+        cacheable="True" 
+        compression="safe" 
+        cookable="True"
+        enabled="True" 
+        expression="python: request.get('ACTUAL_URL').endswith('@@tx-slider-settings')"
+        id="++resource++tx-slider-settings.js"
+        inline="False"
+    />
+
+</object>

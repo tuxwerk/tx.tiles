@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+
+  <import-step id="tx.slider.install"
+               version="1"
+               handler="tx.slider.importexport.install"
+               title="tx.slider: extra install steps">
+  </import-step>
+
+</import-steps>

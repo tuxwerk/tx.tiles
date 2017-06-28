@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+	
+    <stylesheet id="++resource++tx-slider-jquery.cycle2.css" remove="True" />	
+    <stylesheet id="++resource++tx-slider-settings.css" remove="True" />
+
+</object>

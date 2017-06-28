@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="tx.slider: Manage slider settings"
+                acquire="True">
+      <role name="Site Administrator"/>
+    </permission>
+  </permissions>
+</rolemap>

@@ -1,0 +1,54 @@
+<tal:show tal:define="uid         context/UID|string:nouid;
+		      continuous  python: view.continuous() and '0' or '1';
+		      navtype     view/navigation_type;
+		      hide_pager  python: navtype not in ('bullets', 'both');
+		      hide_arrows python: navtype not in ('arrows', 'both');
+		      ">
+  <div class="tx-slider-container"
+       tal:attributes="class string:tx-slider-container tx-slider-${uid} tx-slider-${view/class_name};
+		       style string:padding-bottom: ${view/padding}%;"
+       i18n:domain="tx.slider">
+    <div tal:attributes="data-cycle-fx      view/effect;
+			 data-cycle-random  view/randomize;
+			 data-cycle-speed   view/speed;
+			 data-cycle-timeout view/pause;
+			 data-cycle-loop    continuous;
+			 data-cycle-auto-height view/ratio;
+			 "
+	 class="cycle-slideshow"
+	 data-cycle-auto-height="false"
+	 data-cycle-delay="0"
+	 data-cycle-loop="0"
+	 data-cycle-log="false"
+	 data-cycle-loader="false"
+	 data-cycle-random="false"
+	 data-cycle-pause-on-hover="true"
+	 data-cycle-fx="scrollHorz"
+	 data-cycle-manual-fx="scrollHorz"
+	 data-cycle-manual-speed="500"
+	 data-cycle-speed="1000"
+	 data-cycle-timeout="2000"
+	 data-cycle-swipe="true"
+	 data-cycle-slides="> div.slide"
+	 data-off-cycle-pager-template="<span>{{slideNum}}</span>"
+	 >
+      <div tal:omit-tag="hide_pager" class="cycle-pager"></div>
+      <div tal:omit-tag="hide_arrows" class="cycle-next"></div>
+      <div tal:omit-tag="hide_arrows" class="cycle-prev"></div>
+      <tal:repeat repeat="slide view/slides">
+	<div class="slide">
+	  <a href="" tal:attributes="href string:${context/portal_url}${slide/link_reference}">
+	    <tal:if tal:condition="slide/image_type">
+              <img tal:attributes="src string:${view/absolute_url}/@@tx-slides/${slide/uuid}/@@image;" />
+	    </tal:if>
+	    <tal:if tal:condition="slide/html">
+	      <div class="cycle-overlay" tal:content="structure slide/html">
+		Content
+	      </div>
+	    </tal:if>
+	  </a
+	</div>
+      </tal:repeat>
+    </div>
+  </div>
+</tal:show>

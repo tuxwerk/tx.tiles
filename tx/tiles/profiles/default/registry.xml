@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry>
+  <records interface="tx.slider.configlet.ISliderControlPanelSchema">
+    <value key="configuration">
+      <element>Default:default:1000:400</element>
+    </value>
+    <value key="effect">scrollHorz</value>
+    <value key="speed">800</value>
+    <value key="pause">4000</value>
+    <value key="navigation_type">arrows</value>
+  </records>
+</registry>

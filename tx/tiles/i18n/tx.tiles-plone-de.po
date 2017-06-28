@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tx.slider\n"
+"POT-Creation-Date: 2017-05-29 12:30+0000\n"
+"PO-Revision-Date: 2017-05-29 12:46+0200\n"
+"Last-Translator: Marek Kralewski <mck@tuxwerk.de>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Generator: Poedit 1.7.6\n"
+
+msgid "Remove slider"
+msgstr "Slider entfernen"
+
+msgid "Slider removed."
+msgstr "Der Slider wurde entfernt."
+
+msgid "Add slider"
+msgstr "Slider hinzufügen"
+
+msgid "Slider added."
+msgstr "Der Slider wurde hinzugefügt."
+
+msgid "Slider"
+msgstr "Slider"
+
+msgid "Slider settings"
+msgstr "Slider Einstellungen"

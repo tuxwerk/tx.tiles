@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tx.slider\n"
+"POT-Creation-Date: 2017-06-16 13:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
+"Language-Team: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: tx.slider\n"
+
+#: ./browser/forms.py:105
+msgid "Add/Update Slide"
+msgstr "Slide hinzufügen/editieren"
+
+#: ./configlet.py:27
+msgid "Arrows"
+msgstr "Pfeile"
+
+#: ./interfaces.py:132
+msgid "Below content"
+msgstr "Unter dem Inhalt"
+
+#: ./interfaces.py:131
+msgid "Below title"
+msgstr "Unter dem Titel"
+
+#: ./configlet.py:29
+msgid "Both"
+msgstr "Beide"
+
+#: ./configlet.py:28
+msgid "Bullets"
+msgstr "Bullets"
+
+#: ./browser/forms.py:159
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ./browser/forms.py:164
+msgid "Changes canceled."
+msgstr "Änderung abgebrochen."
+
+#: ./browser/forms.py:117
+msgid "Changes saved."
+msgstr "Änderungen gespeichert."
+
+#: ./interfaces.py:62
+msgid "Choose a configuration. Configurations can be added in the control panel."
+msgstr "Wähle eine Konfiguration. Konfigurationen können im Plone Control Panel hinzugefügt werden."
+
+#: ./interfaces.py:146
+msgid "Choose a content item to link this slide to."
+msgstr "Bitte einen Inhalt wählen, der mit diesem Slider verknüpft wird."
+
+#: ./configlet.py:55
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: ./browser/forms.py:190
+msgid "Configure this slider."
+msgstr "Diesen Slider konfigurieren."
+
+#: ./interfaces.py:95
+msgid "Continuous"
+msgstr "Kontinuierlich"
+
+#: ./configlet.py:97
+msgid "Default settings to use for all sliders."
+msgstr "Standardeinstellungen für alle Slider."
+
+#: ./configlet.py:79
+msgid "Duration of the pause between transitions (in milliseconds)."
+msgstr "Dauer der Pause zwischen den Übergängen (in Millisekunden)."
+
+#: ./interfaces.py:89
+msgid "Duration of the pause between transitions (in milliseconds). '0' for Default."
+msgstr "Dauer der Pause zwischen den Übergängen (in Millisekunden). '0' für Voreinstellung."
+
+#: ./browser/forms.py:103
+msgid "Edit slide"
+msgstr "Slide bearbeiten"
+
+#: ./configlet.py:64
+#: ./interfaces.py:75
+msgid "Effect"
+msgstr "Effekt"
+
+#: ./configlet.py:56
+msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-slider-'. Uploaded images will be scaled down to width."
+msgstr "Eine Konfigurations pro Zeile anlegen. Format: 'Name:css-klassen-name:breite:höhe'. css-klassen-name bekommt 'tx-slider-' als Prefix. Hochgeladene Bilder werden auf die Breite skaliert."
+
+#: ./configlet.py:35
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: ./interfaces.py:68
+msgid "If unchecked slider will be shown on subpages"
+msgstr "Wenn nicht ausgewählt, wird der Slider auch auf Unterseiten angezeigt."
+
+#: ./interfaces.py:152
+msgid "Image"
+msgstr "Bild"
+
+#: ./configure.zcml:47
+msgid "Install tx.slider"
+msgstr "tx.slider installieren"
+
+#: ./interfaces.py:76
+msgid "Leave on 'no choice' for default effect."
+msgstr "'keine Auswahl' um den voreingestellten Effekt zu benutzen."
+
+#: ./interfaces.py:103
+msgid "Leave on 'no choice' for default navigation type."
+msgstr "'keine Auswahl' um die voreingestellte Navigation zu benutzen."
+
+#: ./interfaces.py:145
+msgid "Link to content"
+msgstr "Verknüpfung mit Inhalt"
+
+#: ./interfaces.py:96
+msgid "Loop the slider continuously."
+msgstr "Den Slider in einer Endlosschleife abspielen."
+
+#: ./browser/forms.py:121
+msgid "No changes made."
+msgstr "Keine Änderungen."
+
+#: ./configlet.py:30
+msgid "None"
+msgstr "Keine"
+
+#: ./configlet.py:78
+#: ./interfaces.py:88
+msgid "Pause"
+msgstr "Pause"
+
+#: ./configlet.py:65
+msgid "Please choose the default effect type."
+msgstr "Bitte den Standard Effekt wählen."
+
+#: ./configlet.py:87
+msgid "Please choose the default navigation type."
+msgstr "Bitte die Standard Navigation wählen."
+
+#: ./interfaces.py:130
+msgid "Portal top"
+msgstr "Im Kopf der Seite"
+
+#: ./interfaces.py:108
+msgid "Randomize the slides"
+msgstr "Zufällige Reihenfolge der Slides"
+
+#: ./configure.zcml:55
+msgid "Removes tx.slider"
+msgstr "Entfernt tx.slider"
+
+#: ./browser/forms.py:107
+msgid "Save"
+msgstr "Speichern"
+
+#: ./browser/forms.py:179
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ./interfaces.py:67
+msgid "Show only on this page"
+msgstr "Nur auf dieser Seite anzeigen"
+
+#: ./interfaces.py:120
+msgid "Show the slider"
+msgstr "Slider anzeigen"
+
+#: ./browser/forms.py:189
+msgid "Slider Settings"
+msgstr "Slider Einstellungen"
+
+#: ./interfaces.py:61
+msgid "Slider configuration"
+msgstr "Konfiguration des Slider"
+
+#: ./configlet.py:96
+msgid "Slider default settings"
+msgstr "Slider-Einstellungen"
+
+#: ./interfaces.py:127
+msgid "Slider position"
+msgstr "Position des Slider"
+
+#: ./browser/forms.py:183
+#: ./interfaces.py:137
+msgid "Slides"
+msgstr "Slides"
+
+#: ./configlet.py:71
+#: ./interfaces.py:81
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+#: ./configlet.py:72
+msgid "Speed at which the slides will transition (in milliseconds)."
+msgstr "Geschwindigkeit der Slide-Übergänge (in Millisekunden)."
+
+#: ./interfaces.py:82
+msgid "Speed at which the slides will transition (in milliseconds). '0' for Default."
+msgstr "Geschwindigkeit der Slide-Übergänge (in Millisekunden). '0' für Voreinstellung."
+
+#: ./interfaces.py:157
+msgid "Text"
+msgstr "Text"
+
+#: ./configlet.py:38
+msgid "Tile blind"
+msgstr "Verdeckte Kacheln"
+
+#: ./configlet.py:37
+msgid "Tile slide"
+msgstr "Gleitende Kacheln"
+
+#: ./configlet.py:86
+#: ./interfaces.py:102
+msgid "Type of navigation"
+msgstr "Navigation"
+
+#: ./interfaces.py:121
+msgid "Uncheck to hide the slider."
+msgstr "Abwählen um den Slider zu verstecken."
+
+#: ./configlet.py:36
+msgid "Vertical"
+msgstr "Vertikal"
+
+#: ./browser/templates/slides.pt:40
+msgid "add new slide"
+msgstr "Neues Slide hinzufügen"
+
+#: ./configure.zcml:47
+msgid "tx.slider"
+msgstr "tx.slider"
+
+#: ./configure.zcml:55
+msgid "tx.slider uninstall"
+msgstr "tx.slider deinstallieren"
