@@ -22,24 +22,12 @@ msgstr ""
 msgid "Add/Update Tile"
 msgstr ""
 
-#: ./configlet.py:27
-msgid "Arrows"
-msgstr ""
-
 #: ./interfaces.py:132
 msgid "Below content"
 msgstr ""
 
 #: ./interfaces.py:131
 msgid "Below title"
-msgstr ""
-
-#: ./configlet.py:29
-msgid "Both"
-msgstr ""
-
-#: ./configlet.py:28
-msgid "Bullets"
 msgstr ""
 
 #: ./browser/forms.py:159
@@ -70,37 +58,16 @@ msgstr ""
 msgid "Configure this tiles."
 msgstr ""
 
-#: ./interfaces.py:95
-msgid "Continuous"
-msgstr ""
-
 #: ./configlet.py:97
 msgid "Default settings to use for all tiless."
-msgstr ""
-
-#: ./configlet.py:79
-msgid "Duration of the pause between transitions (in milliseconds)."
-msgstr ""
-
-#: ./interfaces.py:89
-msgid "Duration of the pause between transitions (in milliseconds). '0' for Default."
 msgstr ""
 
 #: ./browser/forms.py:103
 msgid "Edit tile"
 msgstr ""
 
-#: ./configlet.py:64
-#: ./interfaces.py:75
-msgid "Effect"
-msgstr ""
-
 #: ./configlet.py:56
 msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
-msgstr ""
-
-#: ./configlet.py:35
-msgid "Horizontal"
 msgstr ""
 
 #: ./interfaces.py:68
@@ -115,49 +82,16 @@ msgstr ""
 msgid "Install tx.tiles"
 msgstr ""
 
-#: ./interfaces.py:76
-msgid "Leave on 'no choice' for default effect."
-msgstr ""
-
-#: ./interfaces.py:103
-msgid "Leave on 'no choice' for default navigation type."
-msgstr ""
-
 #: ./interfaces.py:145
 msgid "Link to content"
-msgstr ""
-
-#: ./interfaces.py:96
-msgid "Loop the tiles continuously."
 msgstr ""
 
 #: ./browser/forms.py:121
 msgid "No changes made."
 msgstr ""
 
-#: ./configlet.py:30
-msgid "None"
-msgstr ""
-
-#: ./configlet.py:78
-#: ./interfaces.py:88
-msgid "Pause"
-msgstr ""
-
-#: ./configlet.py:65
-msgid "Please choose the default effect type."
-msgstr ""
-
-#: ./configlet.py:87
-msgid "Please choose the default navigation type."
-msgstr ""
-
 #: ./interfaces.py:130
 msgid "Portal top"
-msgstr ""
-
-#: ./interfaces.py:108
-msgid "Randomize the tiles"
 msgstr ""
 
 #: ./configure.zcml:55
@@ -201,42 +135,12 @@ msgstr ""
 msgid "Tiles"
 msgstr ""
 
-#: ./configlet.py:71
-#: ./interfaces.py:81
-msgid "Speed"
-msgstr ""
-
-#: ./configlet.py:72
-msgid "Speed at which the tiles will transition (in milliseconds)."
-msgstr ""
-
-#: ./interfaces.py:82
-msgid "Speed at which the tiles will transition (in milliseconds). '0' for Default."
-msgstr ""
-
 #: ./interfaces.py:157
 msgid "Text"
 msgstr ""
 
-#: ./configlet.py:38
-msgid "Tile blind"
-msgstr ""
-
-#: ./configlet.py:37
-msgid "Tile tile"
-msgstr ""
-
-#: ./configlet.py:86
-#: ./interfaces.py:102
-msgid "Type of navigation"
-msgstr ""
-
 #: ./interfaces.py:121
 msgid "Uncheck to hide the tiles."
-msgstr ""
-
-#: ./configlet.py:36
-msgid "Vertical"
 msgstr ""
 
 #: ./browser/templates/tiles.pt:40

@@ -18,10 +18,6 @@ msgstr ""
 msgid "Add/Update Tile"
 msgstr "Tile hinzufügen/editieren"
 
-#: ./configlet.py:27
-msgid "Arrows"
-msgstr "Pfeile"
-
 #: ./interfaces.py:132
 msgid "Below content"
 msgstr "Unter dem Inhalt"
@@ -29,14 +25,6 @@ msgstr "Unter dem Inhalt"
 #: ./interfaces.py:131
 msgid "Below title"
 msgstr "Unter dem Titel"
-
-#: ./configlet.py:29
-msgid "Both"
-msgstr "Beide"
-
-#: ./configlet.py:28
-msgid "Bullets"
-msgstr "Bullets"
 
 #: ./browser/forms.py:159
 msgid "Cancel"
@@ -66,30 +54,13 @@ msgstr "Konfiguration"
 msgid "Configure this tiles."
 msgstr "Diesen Tiles konfigurieren."
 
-#: ./interfaces.py:95
-msgid "Continuous"
-msgstr "Kontinuierlich"
-
 #: ./configlet.py:97
 msgid "Default settings to use for all tiless."
 msgstr "Standardeinstellungen für alle Tiles."
 
-#: ./configlet.py:79
-msgid "Duration of the pause between transitions (in milliseconds)."
-msgstr "Dauer der Pause zwischen den Übergängen (in Millisekunden)."
-
-#: ./interfaces.py:89
-msgid "Duration of the pause between transitions (in milliseconds). '0' for Default."
-msgstr "Dauer der Pause zwischen den Übergängen (in Millisekunden). '0' für Voreinstellung."
-
 #: ./browser/forms.py:103
 msgid "Edit tile"
 msgstr "Tile bearbeiten"
-
-#: ./configlet.py:64
-#: ./interfaces.py:75
-msgid "Effect"
-msgstr "Effekt"
 
 #: ./configlet.py:56
 msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
@@ -111,21 +82,9 @@ msgstr "Bild"
 msgid "Install tx.tiles"
 msgstr "tx.tiles installieren"
 
-#: ./interfaces.py:76
-msgid "Leave on 'no choice' for default effect."
-msgstr "'keine Auswahl' um den voreingestellten Effekt zu benutzen."
-
-#: ./interfaces.py:103
-msgid "Leave on 'no choice' for default navigation type."
-msgstr "'keine Auswahl' um die voreingestellte Navigation zu benutzen."
-
 #: ./interfaces.py:145
 msgid "Link to content"
 msgstr "Verknüpfung mit Inhalt"
-
-#: ./interfaces.py:96
-msgid "Loop the tiles continuously."
-msgstr "Den Tiles in einer Endlosschleife abspielen."
 
 #: ./browser/forms.py:121
 msgid "No changes made."
@@ -135,26 +94,9 @@ msgstr "Keine Änderungen."
 msgid "None"
 msgstr "Keine"
 
-#: ./configlet.py:78
-#: ./interfaces.py:88
-msgid "Pause"
-msgstr "Pause"
-
-#: ./configlet.py:65
-msgid "Please choose the default effect type."
-msgstr "Bitte den Standard Effekt wählen."
-
-#: ./configlet.py:87
-msgid "Please choose the default navigation type."
-msgstr "Bitte die Standard Navigation wählen."
-
 #: ./interfaces.py:130
 msgid "Portal top"
 msgstr "Im Kopf der Seite"
-
-#: ./interfaces.py:108
-msgid "Randomize the tiles"
-msgstr "Zufällige Reihenfolge der Tiles"
 
 #: ./configure.zcml:55
 msgid "Removes tx.tiles"
@@ -197,43 +139,13 @@ msgstr "Position des Tiles"
 msgid "Tiles"
 msgstr "Tiles"
 
-#: ./configlet.py:71
-#: ./interfaces.py:81
-msgid "Speed"
-msgstr "Geschwindigkeit"
-
-#: ./configlet.py:72
-msgid "Speed at which the tiles will transition (in milliseconds)."
-msgstr "Geschwindigkeit der Tile-Übergänge (in Millisekunden)."
-
-#: ./interfaces.py:82
-msgid "Speed at which the tiles will transition (in milliseconds). '0' for Default."
-msgstr "Geschwindigkeit der Tile-Übergänge (in Millisekunden). '0' für Voreinstellung."
-
 #: ./interfaces.py:157
 msgid "Text"
 msgstr "Text"
 
-#: ./configlet.py:38
-msgid "Tile blind"
-msgstr "Verdeckte Kacheln"
-
-#: ./configlet.py:37
-msgid "Tile tile"
-msgstr "Gleitende Kacheln"
-
-#: ./configlet.py:86
-#: ./interfaces.py:102
-msgid "Type of navigation"
-msgstr "Navigation"
-
 #: ./interfaces.py:121
 msgid "Uncheck to hide the tiles."
 msgstr "Abwählen um den Tiles zu verstecken."
-
-#: ./configlet.py:36
-msgid "Vertical"
-msgstr "Vertikal"
 
 #: ./browser/templates/tiles.pt:40
 msgid "add new tile"

@@ -70,47 +70,6 @@ class ITilesSettings(Interface):
         required=True
     )
 
-    effect = schema.Choice(
-        source="tiles_effect_choices",
-        title=_(u"Effect"),
-        description=_(u"Leave on 'no choice' for default effect."),
-        required=False
-    )
-
-    speed = schema.Int(
-        title=_(u"Speed"),
-        description=_(u"Speed at which the tiles will transition (in milliseconds). '0' for Default."),
-        default=0,
-        required=False
-    )
-
-    pause = schema.Int(
-        title=_(u"Pause"),
-        description=_(u"Duration of the pause between transitions (in milliseconds). '0' for Default."),
-        default=0,
-        required=False
-    )
-
-    continuous = schema.Bool(
-        title=_(u"Continuous"),
-        description=_(u"Loop the tiles continuously."),
-        default=True
-    )
-
-    navigation_type = schema.Choice(
-        source="tiles_navigation_type_choices",
-        title=_(u"Type of navigation"),
-        description=_(u"Leave on 'no choice' for default navigation type."),
-        required=False
-    )
-
-    randomize = schema.Bool(
-        title=_(u"Randomize the tiles"),
-        default=False,
-        required=False
-    )
-
-
 class IPageTilesSettings(Interface):
     """
     difference here is the user creates all his tiles

@@ -24,6 +24,10 @@
     title="tx.tiles: Manage tiles settings"
     />
 
+  <utility provides="zope.schema.interfaces.IVocabularyFactory"
+             component=".configlet.configuration_choices"
+             name="tiles_configuration_choices"/>
+
   <include package=".browser" />
 
   <genericsetup:registerProfile

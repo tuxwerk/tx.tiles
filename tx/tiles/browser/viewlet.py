@@ -79,26 +79,6 @@ class BaseTilesViewlet(ViewletBase):
             return str( (float(c[3]) / float(c[2])) * 100 )
         return str( (400.0 / 1000.0) * 100 )
                 
-    @memoize
-    def effect(self):
-        return self.settings.effect or self.registry('effect')
-                
-    @memoize
-    def randomize(self):
-        return self.settings.randomize
-
-    @memoize
-    def speed(self):
-        return self.settings.speed or self.registry('speed')
-
-    @memoize
-    def pause(self):
-        return self.settings.pause or self.registry('pause')
-
-    @memoize
-    def continuous(self):
-        return self.settings.continuous
-
     @property
     def tiles(self):
         return self.settings.tiles
@@ -106,10 +86,6 @@ class BaseTilesViewlet(ViewletBase):
     @memoize
     def absolute_url(self):
         return self.tilesobject().absolute_url()
-
-    @memoize
-    def navigation_type(self):
-    	return self.settings.navigation_type or self.registry('navigation_type')
 
     settings = property(get_settings)
 

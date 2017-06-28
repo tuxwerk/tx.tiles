@@ -22,22 +22,6 @@ from z3c.form import form
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
-def navigation_type_choices(context):
-    return SimpleVocabulary([
-        SimpleTerm(title=_(u"Arrows"),  value='arrows'),
-        SimpleTerm(title=_(u"Bullets"), value='bullets'),
-        SimpleTerm(title=_(u"Both"),    value='both'),
-        SimpleTerm(title=_(u"None"),    value='none'),
-    ])
-
-def effect_choices(context):
-    return SimpleVocabulary([
-        SimpleTerm(title=_(u"Horizontal"), value='scrollHorz'),
-        SimpleTerm(title=_(u"Vertical"),   value='scrollVert'),
-        SimpleTerm(title=_(u"Tile tile"), value='tileTile'),
-        SimpleTerm(title=_(u"Tile blind"), value='tileBlind')
-    ])
-
 def configuration_choices(context):
     configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanelSchema.configuration']
     items = ()
@@ -59,36 +43,6 @@ class ITilesControlPanelSchema(Interface):
         required=True
     )
 
-    effect = schema.Choice(
-        source="tiles_effect_choices",
-        title=_(u"Effect"),
-        description=_(u"Please choose the default effect type."),
-        default="scrollHorz",
-        required=True
-    )
-
-    speed = schema.Int(
-        title=_(u"Speed"),
-        description=_(u"Speed at which the tiles will transition (in milliseconds)."),
-        default=800,
-        required=True
-    )
-
-    pause = schema.Int(
-        title=_(u"Pause"),
-        description=_(u"Duration of the pause between transitions (in milliseconds)."),
-        default=4000,
-        required=True
-    )
-
-    navigation_type = schema.Choice(
-        source      = "tiles_navigation_type_choices",
-        title       = _(u"Type of navigation"),
-        description = _(u"Please choose the default navigation type."),
-        default     = "arrows",
-        required    = True        
-    )
-    
 class ControlPanelForm(RegistryEditForm):
 
     form.extends(RegistryEditForm)
