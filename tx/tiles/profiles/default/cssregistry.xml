@@ -2,17 +2,6 @@
 <object name="portal_css">
   
   <stylesheet 
-      id="++resource++tx-tiles-jquery.cycle2.css" media="screen" rel="stylesheet" 
-      expression="here/@@tiles_util/should_include"
-      title="" 
-      cacheable="True" 
-      compression="safe" 
-      cookable="True"
-      enabled="True"
-      rendering="import"
-      />
-  
-  <stylesheet 
       id="++resource++tx-tiles-settings.css" media="screen" rel="stylesheet" 
       expression="python: request.get('ACTUAL_URL').endswith('@@tx-tiles-settings')"
       title="" 
