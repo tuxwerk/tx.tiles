@@ -1,77 +1,77 @@
 from zope.interface import Interface, Attribute
 from zope import schema
-from tx.slider import message_factory as _
+from tx.tiles import message_factory as _
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from OFS.interfaces import IItem
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.namedfile import field
 
-class ISliderLayer(Interface):
+class ITilesLayer(Interface):
     """
-    marker interface for slider layer
-    """
-
-
-class ISliderPage(Interface):
-    """
-    marker interface for a page that implements a slider
+    marker interface for tiles layer
     """
 
-class ISliderUtilProtected(Interface):
+
+class ITilesPage(Interface):
+    """
+    marker interface for a page that implements tiles
+    """
+
+class ITilesUtilProtected(Interface):
 
     def enable():
         """
-        enable slider on this object
+        enable tiles on this object
         """
 
     def disable():
         """
-        disable slider on this object
+        disable tiles on this object
         """
 
 
-class ISliderUtil(Interface):
+class ITilesUtil(Interface):
 
     def enabled_here():
         """
-        checks if slider is enabled in context
+        checks if tiles is enabled in context
         """
 
     def enabled():
         """
-        checks if slider is enabled in aquisition chain
+        checks if tiles is enabled in aquisition chain
         """
 
     def should_include():
         """
-        if the slider files should be included
+        if the tiles files should be included
         """
 
-class ISlider(Interface):
+class ITiles(Interface):
     """Marker interface"""
 
 
-class ISliderSettings(Interface):
+class ITilesSettings(Interface):
     """
-    The actual slider settings
+    The actual tiles settings
     """
 
     configuration = schema.Choice(
-        source="slider_configuration_choices",
-        title=_(u"Slider configuration"),
+        source="tiles_configuration_choices",
+        title=_(u"Tiles configuration"),
         description=_(u"Choose a configuration. Configurations can be added in the control panel."),
         required=True
     )
 
     only_here = schema.Bool(
         title=_(u'Show only on this page'),
-        description=_(u"If unchecked slider will be shown on subpages"),
+        description=_(u"If unchecked tiles will be shown on subpages"),
         default=True,
         required=True
     )
 
     effect = schema.Choice(
-        source="slider_effect_choices",
+        source="tiles_effect_choices",
         title=_(u"Effect"),
         description=_(u"Leave on 'no choice' for default effect."),
         required=False
@@ -79,7 +79,7 @@ class ISliderSettings(Interface):
 
     speed = schema.Int(
         title=_(u"Speed"),
-        description=_(u"Speed at which the slides will transition (in milliseconds). '0' for Default."),
+        description=_(u"Speed at which the tiles will transition (in milliseconds). '0' for Default."),
         default=0,
         required=False
     )
@@ -93,38 +93,38 @@ class ISliderSettings(Interface):
 
     continuous = schema.Bool(
         title=_(u"Continuous"),
-        description=_(u"Loop the slider continuously."),
+        description=_(u"Loop the tiles continuously."),
         default=True
     )
 
     navigation_type = schema.Choice(
-        source="slider_navigation_type_choices",
+        source="tiles_navigation_type_choices",
         title=_(u"Type of navigation"),
         description=_(u"Leave on 'no choice' for default navigation type."),
         required=False
     )
 
     randomize = schema.Bool(
-        title=_(u"Randomize the slides"),
+        title=_(u"Randomize the tiles"),
         default=False,
         required=False
     )
 
 
-class IPageSliderSettings(Interface):
+class IPageTilesSettings(Interface):
     """
-    difference here is the user creates all his slides
+    difference here is the user creates all his tiles
     """
     
     show = schema.Bool(
-        title=_(u"Show the slider"),
-        description=_(u"Uncheck to hide the slider."),
+        title=_(u"Show the tiles"),
+        description=_(u"Uncheck to hide the tiles."),
         default=True,
         required=True
     )
 
-    sliderposition = schema.Choice(
-        title=_(u"Slider position"),
+    tilesposition = schema.Choice(
+        title=_(u"Tiles position"),
         default="portal_top",
         vocabulary=SimpleVocabulary([
             SimpleTerm(title=_(u"Portal top"),    value='portal_top'),
@@ -133,17 +133,17 @@ class IPageSliderSettings(Interface):
         ]),
         required=True)
 
-    slides = schema.List(
-        title=_(u"Slides"),
+    tiles = schema.List(
+        title=_(u"Tiles"),
         default=[]
     )
 
 
-class ISlide(Interface):
+class ITile(Interface):
 
     link_reference = schema.Choice(
         title=_(u"Link to content"),
-        description=_(u"Choose a content item to link this slide to."),
+        description=_(u"Choose a content item to link this tile to."),
         source=SearchableTextSourceBinder({},
                                           default_query='path:')
     )
@@ -153,7 +153,7 @@ class ISlide(Interface):
         required=False
     )
 
-    slide = schema.Text(
+    tile = schema.Text(
         title=_(u"Text"),
         required=False
     )
@@ -164,14 +164,14 @@ class ISlide(Interface):
     )
 
 
-class ISlidesContext(IItem):
+class ITilesContext(IItem):
     """
-    Context to allow traversing to the slides list
+    Context to allow traversing to the tiles list
     """
 
 
-class ISlideContext(IItem):
+class ITileContext(IItem):
     """
-    Context to allow traversing to a slide on a ISlidesContext object
+    Context to allow traversing to a tile on a ITilesContext object
     """
-    index = Attribute("""Index of the slide on the object""")
+    index = Attribute("""Index of the tile on the object""")

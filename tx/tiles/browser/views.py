@@ -5,7 +5,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.ATContentTypes.interface.topic import IATTopic
 from Products.ATContentTypes.interface.folder import IATFolder, IATBTreeFolder
 
-from tx.slider.settings import PageSliderSettings
+from tx.tiles.settings import PageTilesSettings
 from zope.publisher.interfaces import NotFound
 import time
 from email.Utils import formatdate
@@ -18,32 +18,32 @@ except ImportError:
     class ICollection(Interface):
         pass
 
-class SlideBaseView(BrowserView):
+class TileBaseView(BrowserView):
 
     def __init__(self, context, request):
-        super(SlideBaseView, self).__init__(context, request)
-        self.settings = PageSliderSettings(context.context)
-        self.slides   = self.settings.slides
+        super(TileBaseView, self).__init__(context, request)
+        self.settings = PageTilesSettings(context.context)
+        self.tiles   = self.settings.tiles
     
-    def _index_of_slide(self, uuid):
-        for i, dic in enumerate(self.settings.slides):
+    def _index_of_tile(self, uuid):
+        for i, dic in enumerate(self.settings.tiles):
             if dic.get('uuid') == uuid:
                 return i
         raise NotFound(self, "The requested resource does not exist.")
 
     
-class SlideImageView(SlideBaseView):
+class TileImageView(TileBaseView):
     """
-    Download a slide image
+    Download a tile image
     """
 
     def __init__(self, context, request):
-        super(SlideImageView, self).__init__(context, request)
+        super(TileImageView, self).__init__(context, request)
 
     def __call__(self):
-        index = self._index_of_slide(self.context.uuid)
+        index = self._index_of_tile(self.context.uuid)
 
-        if not self.slides[index].get('image_type'):
+        if not self.tiles[index].get('image_type'):
             raise NotFound(self, "The requested resource does not exist.")
 
         response = self.request.response
@@ -52,40 +52,40 @@ class SlideImageView(SlideBaseView):
         response.setHeader('Expires',
                            formatdate(float(future), usegmt=True))
         response.setHeader('Content-Type',
-                           u"image/" + self.slides[index].get('image_type').lower())
-        return self.slides[index].get('image')
+                           u"image/" + self.tiles[index].get('image_type').lower())
+        return self.tiles[index].get('image')
 
-class RemoveSlideView(SlideBaseView):
+class RemoveTileView(TileBaseView):
     """
-    For doing operations on a slide
+    For doing operations on a tile
     """
 
-    slides_template = ViewPageTemplateFile('templates/slides.pt')
+    tiles_template = ViewPageTemplateFile('templates/tiles.pt')
 
     def __init__(self, context, request):
-        super(RemoveSlideView, self).__init__(context, request)
+        super(RemoveTileView, self).__init__(context, request)
 
     def __call__(self):
-        index = self._index_of_slide(self.context.uuid)
-        del self.slides[index]
-        self.settings.slides = self.slides
+        index = self._index_of_tile(self.context.uuid)
+        del self.tiles[index]
+        self.settings.tiles = self.tiles
         return 'ok'
 
-class OrderSlides(SlideBaseView):
+class OrderTiles(TileBaseView):
 
     def __init__(self, context, request):
-        super(OrderSlides, self).__init__(context, request)
+        super(OrderTiles, self).__init__(context, request)
         
     def __call__(self):
         order = [str(uuid) for uuid in self.request.get('order[]')]
 
-        if len(order) != len(self.slides):
+        if len(order) != len(self.tiles):
             self.request.response.setStatus(status=403,
-                                            reason="missing slides")
+                                            reason="missing tiles")
 
-        newslides = []
+        newtiles = []
         for index in order:
-            newslides.append(self.slides[self._index_of_slide(index)])
+            newtiles.append(self.tiles[self._index_of_tile(index)])
 
-        self.settings.slides = newslides
+        self.settings.tiles = newtiles
         return 'done'

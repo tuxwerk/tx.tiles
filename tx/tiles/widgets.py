@@ -8,7 +8,7 @@ except ImportError:
     from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 
 
-from tx.slider.utils import slider_settings_css
+from tx.tiles.utils import tiles_settings_css
 
 
 class HiddenWidget(IntWidget):
@@ -17,27 +17,27 @@ class HiddenWidget(IntWidget):
         return self.hidden()
 
 
-class SlidesWidget(SimpleInputWidget):
+class TilesWidget(SimpleInputWidget):
     """
-    this widget pretty much is the same as the Slides view
+    this widget pretty much is the same as the Tiles view
     In itself, it does not provide any data manipulatation, but
     it does provide the correct urls to perform the editing action
-    for each slide
+    for each tile
     """
 
-    template = ViewPageTemplateFile('browser/templates/slides.pt')
+    template = ViewPageTemplateFile('browser/templates/tiles.pt')
 
     def __init__(self, field, request):
         SimpleInputWidget.__init__(self, field, request)
 
         # field/settings/context
-        self.slider_url = self.context.context.context.absolute_url()
+        self.tiles_url = self.context.context.context.absolute_url()
         self.portal_url = self.context.context.context.portal_url()
         # field/settings
         self.settings = self.context.context
         # since this uses the same .pt file
-        self.css = slider_settings_css(self.settings)
-        self.slides = self.settings.slides
+        self.css = tiles_settings_css(self.settings)
+        self.tiles = self.settings.tiles
 
     def __call__(self):
         return self.template(self)

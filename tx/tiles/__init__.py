@@ -1,8 +1,8 @@
 from zope.i18nmessageid import MessageFactory
-message_factory = MessageFactory('tx.slider')
+message_factory = MessageFactory('tx.tiles')
 
 import logging
-logger = logging.getLogger('tx.slider')
+logger = logging.getLogger('tx.tiles')
 
 def initialize(context):
     pass

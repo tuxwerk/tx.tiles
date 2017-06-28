@@ -4,10 +4,10 @@
 		      hide_pager  python: navtype not in ('bullets', 'both');
 		      hide_arrows python: navtype not in ('arrows', 'both');
 		      ">
-  <div class="tx-slider-container"
-       tal:attributes="class string:tx-slider-container tx-slider-${uid} tx-slider-${view/class_name};
+  <div class="tx-tiles-container"
+       tal:attributes="class string:tx-tiles-container tx-tiles-${uid} tx-tiles-${view/class_name};
 		       style string:padding-bottom: ${view/padding}%;"
-       i18n:domain="tx.slider">
+       i18n:domain="tx.tiles">
     <div tal:attributes="data-cycle-fx      view/effect;
 			 data-cycle-random  view/randomize;
 			 data-cycle-speed   view/speed;
@@ -15,7 +15,7 @@
 			 data-cycle-loop    continuous;
 			 data-cycle-auto-height view/ratio;
 			 "
-	 class="cycle-slideshow"
+	 class="cycle-tileshow"
 	 data-cycle-auto-height="false"
 	 data-cycle-delay="0"
 	 data-cycle-loop="0"
@@ -29,20 +29,20 @@
 	 data-cycle-speed="1000"
 	 data-cycle-timeout="2000"
 	 data-cycle-swipe="true"
-	 data-cycle-slides="> div.slide"
-	 data-off-cycle-pager-template="<span>{{slideNum}}</span>"
+	 data-cycle-tiles="> div.tile"
+	 data-off-cycle-pager-template="<span>{{tileNum}}</span>"
 	 >
       <div tal:omit-tag="hide_pager" class="cycle-pager"></div>
       <div tal:omit-tag="hide_arrows" class="cycle-next"></div>
       <div tal:omit-tag="hide_arrows" class="cycle-prev"></div>
-      <tal:repeat repeat="slide view/slides">
-	<div class="slide">
-	  <a href="" tal:attributes="href string:${context/portal_url}${slide/link_reference}">
-	    <tal:if tal:condition="slide/image_type">
-              <img tal:attributes="src string:${view/absolute_url}/@@tx-slides/${slide/uuid}/@@image;" />
+      <tal:repeat repeat="tile view/tiles">
+	<div class="tile">
+	  <a href="" tal:attributes="href string:${context/portal_url}${tile/link_reference}">
+	    <tal:if tal:condition="tile/image_type">
+              <img tal:attributes="src string:${view/absolute_url}/@@tx-tiles/${tile/uuid}/@@image;" />
 	    </tal:if>
-	    <tal:if tal:condition="slide/html">
-	      <div class="cycle-overlay" tal:content="structure slide/html">
+	    <tal:if tal:condition="tile/html">
+	      <div class="cycle-overlay" tal:content="structure tile/html">
 		Content
 	      </div>
 	    </tal:if>

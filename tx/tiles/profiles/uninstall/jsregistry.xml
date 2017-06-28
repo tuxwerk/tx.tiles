@@ -2,21 +2,21 @@
 <object name="portal_javascripts">
 
     <javascript remove="True"
-		id="++resource++tx-slider-jquery.cycle2.js"/>
+		id="++resource++tx-tiles-jquery.cycle2.js"/>
     
     <javascript remove="True"
-		id="++resource++tx-slider-jquery.cycle2.caption2.js"/>
+		id="++resource++tx-tiles-jquery.cycle2.caption2.js"/>
     
     <javascript remove="True"
-		id="++resource++tx-slider-jquery.cycle2.scrollVert.js"/>
+		id="++resource++tx-tiles-jquery.cycle2.scrollVert.js"/>
     
     <javascript remove="True"
-		id="++resource++tx-slider-jquery.cycle2.swipe.js"/>
+		id="++resource++tx-tiles-jquery.cycle2.swipe.js"/>
     
     <javascript remove="True"
-		id="++resource++tx-slider-jquery.cycle2.tile.js"/>
+		id="++resource++tx-tiles-jquery.cycle2.tile.js"/>
     
     <javascript remove="True"
-		id="++resource++tx-slider-settings.js"/>
+		id="++resource++tx-tiles-settings.js"/>
 
 </object>

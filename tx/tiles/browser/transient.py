@@ -1,18 +1,18 @@
 from OFS.SimpleItem import SimpleItem
 from zope.publisher.interfaces.browser import IBrowserPublisher
-from tx.slider.interfaces import ISlideContext, ISlidesContext
+from tx.tiles.interfaces import ITileContext, ITilesContext
 from zope.interface import implements
 from zope.publisher.interfaces import NotFound
 
-class SlideContext(SimpleItem):
+class TileContext(SimpleItem):
     """
     This is a transient item that allows us to traverse through (a wrapper of)
-    a slide from a wrapper of a slides list on an object
+    a tile from a wrapper of a tiles list on an object
     """
-    implements(ISlideContext, IBrowserPublisher)
+    implements(ITileContext, IBrowserPublisher)
 
     def __init__(self, context, request, uuid):
-        super(SlideContext, self).__init__(context, request)
+        super(TileContext, self).__init__(context, request)
         self.context = context
         self.request = request
         self.uuid = uuid
@@ -20,7 +20,7 @@ class SlideContext(SimpleItem):
     def publishTraverse(self, traverse, name):
         """ shouldn't go beyond this so just call the parent
         """
-        return super(SlideContext, self).publishTraverse(traverse, name)
+        return super(TileContext, self).publishTraverse(traverse, name)
 
     def browserDefault(self, request):
         """ Can't really traverse to anything else
@@ -31,26 +31,26 @@ class SlideContext(SimpleItem):
         return self.context.absolute_url()
 
 
-class SlidesContext(SimpleItem):
+class TilesContext(SimpleItem):
     """
     This is a transient item that allows us to traverse through (a wrapper of)
-    a slides list on an object
+    a tiles list on an object
     """
-    implements(ISlidesContext, IBrowserPublisher)
+    implements(ITilesContext, IBrowserPublisher)
 
     def __init__(self, context, request):
-        super(SlidesContext, self).__init__(context, request)
+        super(TilesContext, self).__init__(context, request)
 
     def publishTraverse(self, traverse, uuid):
         """ 
         Look up the index whose name matches the next URL and wrap it.
         """
-        return SlideContext(self.context,
+        return TileContext(self.context,
                             self.request,
                             uuid).__of__(self)
 
     def browserDefault(self, request):
-        """ if nothing specified, just go to the regular slides view
+        """ if nothing specified, just go to the regular tiles view
         """
         raise NotFound(self, "The requested resource does not exist.")
 

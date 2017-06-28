@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <registry>
-  <records interface="tx.slider.configlet.ISliderControlPanelSchema">
+  <records interface="tx.tiles.configlet.ITilesControlPanelSchema">
     <value key="configuration">
       <element>Default:default:1000:400</element>
     </value>

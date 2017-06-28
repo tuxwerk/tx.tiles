@@ -19,27 +19,27 @@ from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from five.formlib import formbase
 
-from tx.slider.interfaces import ISliderPage, ISlide, \
-    IPageSliderSettings, ISliderSettings
-from tx.slider import message_factory as _
-from tx.slider.widgets import SlidesWidget, HiddenWidget
-from tx.slider.settings import PageSliderSettings
+from tx.tiles.interfaces import ITilesPage, ITile, \
+    IPageTilesSettings, ITilesSettings
+from tx.tiles import message_factory as _
+from tx.tiles.widgets import TilesWidget, HiddenWidget
+from tx.tiles.settings import PageTilesSettings
 from zope.publisher.interfaces import NotFound
 from plone.app.form.validators import null_validator
 from Products.statusmessages.interfaces import IStatusMessage
 
-class AddSlideAdapter(SchemaAdapterBase):
+class AddTileAdapter(SchemaAdapterBase):
     """
     This is getting a little ugly....  Store index
     in the request.
     """
-    adapts(ISliderPage)
-    implements(ISlide)
+    adapts(ITilesPage)
+    implements(ITile)
 
     def __init__(self, context):
-        super(AddSlideAdapter, self).__init__(context)
+        super(AddTileAdapter, self).__init__(context)
 
-        self.settings = PageSliderSettings(context)
+        self.settings = PageTilesSettings(context)
         self.request = context.REQUEST
         self.portal_catalog    = context.portal_catalog
         self.portal_url        = context.portal_url
@@ -49,23 +49,23 @@ class AddSlideAdapter(SchemaAdapterBase):
         if self.index == -1:  # creating new
             return u""
         else:
-            val = self.settings.slides[self.index]
+            val = self.settings.tiles[self.index]
             if isinstance(val, basestring):
                 return val
             elif isinstance(val, dict) and name in val:
                 return val[name]
         return u""
         
-    def get_slide(self):
+    def get_tile(self):
         return self.__get_property__('html')
 
-    def set_slide(self, value):
+    def set_tile(self, value):
         pass
 
     def get_index(self):
         index = self.request.get('index', -1)
         if index != -1:
-            for i, dic in enumerate(self.settings.slides):
+            for i, dic in enumerate(self.settings.tiles):
                 if dic.get('uuid') == index:
                     index = i
         return index
@@ -86,23 +86,23 @@ class AddSlideAdapter(SchemaAdapterBase):
         pass
 
     link_reference = property(get_link_reference, set_link_reference)
-    slide = property(get_slide, set_slide)
+    tile = property(get_tile, set_tile)
     index = property(get_index, set_index)
     image = property(get_image, set_image)
     
-class AddSlideForm(formbase.EditFormBase):
+class AddTileForm(formbase.EditFormBase):
     """
-    The add/edit form for a slide
+    The add/edit form for a tile
     """
-    form_fields = form.FormFields(ISlide)
+    form_fields = form.FormFields(ITile)
     form_fields['index'].custom_widget = HiddenWidget
     #form_fields['image'].custom_widget = ImageWidget
-    form_fields['slide'].custom_widget = WYSIWYGWidget
+    form_fields['tile'].custom_widget = WYSIWYGWidget
     form_fields['link_reference'].custom_widget = UberSelectionWidget
     
-    label = _(u"Edit slide")
-    #description = _(u'description_add_slide_form', default=u"")
-    form_name = _(u"Add/Update Slide")
+    label = _(u"Edit tile")
+    #description = _(u'description_add_tile_form', default=u"")
+    form_name = _(u"Add/Update Tile")
 
     @form.action(_(u"Save"),
                  condition=form.haveInputWidgets,
@@ -120,8 +120,8 @@ class AddSlideForm(formbase.EditFormBase):
             IStatusMessage(self.request).addStatusMessage(
                 _("No changes made."), type="info")
 
-        self.settings = PageSliderSettings(self.context)
-        slides = self.settings.slides
+        self.settings = PageTilesSettings(self.context)
+        tiles = self.settings.tiles
         index = data.get('index', -1)
 
         image = data.get('image')
@@ -130,8 +130,8 @@ class AddSlideForm(formbase.EditFormBase):
             (image, image_type, image_size) = scaleImage(image, width=500, height=500)
         else:
             if index != -1:
-                image      = slides[index].get('image')
-                image_type = slides[index].get('image_type')
+                image      = tiles[index].get('image')
+                image_type = tiles[index].get('image_type')
 
         # create new uuid on each save
         uuid = uuid4().hex
@@ -140,20 +140,20 @@ class AddSlideForm(formbase.EditFormBase):
             'link_reference': data.get('link_reference'),
             'image': image,
             'image_type': image_type,
-            'html': data.get('slide'),
+            'html': data.get('tile'),
             'uuid': uuid
         }
 
         if index == -1:
-            slides.append(value)
-            index = len(slides) - 1
+            tiles.append(value)
+            index = len(tiles) - 1
         else:
-            slides[index] = value
+            tiles[index] = value
 
-        self.settings.slides = slides
+        self.settings.tiles = tiles
 
         url = getMultiAdapter((self.context, self.request),
-                              name='absolute_url')() + "/@@tx-slider-settings"
+                              name='absolute_url')() + "/@@tx-tiles-settings"
         self.request.response.redirect(url)
 
     @form.action(_(u'Cancel'),
@@ -165,26 +165,26 @@ class AddSlideForm(formbase.EditFormBase):
                                                       type="info")
  
         url = getMultiAdapter((self.context, self.request),
-                              name='absolute_url')() + "/@@tx-slider-settings"
+                              name='absolute_url')() + "/@@tx-tiles-settings"
         self.request.response.redirect(url)
         return ''
 
 
-class SliderPageSettingsForm(FieldsetsEditForm):
+class TilesPageSettingsForm(FieldsetsEditForm):
     """
-    The page that holds all the slider settings
+    The page that holds all the tiles settings
     """
-    settings = FormFieldsets(ISliderSettings)
+    settings = FormFieldsets(ITilesSettings)
     settings.id = 'settings'
     settings.label = _(u'Settings')
 
-    slides = FormFieldsets(IPageSliderSettings)
-    slides.id = 'slides'
-    slides.label = _(u'Slides')
+    tiles = FormFieldsets(IPageTilesSettings)
+    tiles.id = 'tiles'
+    tiles.label = _(u'Tiles')
 
-    form_fields = FormFieldsets(slides, settings)
+    form_fields = FormFieldsets(tiles, settings)
 
-    #our revised SlidesWidget that only displays slides really
-    form_fields['slides'].custom_widget = SlidesWidget
-    label = _(u"Slider Settings")
-    description = _(u'Configure this slider.')
+    #our revised TilesWidget that only displays tiles really
+    form_fields['tiles'].custom_widget = TilesWidget
+    label = _(u"Tiles Settings")
+    description = _(u'Configure this tiles.')

@@ -5,7 +5,7 @@ from zope.component import adapts
 from zope import schema
 #from zope.formlib import form
 
-from tx.slider import message_factory as _
+from tx.tiles import message_factory as _
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from plone.app.controlpanel.form import ControlPanelForm
 
@@ -34,33 +34,33 @@ def effect_choices(context):
     return SimpleVocabulary([
         SimpleTerm(title=_(u"Horizontal"), value='scrollHorz'),
         SimpleTerm(title=_(u"Vertical"),   value='scrollVert'),
-        SimpleTerm(title=_(u"Tile slide"), value='tileSlide'),
+        SimpleTerm(title=_(u"Tile tile"), value='tileTile'),
         SimpleTerm(title=_(u"Tile blind"), value='tileBlind')
     ])
 
 def configuration_choices(context):
-    configs = getUtility(IRegistry)['tx.slider.configlet.ISliderControlPanelSchema.configuration']
+    configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanelSchema.configuration']
     items = ()
     for config in configs:
         t = config.split(":")[0]
         items = ((t,t),) + items
     return SimpleVocabulary.fromItems(items)
 
-class ISliderControlPanelSchema(Interface):
+class ITilesControlPanelSchema(Interface):
     """
-    The actual slider settings
+    The actual tiles settings
     """
 
     configuration = schema.List(
         title=_(u'Configuration'),
-        description=_(u"Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-slider-'. Uploaded images will be scaled down to width."),
+        description=_(u"Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."),
         default=[u"Default:default:1000:400",],
         value_type=schema.TextLine(),
         required=True
     )
 
     effect = schema.Choice(
-        source="slider_effect_choices",
+        source="tiles_effect_choices",
         title=_(u"Effect"),
         description=_(u"Please choose the default effect type."),
         default="scrollHorz",
@@ -69,7 +69,7 @@ class ISliderControlPanelSchema(Interface):
 
     speed = schema.Int(
         title=_(u"Speed"),
-        description=_(u"Speed at which the slides will transition (in milliseconds)."),
+        description=_(u"Speed at which the tiles will transition (in milliseconds)."),
         default=800,
         required=True
     )
@@ -82,7 +82,7 @@ class ISliderControlPanelSchema(Interface):
     )
 
     navigation_type = schema.Choice(
-        source      = "slider_navigation_type_choices",
+        source      = "tiles_navigation_type_choices",
         title       = _(u"Type of navigation"),
         description = _(u"Please choose the default navigation type."),
         default     = "arrows",
@@ -92,9 +92,9 @@ class ISliderControlPanelSchema(Interface):
 class ControlPanelForm(RegistryEditForm):
 
     form.extends(RegistryEditForm)
-    schema = ISliderControlPanelSchema
-    label = _(u"Slider default settings")
-    description = _(u'Default settings to use for all sliders.')
+    schema = ITilesControlPanelSchema
+    label = _(u"Tiles default settings")
+    description = _(u'Default settings to use for all tiless.')
     
 class ControlPanel(ControlPanelFormWrapper):
 

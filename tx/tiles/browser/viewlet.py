@@ -3,34 +3,34 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
-from tx.slider.settings import PageSliderSettings
-from tx.slider.interfaces import ISliderPage
-from tx.slider.browser.base import AbstractSliderView
+from tx.tiles.settings import PageTilesSettings
+from tx.tiles.interfaces import ITilesPage
+from tx.tiles.browser.base import AbstractTilesView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.interfaces import ISiteRoot
 
-class BaseSliderViewlet(ViewletBase):
+class BaseTilesViewlet(ViewletBase):
 
     index = ViewPageTemplateFile('templates/viewlet.pt')
     
     @memoize
-    def sliderobject(self):
+    def tilesobject(self):
         for item in self.context.aq_chain:
-            if ISliderPage.providedBy(item):
+            if ITilesPage.providedBy(item):
                 return item
             if ISiteRoot.providedBy(item):
                 return None
     
     @memoize
     def get_settings(self):
-        return PageSliderSettings(self.sliderobject())
+        return PageTilesSettings(self.tilesobject())
 
     @memoize
     def registry(self, key):
-        return getUtility(IRegistry)['tx.slider.configlet.ISliderControlPanelSchema.' + key]
+        return getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanelSchema.' + key]
 
     @memoize
     def configuration(self):
@@ -42,12 +42,12 @@ class BaseSliderViewlet(ViewletBase):
     
     @memoize
     def show(self):
-        sliderobject = self.sliderobject()
-        if sliderobject:
-            if sliderobject != self.context:
+        tilesobject = self.tilesobject()
+        if tilesobject:
+            if tilesobject != self.context:
                 if self.settings.only_here:
                     return False
-            if len(self.settings.slides) == 0:
+            if len(self.settings.tiles) == 0:
                 return False
             else:
                 return self.settings.show
@@ -55,8 +55,8 @@ class BaseSliderViewlet(ViewletBase):
             return False
 
     @memoize
-    def sliderposition(self):
-        return self.settings.sliderposition
+    def tilesposition(self):
+        return self.settings.tilesposition
 
     @memoize
     def class_name(self):
@@ -100,12 +100,12 @@ class BaseSliderViewlet(ViewletBase):
         return self.settings.continuous
 
     @property
-    def slides(self):
-        return self.settings.slides
+    def tiles(self):
+        return self.settings.tiles
 
     @memoize
     def absolute_url(self):
-        return self.sliderobject().absolute_url()
+        return self.tilesobject().absolute_url()
 
     @memoize
     def navigation_type(self):
@@ -113,40 +113,40 @@ class BaseSliderViewlet(ViewletBase):
 
     settings = property(get_settings)
 
-class SliderPortalTop(BaseSliderViewlet):
+class TilesPortalTop(BaseTilesViewlet):
 
     def is_enabled(self):
-        return self.show() and self.sliderposition() == "portal_top"
+        return self.show() and self.tilesposition() == "portal_top"
 
     def render(self):
         if self.is_enabled():
-            return super(SliderPortalTop, self).render()
+            return super(TilesPortalTop, self).render()
         else:
             return ""
 
-class SliderBelowContentTitle(BaseSliderViewlet):
+class TilesBelowContentTitle(BaseTilesViewlet):
 
     def is_enabled(self):
-        return self.show() and self.sliderposition() == "below_content_title"
+        return self.show() and self.tilesposition() == "below_content_title"
 
     def render(self):
         if self.is_enabled():
-            return super(SliderBelowContentTitle, self).render()
-        else:
-            return ""
-    
-class SliderBelowContent(BaseSliderViewlet):
-
-    def is_enabled(self):
-        return self.show() and self.sliderposition() == "below_content"
-
-    def render(self):
-        if self.is_enabled():
-            return super(SliderBelowContent, self).render()
+            return super(TilesBelowContentTitle, self).render()
         else:
             return ""
     
-class SliderHead(BaseSliderViewlet, AbstractSliderView):
+class TilesBelowContent(BaseTilesViewlet):
+
+    def is_enabled(self):
+        return self.show() and self.tilesposition() == "below_content"
+
+    def render(self):
+        if self.is_enabled():
+            return super(TilesBelowContent, self).render()
+        else:
+            return ""
+    
+class TilesHead(BaseTilesViewlet, AbstractTilesView):
 
     index = ViewPageTemplateFile('templates/headviewlet.pt')
 
@@ -155,6 +155,6 @@ class SliderHead(BaseSliderViewlet, AbstractSliderView):
 
     def render(self):
         if self.is_enabled():
-            return super(SliderHead, self).render()
+            return super(TilesHead, self).render()
         else:
             return ""

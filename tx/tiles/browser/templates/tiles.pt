@@ -1,0 +1,42 @@
+<div id="tx-tiles-widget"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="tx.tiles">
+     
+  <style tal:content="structure view/css" type="text/css" />
+  
+  <ul>
+    <tal:repeat repeat="tile view/tiles">
+      <li tal:attributes="data-index tile/uuid">
+	<div class="tile-wrapper">
+	  <div class="tiles-container">
+            <div class="tile">
+	      <tal:if tal:condition="tile/html">
+		<div class="tile-text" tal:content="structure tile/html" />
+	      </tal:if>
+	      <tal:if tal:condition="tile/image_type">
+		<img class="tile-image" alt="" tal:attributes="src string:${view/tiles_url}/@@tx-tiles/${tile/uuid}/@@image" />
+	      </tal:if>		
+	    </div>
+	  </div>
+	  <div class="tile-buttons">
+            <a class="tile-link" tal:attributes="href string:${view/portal_url}${tile/link_reference}" target="_blank">
+	      <img tal:attributes="src string:${view/portal_url}/link_icon.png"/>
+	    </a>
+            <a class="tile-edit" tal:attributes="href string:${view/tiles_url}/@@tx-tiles-edit?index=${tile/uuid}">
+	      <img tal:attributes="src string:${view/portal_url}/edit.png"/>
+	    </a>
+            <a class="tile-remove" tal:attributes="href string:${view/tiles_url}/@@tx-tiles/${tile/uuid}/@@remove-tile" >
+	      <img tal:attributes="src string:${view/portal_url}/delete_icon.png"/>
+	    </a>
+	  </div>
+	</div>
+      </li>
+    </tal:repeat>
+  </ul>
+  <div class="tile-add-buttons">
+    <a class="tile-add" tal:attributes="href string:${view/tiles_url}/@@tx-tiles-edit" i18n:translate="">add new tile</a>
+  </div>
+</div>

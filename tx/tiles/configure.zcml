@@ -5,7 +5,7 @@
   xmlns:zcml="http://namespaces.zope.org/zcml"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   xmlns:i18n="http://namespaces.zope.org/i18n"
-  i18n_domain="tx.slider">
+  i18n_domain="tx.tiles">
 
   <five:registerPackage package="." initialize=".initialize" />
 
@@ -18,46 +18,34 @@
     <include package="zope.annotation" />
   </configure>
 
-  <!-- permission for managing slideshow settings -->
+  <!-- permission for managing tiles settings -->
   <permission
-    id="tx.slider.ManageSliderSettings"
-    title="tx.slider: Manage slider settings"
+    id="tx.tiles.ManageTilesSettings"
+    title="tx.tiles: Manage tiles settings"
     />
-
-  <utility provides="zope.schema.interfaces.IVocabularyFactory"
-             component=".configlet.navigation_type_choices"
-             name="slider_navigation_type_choices"/>
-
-  <utility provides="zope.schema.interfaces.IVocabularyFactory"
-             component=".configlet.effect_choices"
-             name="slider_effect_choices"/>
-
-  <utility provides="zope.schema.interfaces.IVocabularyFactory"
-             component=".configlet.configuration_choices"
-             name="slider_configuration_choices"/>
 
   <include package=".browser" />
 
   <genericsetup:registerProfile
     name="default"
-    title="tx.slider"
+    title="tx.tiles"
     directory="profiles/default"
-    description='Install tx.slider'
+    description='Install tx.tiles'
     provides="Products.GenericSetup.interfaces.EXTENSION"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
 
   <genericsetup:registerProfile
     name="uninstall"
-    title="tx.slider uninstall"
+    title="tx.tiles uninstall"
     directory="profiles/uninstall"
-    description="Removes tx.slider"
+    description="Removes tx.tiles"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
 
   <include file="upgrades.zcml" />
 
   <browser:page
-    name="tx-slider-controlpanel"
+    name="tx-tiles-controlpanel"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".configlet.ControlPanel"
     permission="plone.app.controlpanel.Site"

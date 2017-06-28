@@ -1,5 +1,5 @@
-function tx_slide_remove() {
-  if (!window.confirm("Are you sure you want to remove this slide?"))
+function tx_tile_remove() {
+  if (!window.confirm("Are you sure you want to remove this tile?"))
     return false;
 
   $.get($(this).attr('href') + '?ajax=true', {}, function(data, status) {
@@ -8,19 +8,19 @@ function tx_slide_remove() {
   return false;
 }
 
-function tx_slide_sortable() {
-  $("#tx-slider-widget ul").sortable({
+function tx_tile_sortable() {
+  $("#tx-tiles-widget ul").sortable({
     items: 'li',
     placeholder: 'sortable-placeholder',
     forcePlaceholderSize: true,
     update: function(event, ui) {
       var order = [];
-      var slides = $('#tx-slider-widget li');
-      for(var i=0; i<slides.length; i++){
-        order.push(slides.eq(i).attr('data-index'));
+      var tiles = $('#tx-tiles-widget li');
+      for(var i=0; i<tiles.length; i++){
+        order.push(tiles.eq(i).attr('data-index'));
       }
       $.ajax({
-        url: $('base').attr('href') + '/../@@tx-slides/all/@@order-slides',
+        url: $('base').attr('href') + '/../@@tx-tiles/all/@@order-tiles',
         type: 'POST',
         data: {
           order: order
@@ -30,8 +30,8 @@ function tx_slide_sortable() {
         //         url: window.location.toString(),
         //         success: function(data){
         //             var dom = $(data);
-        //             $('#slidelist').replaceWith(dom.find('#slidelist'));
-        //             enableSlides();
+        //             $('#tilelist').replaceWith(dom.find('#tilelist'));
+        //             enableTiles();
         //         }
         //     });
         // }
@@ -41,9 +41,9 @@ function tx_slide_sortable() {
 }
 
 $(document).ready(function(){
-  $("#tx-slider-widget a.slide-remove").click(tx_slide_remove);
-  tx_slide_sortable();
-  // $('.slide-buttons a.slide-edit, .slide-add-buttons a.slide-add').prepOverlay({
+  $("#tx-tiles-widget a.tile-remove").click(tx_tile_remove);
+  tx_tile_sortable();
+  // $('.tile-buttons a.tile-edit, .tile-add-buttons a.tile-add').prepOverlay({
   //   subtype: 'ajax',
   //   filter: '#content>*',
   //   formselector: 'form',

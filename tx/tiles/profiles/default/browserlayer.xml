@@ -1,4 +1,4 @@
 <layers>
-  <layer name="tx.slider" 
-         interface="tx.slider.interfaces.ISliderLayer" />
+  <layer name="tx.tiles" 
+         interface="tx.tiles.interfaces.ITilesLayer" />
 </layers>

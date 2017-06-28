@@ -2,9 +2,9 @@
 <object name="portal_controlpanel" meta_type="Plone Control Panel Tool"
 	xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
   
- <configlet title="Slider settings" action_id="tx-slider" appId="tx-slider"
+ <configlet title="Tiles settings" action_id="tx-tiles" appId="tx-tiles"
     category="Products" condition_expr=""
-    url_expr="string:${portal_url}/@@tx-slider-controlpanel" visible="True"
+    url_expr="string:${portal_url}/@@tx-tiles-controlpanel" visible="True"
     i18n:attributes="title">
   <permission>Manage Site</permission>
  </configlet>

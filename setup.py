@@ -3,9 +3,9 @@ import os
 
 version = '1.0.0'
 
-setup(name='tx.slider',
+setup(name='tx.tiles',
       version=version,
-      description="Image slideshow based on the cycle2 jquery lib.",
+      description="Image tiles for article teasers.",
       long_description='%s\n%s' % (
           open("README.rst").read(),
           open(os.path.join("docs", "HISTORY.txt")).read()
@@ -16,10 +16,10 @@ setup(name='tx.slider',
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Framework :: Plone :: 4.3"
       ],
-      keywords='plone slideshow',
+      keywords='plone tiles',
       author='Marek Kralewski',
       author_email='info@tuxwerk.de',
-      url='https://github.com/tuxwerk/tx.slider/',
+      url='https://github.com/tuxwerk/tx.tiles/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['tx'],

@@ -1,7 +1,7 @@
 from Products.CMFCore.utils import getToolByName
-from tx.slider.importexport import install
+from tx.tiles.importexport import install
 
-default_profile = 'profile-tx.slider:default'
+default_profile = 'profile-tx.tiles:default'
 
 
 def upgrade_rolemap(context):

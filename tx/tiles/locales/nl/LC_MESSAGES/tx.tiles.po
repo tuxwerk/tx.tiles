@@ -15,11 +15,11 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: tx.slider\n"
+"Domain: tx.tiles\n"
 "Language: nl\n"
 
 #: ./browser/forms.py:105
-msgid "Add/Update Slide"
+msgid "Add/Update Tile"
 msgstr ""
 
 #: ./configlet.py:27
@@ -59,7 +59,7 @@ msgid "Choose a configuration. Configurations can be added in the control panel.
 msgstr ""
 
 #: ./interfaces.py:146
-msgid "Choose a content item to link this slide to."
+msgid "Choose a content item to link this tile to."
 msgstr ""
 
 #: ./configlet.py:55
@@ -67,7 +67,7 @@ msgid "Configuration"
 msgstr ""
 
 #: ./browser/forms.py:190
-msgid "Configure this slider."
+msgid "Configure this tiles."
 msgstr ""
 
 #: ./interfaces.py:95
@@ -75,7 +75,7 @@ msgid "Continuous"
 msgstr ""
 
 #: ./configlet.py:97
-msgid "Default settings to use for all sliders."
+msgid "Default settings to use for all tiless."
 msgstr ""
 
 #: ./configlet.py:79
@@ -87,7 +87,7 @@ msgid "Duration of the pause between transitions (in milliseconds). '0' for Defa
 msgstr ""
 
 #: ./browser/forms.py:103
-msgid "Edit slide"
+msgid "Edit tile"
 msgstr ""
 
 #: ./configlet.py:64
@@ -96,7 +96,7 @@ msgid "Effect"
 msgstr ""
 
 #: ./configlet.py:56
-msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-slider-'. Uploaded images will be scaled down to width."
+msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
 msgstr ""
 
 #: ./configlet.py:35
@@ -104,7 +104,7 @@ msgid "Horizontal"
 msgstr ""
 
 #: ./interfaces.py:68
-msgid "If unchecked slider will be shown on subpages"
+msgid "If unchecked tiles will be shown on subpages"
 msgstr ""
 
 #: ./interfaces.py:152
@@ -112,7 +112,7 @@ msgid "Image"
 msgstr ""
 
 #: ./configure.zcml:47
-msgid "Install tx.slider"
+msgid "Install tx.tiles"
 msgstr ""
 
 #: ./interfaces.py:76
@@ -128,7 +128,7 @@ msgid "Link to content"
 msgstr ""
 
 #: ./interfaces.py:96
-msgid "Loop the slider continuously."
+msgid "Loop the tiles continuously."
 msgstr ""
 
 #: ./browser/forms.py:121
@@ -157,11 +157,11 @@ msgid "Portal top"
 msgstr ""
 
 #: ./interfaces.py:108
-msgid "Randomize the slides"
+msgid "Randomize the tiles"
 msgstr ""
 
 #: ./configure.zcml:55
-msgid "Removes tx.slider"
+msgid "Removes tx.tiles"
 msgstr ""
 
 #: ./browser/forms.py:107
@@ -177,28 +177,28 @@ msgid "Show only on this page"
 msgstr ""
 
 #: ./interfaces.py:120
-msgid "Show the slider"
+msgid "Show the tiles"
 msgstr ""
 
 #: ./browser/forms.py:189
-msgid "Slider Settings"
+msgid "Tiles Settings"
 msgstr ""
 
 #: ./interfaces.py:61
-msgid "Slider configuration"
+msgid "Tiles configuration"
 msgstr ""
 
 #: ./configlet.py:96
-msgid "Slider default settings"
+msgid "Tiles default settings"
 msgstr ""
 
 #: ./interfaces.py:127
-msgid "Slider position"
+msgid "Tiles position"
 msgstr ""
 
 #: ./browser/forms.py:183
 #: ./interfaces.py:137
-msgid "Slides"
+msgid "Tiles"
 msgstr ""
 
 #: ./configlet.py:71
@@ -207,11 +207,11 @@ msgid "Speed"
 msgstr ""
 
 #: ./configlet.py:72
-msgid "Speed at which the slides will transition (in milliseconds)."
+msgid "Speed at which the tiles will transition (in milliseconds)."
 msgstr ""
 
 #: ./interfaces.py:82
-msgid "Speed at which the slides will transition (in milliseconds). '0' for Default."
+msgid "Speed at which the tiles will transition (in milliseconds). '0' for Default."
 msgstr ""
 
 #: ./interfaces.py:157
@@ -223,7 +223,7 @@ msgid "Tile blind"
 msgstr ""
 
 #: ./configlet.py:37
-msgid "Tile slide"
+msgid "Tile tile"
 msgstr ""
 
 #: ./configlet.py:86
@@ -232,21 +232,21 @@ msgid "Type of navigation"
 msgstr ""
 
 #: ./interfaces.py:121
-msgid "Uncheck to hide the slider."
+msgid "Uncheck to hide the tiles."
 msgstr ""
 
 #: ./configlet.py:36
 msgid "Vertical"
 msgstr ""
 
-#: ./browser/templates/slides.pt:40
-msgid "add new slide"
+#: ./browser/templates/tiles.pt:40
+msgid "add new tile"
 msgstr ""
 
 #: ./configure.zcml:47
-msgid "tx.slider"
+msgid "tx.tiles"
 msgstr ""
 
 #: ./configure.zcml:55
-msgid "tx.slider uninstall"
+msgid "tx.tiles uninstall"
 msgstr ""

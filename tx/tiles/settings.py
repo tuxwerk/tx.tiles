@@ -1,16 +1,16 @@
 from Acquisition import aq_inner, aq_parent
-from tx.slider.interfaces import IPageSliderSettings
-from tx.slider.interfaces import ISliderSettings
+from tx.tiles.interfaces import IPageTilesSettings
+from tx.tiles.interfaces import ITilesSettings
 from persistent.dict import PersistentDict
 from Products.CMFCore.utils import getToolByName
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 
-class SliderSettings(object):
+class TilesSettings(object):
     """
     """
-    implements(IPageSliderSettings, IPageSliderSettings)
+    implements(IPageTilesSettings, IPageTilesSettings)
 
     interfaces = []
 
@@ -25,18 +25,18 @@ class SliderSettings(object):
             self.context = aq_parent(context)
             annotations = IAnnotations(self.context)
 
-        self._metadata = annotations.get('tx.slider', None)
+        self._metadata = annotations.get('tx.tiles', None)
         if self._metadata is None:
             self._metadata = PersistentDict()
-            annotations['tx.slider'] = self._metadata
+            annotations['tx.tiles'] = self._metadata
 
         ctx = aq_inner(context)
         rootctx = getToolByName(ctx, 'portal_url').getPortalObject()
         rootannotations = IAnnotations(rootctx)
-        self._rootmetadata = rootannotations.get('tx.slider', None)
+        self._rootmetadata = rootannotations.get('tx.tiles', None)
         if self._rootmetadata is None:
             self._rootmetadata = PersistentDict()
-            rootannotations['tx.slider'] = self._rootmetadata
+            rootannotations['tx.tiles'] = self._rootmetadata
 
     @property
     def __parent__(self):
@@ -67,13 +67,13 @@ class SliderSettings(object):
         return value
 
 
-class PageSliderSettings(SliderSettings):
-    interfaces = [ISliderSettings, IPageSliderSettings]
+class PageTilesSettings(TilesSettings):
+    interfaces = [ITilesSettings, IPageTilesSettings]
 
     def __getattr__(self, name):
-        if name == 'slides':
+        if name == 'tiles':
             # somehow this default value gets manually set. This prevents this
-            # form happening on the slides...
+            # form happening on the tiles...
             return self._metadata.get(name, [])
-        return super(PageSliderSettings, self).__getattr__(name)
+        return super(PageTilesSettings, self).__getattr__(name)
 

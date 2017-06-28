@@ -1,5 +1,5 @@
 #!/bin/sh
-PRODUCTNAME='tx.slider'
+PRODUCTNAME='tx.tiles'
 I18NDOMAIN=$PRODUCTNAME
 
 # Synchronise the .pot with the templates.

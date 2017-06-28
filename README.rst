@@ -1,16 +1,16 @@
-.. image:: https://travis-ci.org/collective/collective.easyslider.png?branch=master
-    :target: https://travis-ci.org/collective/collective.easyslider
+.. image:: https://travis-ci.org/collective/collective.easytiler.png?branch=master
+    :target: https://travis-ci.org/collective/collective.easytiler
 
 
 Introduction
 ============
-This product allows you to easily add an easySlider content rotator to any page on a plone site using a WYSIWYG editor to design each slide.
+This product allows you to easily add an easyTiler content rotator to any page on a plone site using a WYSIWYG editor to design each tile.
 
 How-to
 ------
-On a page, click actions -> Add Slider.  It should bring you to a slider settings page where you can modify different aspects of the slider and add/remove slides using a WYSWGY editor.  Keep in mind that the slides are fixed width so you need to specify the size you want.  Then you'll want to start adding your slides.  To do this just click ``add new slide`` near the bottom of the page.  Once you've finished adding slides and re-ordering slides, click ``save`` and you should see the slider on your page now.
+On a page, click actions -> Add Tiler.  It should bring you to a tiler settings page where you can modify different aspects of the tiler and add/remove tiles using a WYSWGY editor.  Keep in mind that the tiles are fixed width so you need to specify the size you want.  Then you'll want to start adding your tiles.  To do this just click ``add new tile`` near the bottom of the page.  Once you've finished adding tiles and re-ordering tiles, click ``save`` and you should see the tiler on your page now.
 
-You can also select a slider view for Folder and Collection content types.  Then the slider settings for that page will include settings to limit the amount of slides to have and to limit the type of slides used.
+You can also select a tiler view for Folder and Collection content types.  Then the tiler settings for that page will include settings to limit the amount of tiles to have and to limit the type of tiles used.
 
 Examples
 --------
@@ -24,43 +24,43 @@ Examples of this being used in the wild.
 
 Installation
 ------------
-* add collective.easyslider to your eggs and zcml sections
+* add collective.easytiler to your eggs and zcml sections
 * re-run buildout
 * install the product like you would any other Plone product
 
 Uninstall
 ---------
 * Uninstall like normal
-* go to portal_setup in the zmi, click the 'import' tab, select "collective.easyslider uninstall" and click the "Import all steps" button at the bottom to perform clean up.
+* go to portal_setup in the zmi, click the 'import' tab, select "collective.easytiler uninstall" and click the "Import all steps" button at the bottom to perform clean up.
 
 
 Easy Template Integration
 -------------------------
 
-If you'd like to add dynamic content to your slides, add collective.easytemplate
+If you'd like to add dynamic content to your tiles, add collective.easytemplate
 to your eggs section in buildout, re-run buildout and restart your installation.
-Then in the slider settings make sure you enable Easy Template.
+Then in the tiler settings make sure you enable Easy Template.
 
-You can also render sliders in a Easy Template. The syntax is:
+You can also render tilers in a Easy Template. The syntax is:
 
-    {{ slider("../front-page") }}
+    {{ tiler("../front-page") }}
 
-And for the sliderview
+And for the tilerview
 
-    {{ sliderview("../a-collection") }}
+    {{ tilerview("../a-collection") }}
 
 
-Rendering Slider in Templates
+Rendering Tiler in Templates
 -----------------------------
 
-You can also easily render your slider in a page template
+You can also easily render your tiler in a page template
 if you'd like even more control over how it is displayed:
 
-    <tal:slider tal:content="structure context/../front-page/@@slider_util/render_inline" />
+    <tal:tiler tal:content="structure context/../front-page/@@tiler_util/render_inline" />
     
-And for the sliderview
+And for the tilerview
 
-    <tal:slider tal:content="structure context/../front-page/@@slider_util/render_sliderview_inline" />
+    <tal:tiler tal:content="structure context/../front-page/@@tiler_util/render_tilerview_inline" />
 
 
 Credits and Contributions

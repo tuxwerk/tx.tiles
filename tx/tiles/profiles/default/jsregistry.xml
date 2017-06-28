@@ -3,36 +3,36 @@
 
   <javascript
       cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
-      expression="here/@@slider_util/should_include"
-      id="++resource++tx-slider-jquery.cycle2.js"/>
+      expression="here/@@tiles_util/should_include"
+      id="++resource++tx-tiles-jquery.cycle2.js"/>
 
   <javascript
       cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
-      expression="here/@@slider_util/should_include"
-      id="++resource++tx-slider-jquery.cycle2.caption2.js"/>
+      expression="here/@@tiles_util/should_include"
+      id="++resource++tx-tiles-jquery.cycle2.caption2.js"/>
 
   <javascript
       cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
-      expression="here/@@slider_util/should_include"
-      id="++resource++tx-slider-jquery.cycle2.scrollVert.js"/>
+      expression="here/@@tiles_util/should_include"
+      id="++resource++tx-tiles-jquery.cycle2.scrollVert.js"/>
 
   <javascript
       cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
-      expression="here/@@slider_util/should_include"
-      id="++resource++tx-slider-jquery.cycle2.swipe.js"/>
+      expression="here/@@tiles_util/should_include"
+      id="++resource++tx-tiles-jquery.cycle2.swipe.js"/>
 
   <javascript
       cacheable="True" compression="none" cookable="True" enabled="True" inline="False"
-      expression="here/@@slider_util/should_include"
-      id="++resource++tx-slider-jquery.cycle2.tile.js"/>
+      expression="here/@@tiles_util/should_include"
+      id="++resource++tx-tiles-jquery.cycle2.tile.js"/>
 
     <javascript 
         cacheable="True" 
         compression="safe" 
         cookable="True"
         enabled="True" 
-        expression="python: request.get('ACTUAL_URL').endswith('@@tx-slider-settings')"
-        id="++resource++tx-slider-settings.js"
+        expression="python: request.get('ACTUAL_URL').endswith('@@tx-tiles-settings')"
+        id="++resource++tx-tiles-settings.js"
         inline="False"
     />
 

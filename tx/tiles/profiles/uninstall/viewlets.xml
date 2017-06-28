@@ -2,15 +2,15 @@
 
 <object>
   <order manager="plone.portaltop">
-    <viewlet name="tx.slider.portaltop" remove="True" />
+    <viewlet name="tx.tiles.portaltop" remove="True" />
   </order>
   <order manager="plone.belowcontenttitle">
-    <viewlet name="tx.slider.belowcontenttitle" remove="True" />
+    <viewlet name="tx.tiles.belowcontenttitle" remove="True" />
   </order>  
   <order manager="plone.belowcontent">
-    <viewlet name="tx.slider.belowcontent" remove="True" />
+    <viewlet name="tx.tiles.belowcontent" remove="True" />
   </order>
   <order manager="plone.htmlhead.links">
-    <viewlet name="tx.slider.head" remove="True" />
+    <viewlet name="tx.tiles.head" remove="True" />
   </order>
 </object>

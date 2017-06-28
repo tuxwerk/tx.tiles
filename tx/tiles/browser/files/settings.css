@@ -1,14 +1,14 @@
-#tx-slider-widget {
+#tx-tiles-widget {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
 }
 
-#tx-slider-widget ul {
+#tx-tiles-widget ul {
   padding: 0 !important;
 }
 
-#tx-slider-widget ul li {
+#tx-tiles-widget ul li {
   background-color: #fff;
   overflow: hidden;
   position: relative;
@@ -17,13 +17,13 @@
   height: 0;
 }
 
-#tx-slider-widget img.slide-image {
+#tx-tiles-widget img.tile-image {
   min-width: 100%;
   max-width: 100%;
   width: 100%;
 }
 
-#tx-slider-widget div.slide-text {
+#tx-tiles-widget div.tile-text {
   position: absolute;
   bottom: 0px;
   background-color: rgba(255,255,255,0.8);
@@ -31,23 +31,23 @@
   padding: 5px 10px;
 }
 
-#tx-slider-widget div.slide-text h2 {
+#tx-tiles-widget div.tile-text h2 {
   border-bottom: 0;
   margin: 0.5em 0;
 }
 
-#tx-slider-widget div.slide-text p {
+#tx-tiles-widget div.tile-text p {
   margin: 0.375em 0;
 }
 
-#tx-slider-widget div.slide-buttons {
+#tx-tiles-widget div.tile-buttons {
   position: absolute;
   top: 0px;
   right: 0px;
   padding: 5px;
 }
 
-#tx-slider-widget div.slide-buttons a {
+#tx-tiles-widget div.tile-buttons a {
   background: #f2f3f1;
   border: 1px solid #fff;
   border-radius: 20px;
@@ -59,16 +59,16 @@
   width: 20px;
 }
 
-#tx-slider-widget .slide-buttons a:hover {
+#tx-tiles-widget .tile-buttons a:hover {
   background-color: yellow;
 }
 
-#tx-slider-widget .slide-add-buttons {
+#tx-tiles-widget .tile-add-buttons {
   padding: 5px;
   margin: 5px;
 }
 
-#tx-slider-widget a.slide-add {
+#tx-tiles-widget a.tile-add {
   background: #f2f3f1 url('data:image/gif;base64,R0lGODlhCAAMAJEAALCxstzd3JqbnfLz8SH5BAAAAAAALAAAAAAIAAwAAAIUnI85ECrC0HtxzMkuDbduVCmiWAAAOw==') no-repeat scroll 8px center;
   padding: 2px 2px 2px 20px;
   border: 1px solid #c9cac8;
@@ -77,11 +77,11 @@
   text-decoration:none;
 }
 
-#tx-slider-widget a.slide-add:hover {
+#tx-tiles-widget a.tile-add:hover {
   text-decoration:none;
 }
 
-#tx-slider-widget li.sortable-placeholder {
+#tx-tiles-widget li.sortable-placeholder {
   border: 2px dashed black;
   width: 100%;
   display:block;
@@ -89,11 +89,11 @@
   background-color: #fff;
 }
 
-#tx-slider-widget li.ui-sortable-helper {
+#tx-tiles-widget li.ui-sortable-helper {
   box-shadow: 2px 2px 10px #888888;
 }
 
-div#formfield-form-slides {
+div#formfield-form-tiles {
   border: 1px solid #c9cac8;
   border-left: 0;
   border-right: 0;

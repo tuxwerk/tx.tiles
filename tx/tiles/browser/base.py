@@ -1,7 +1,7 @@
 from plone.memoize.view import memoize
 
 
-class AbstractSliderView(object):
+class AbstractTilesView(object):
     """
     must have settings attribute specified
     """

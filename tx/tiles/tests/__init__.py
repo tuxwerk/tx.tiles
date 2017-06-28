@@ -1,23 +1,23 @@
 from Products.CMFCore.utils import getToolByName
-from tx.slider.testing import \
-    Slider_INTEGRATION_TESTING, \
-    Slider_FUNCTIONAL_TESTING
+from tx.tiles.testing import \
+    Tiles_INTEGRATION_TESTING, \
+    Tiles_FUNCTIONAL_TESTING
 from plone.app.testing import setRoles
 import unittest
 from plone.app.testing import TEST_USER_ID
-from tx.slider.interfaces import ISliderLayer
+from tx.tiles.interfaces import ITilesLayer
 from zope.interface import alsoProvides
 
 
 class BaseTest(unittest.TestCase):
 
-    layer = Slider_INTEGRATION_TESTING
+    layer = Tiles_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         self.app = self.layer['app']
-        alsoProvides(self.request, ISliderLayer)
+        alsoProvides(self.request, ITilesLayer)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
     def tearDown(self):
@@ -26,7 +26,7 @@ class BaseTest(unittest.TestCase):
     def uninstall(self):
         setup_tool = getToolByName(self.portal, 'portal_setup')
         setup_tool.runAllImportStepsFromProfile(
-            'profile-tx.slider:uninstall')
+            'profile-tx.tiles:uninstall')
 
     def create_object(self, id, type_name, parent=None):
         if parent:
@@ -37,4 +37,4 @@ class BaseTest(unittest.TestCase):
 
 
 class BaseFunctionalTest(BaseTest):
-    layer = Slider_FUNCTIONAL_TESTING
+    layer = Tiles_FUNCTIONAL_TESTING

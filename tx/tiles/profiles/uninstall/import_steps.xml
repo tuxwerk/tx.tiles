@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <import-steps>
 
-  <import-step id="tx.slider.uninstall"
+  <import-step id="tx.tiles.uninstall"
                version="1"
-               handler="tx.slider.importexport.uninstall"
-               title="tx.slider: Various cleanup to be done when removing the product.">
+               handler="tx.tiles.importexport.uninstall"
+               title="tx.tiles: Various cleanup to be done when removing the product.">
 
   </import-step>
 

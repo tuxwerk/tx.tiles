@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <registry>
-  <records interface="tx.slider.configlet.ISliderControlPanelSchema" remove="true" />
+  <records interface="tx.tiles.configlet.ITilesControlPanelSchema" remove="true" />
 </registry>

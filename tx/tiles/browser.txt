@@ -1,9 +1,9 @@
-This file demonstrates how you go about adding and removing an slider to different content on a Plone site.
+This file demonstrates how you go about adding and removing an tiles to different content on a Plone site.
 
 things to test
-adding slides
-removing slides
-editing slider
+adding tiles
+removing tiles
+editing tiles
 
 
    >>> from plone.testing.z2 import Browser
@@ -11,11 +11,11 @@ editing slider
     
    >>> browser = Browser(self.app)
    >>> browser.handleErrors = False
-   >>> from tx.slider.testing import browserLogin
+   >>> from tx.tiles.testing import browserLogin
    >>> browserLogin(self.portal, browser)
-   >>> from tx.slider.settings import PageSliderSettings
+   >>> from tx.tiles.settings import PageTilesSettings
 
-Alright, first off lets make sure that links to add sliders are added across the board on all different content types.  Should go to slider settings after you've added the slider
+Alright, first off lets make sure that links to add tiless are added across the board on all different content types.  Should go to tiles settings after you've added the tiles
 
 Check Page type first,
 
@@ -23,8 +23,8 @@ Check Page type first,
    >>> browser.getLink(id="document").click()
    >>> browser.getControl(name="title").value = "test-page"
    >>> browser.getControl("Save").click()
-   >>> browser.getLink("Add slider").click()
-   >>> browser.url == self.portal['test-page'].absolute_url() + "/@@tx-slider-settings"
+   >>> browser.getLink("Add tiles").click()
+   >>> browser.url == self.portal['test-page'].absolute_url() + "/@@tx-tiles-settings"
    True
 
    >>> page_url = self.portal['test-page'].absolute_url()
@@ -35,8 +35,8 @@ Now a collection...
    >>> browser.getLink(id="collection").click()
    >>> browser.getControl(name="title").value = "test-collection"
    >>> browser.getControl("Save").click()
-   >>> browser.getLink("Add slider").click()
-   >>> browser.url == self.portal['test-collection'].absolute_url() + "/@@tx-slider-settings"
+   >>> browser.getLink("Add tiles").click()
+   >>> browser.url == self.portal['test-collection'].absolute_url() + "/@@tx-tiles-settings"
    True
     
 A Folder
@@ -45,8 +45,8 @@ A Folder
    >>> browser.getLink(id="folder").click()
    >>> browser.getControl(name="title").value = "test-folder"
    >>> browser.getControl('Save').click()
-   >>> browser.getLink("Add slider").click()
-   >>> browser.url == self.portal['test-folder'].absolute_url() + "/@@tx-slider-settings"
+   >>> browser.getLink("Add tiles").click()
+   >>> browser.url == self.portal['test-folder'].absolute_url() + "/@@tx-tiles-settings"
    True
     
 A News Item
@@ -55,45 +55,45 @@ A News Item
    >>> browser.getLink(id="news-item").click()
    >>> browser.getControl(name="title").value = "test-news-item"
    >>> browser.getControl('Save').click()
-   >>> browser.getLink("Add slider").click()
-   >>> browser.url == self.portal['test-news-item'].absolute_url() + "/@@tx-slider-settings"
+   >>> browser.getLink("Add tiles").click()
+   >>> browser.url == self.portal['test-news-item'].absolute_url() + "/@@tx-tiles-settings"
    True
     
 Let's get into the meat of this now.  From now on, we'll just play with the test page we created.
 
    >>> browser.getLink(text='test-page').click()
 
-Make sure the Slider settings link is there and the remove slider link is there.
+Make sure the Tiles settings link is there and the remove tiles link is there.
 
-   >>> 'href="' + page_url + '/@@disable_slider"' in browser.contents 
+   >>> 'href="' + page_url + '/@@disable_tiles"' in browser.contents 
    True
-   >>> 'href="' + page_url + '/@@slider-settings"' in browser.contents 
+   >>> 'href="' + page_url + '/@@tiles-settings"' in browser.contents 
    True
     
-Go to the slider settings, edit the page, should bring you back to the page after your done
+Go to the tiles settings, edit the page, should bring you back to the page after your done
 
-   >>> browser.getLink(text="Slider Settings").click()
+   >>> browser.getLink(text="Tiles Settings").click()
    >>> browser.getControl(name="form.width").value = "700"
    >>> browser.getControl(name="form.height").value = "400"
    >>> browser.getControl(name="form.actions.save").click()
    >>> browser.url == self.portal['test-page'].absolute_url()
    True
     
-Slider should not be in the page contents yet because there are no slides yet.
+Tiles should not be in the page contents yet because there are no tiles yet.
 
-   >>> '<div id="slider-container">' not in browser.contents
+   >>> '<div id="tiles-container">' not in browser.contents
    True
     
-add one slide so it'll actually show.
+add one tile so it'll actually show.
 
-   >>> settings = PageSliderSettings(self.portal['test-page'])
-   >>> settings.slides = ['a slide']
+   >>> settings = PageTilesSettings(self.portal['test-page'])
+   >>> settings.tiles = ['a tile']
    >>> transaction.commit()
     
-Slider should now show.
+Tiles should now show.
 
    >>> browser.open(self.portal['test-page'].absolute_url())
-   >>> '<div id="slider-container"' in browser.contents
+   >>> '<div id="tiles-container"' in browser.contents
    True
     
 The width and height should be set accordingly.
@@ -105,180 +105,180 @@ The width and height should be set accordingly.
     
 Edit it again and hide it this time.  Does it still show?
 
-   >>> browser.getLink(text="Slider Settings").click()
+   >>> browser.getLink(text="Tiles Settings").click()
    >>> browser.getControl(name="form.show").value = False
    >>> browser.getControl(name="form.actions.save").click()
-   >>> '<div id="slider-container">' in browser.contents
+   >>> '<div id="tiles-container">' in browser.contents
    False
     
 Show it again now
 
-   >>> browser.getLink(text="Slider Settings").click()
+   >>> browser.getLink(text="Tiles Settings").click()
    >>> browser.getControl(name="form.show").value = True
    >>> browser.getControl(name="form.actions.save").click()
     
-Add some slides now shall we? Well, can't do it with the browser testing here because the kupu widget we use doesn't have support without ajax.  So we'll just do some programming for it...
+Add some tiles now shall we? Well, can't do it with the browser testing here because the kupu widget we use doesn't have support without ajax.  So we'll just do some programming for it...
 
-   >>> browser.getLink(text="Slider Settings").click()
-   >>> "add new slide" in browser.contents
+   >>> browser.getLink(text="Tiles Settings").click()
+   >>> "add new tile" in browser.contents
    True
 
-   >>> settings = PageSliderSettings(self.portal['test-page'])
+   >>> settings = PageTilesSettings(self.portal['test-page'])
     
-the slides are just a list of html text
-   >>> settings.slides = ['my first slide', 'my second slide', 'my third slide']
+the tiles are just a list of html text
+   >>> settings.tiles = ['my first tile', 'my second tile', 'my third tile']
    >>> transaction.commit()
 
-Render the page again and make sure the slides are there.
+Render the page again and make sure the tiles are there.
    >>> browser.open(self.portal['test-page'].absolute_url())
-   >>> 'my first slide' in browser.contents
+   >>> 'my first tile' in browser.contents
    True
-   >>> 'my second slide' in browser.contents
+   >>> 'my second tile' in browser.contents
    True
-   >>> 'my third slide' in browser.contents
+   >>> 'my third tile' in browser.contents
    True
     
-Go to the settings page and check a few things about our expected slider.
+Go to the settings page and check a few things about our expected tiles.
 
-   >>> browser.getLink(text='Slider Settings').click()
-   >>> "3 total slides" in browser.contents
+   >>> browser.getLink(text='Tiles Settings').click()
+   >>> "3 total tiles" in browser.contents
    True
 
-Check the wrapper structures are present for each of the slides.
+Check the wrapper structures are present for each of the tiles.
 
-   >>> browser.contents.count('div class="slide-wrapper"')
+   >>> browser.contents.count('div class="tile-wrapper"')
    3
-   >>> browser.contents.count('div class="slider"')
+   >>> browser.contents.count('div class="tiles"')
    3
-   >>> browser.contents.count('ul class="slides-list slider-list"')
+   >>> browser.contents.count('ul class="tiles-list tiles-list"')
    3
-   >>> browser.contents.count('li class="slide"')
+   >>> browser.contents.count('li class="tile"')
    3
 
 Check our old structure is gone. 
 
-   >>> browser.contents.count('li class="slide-edit"')
+   >>> browser.contents.count('li class="tile-edit"')
    0
 
-Make sure all the slide manipulation links are there...
+Make sure all the tile manipulation links are there...
 
-   >>> 'href="' + page_url + '/@@edit-slide?index=0"' in browser.contents
+   >>> 'href="' + page_url + '/@@edit-tile?index=0"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/0/@@move-slide-up"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/0/@@move-tile-up"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/0/@@move-slide-down"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/0/@@move-tile-down"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/0/@@remove-slide"' in browser.contents
-   True
-
-   >>> 'href="' + page_url + '/@@edit-slide?index=1"' in browser.contents
-   True
-   >>> 'href="' + page_url + '/--slides--/1/@@move-slide-up"' in browser.contents
-   True
-   >>> 'href="' + page_url + '/--slides--/1/@@move-slide-down"' in browser.contents
-   True
-   >>> 'href="' + page_url + '/--slides--/1/@@remove-slide"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/0/@@remove-tile"' in browser.contents
    True
 
-   >>> 'href="' + page_url + '/@@edit-slide?index=2"' in browser.contents
+   >>> 'href="' + page_url + '/@@edit-tile?index=1"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/2/@@move-slide-up"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/1/@@move-tile-up"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/2/@@move-slide-down"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/1/@@move-tile-down"' in browser.contents
    True
-   >>> 'href="' + page_url + '/--slides--/2/@@remove-slide"' in browser.contents
+   >>> 'href="' + page_url + '/--tiles--/1/@@remove-tile"' in browser.contents
+   True
+
+   >>> 'href="' + page_url + '/@@edit-tile?index=2"' in browser.contents
+   True
+   >>> 'href="' + page_url + '/--tiles--/2/@@move-tile-up"' in browser.contents
+   True
+   >>> 'href="' + page_url + '/--tiles--/2/@@move-tile-down"' in browser.contents
+   True
+   >>> 'href="' + page_url + '/--tiles--/2/@@remove-tile"' in browser.contents
    True
     
-Move the first slide down
+Move the first tile down
 
-   >>> browser.getLink(url=page_url + '/--slides--/0/@@move-slide-down').click()
+   >>> browser.getLink(url=page_url + '/--tiles--/0/@@move-tile-down').click()
     
 Check the order
 
-   >>> settings = PageSliderSettings(self.portal['test-page'])
-   >>> settings.slides[0] == 'my second slide'
+   >>> settings = PageTilesSettings(self.portal['test-page'])
+   >>> settings.tiles[0] == 'my second tile'
    True
-   >>> settings.slides[1] == 'my first slide'
+   >>> settings.tiles[1] == 'my first tile'
    True
     
-Move the last slide up now
+Move the last tile up now
 
-   >>> browser.getLink(url=page_url + '/--slides--/2/@@move-slide-up').click()
+   >>> browser.getLink(url=page_url + '/--tiles--/2/@@move-tile-up').click()
     
 Check the order again
     
-   >>> settings = PageSliderSettings(self.portal['test-page'])
-   >>> settings.slides[1] == 'my third slide'
+   >>> settings = PageTilesSettings(self.portal['test-page'])
+   >>> settings.tiles[1] == 'my third tile'
    True
-   >>> settings.slides[2] == 'my first slide'
+   >>> settings.tiles[2] == 'my first tile'
    True
 
-Try and move the end slides around to test what happens. An error should
+Try and move the end tiles around to test what happens. An error should
 happen here for both situations.
 
-Attempt to move the last slide down - this should fail.
+Attempt to move the last tile down - this should fail.
  
-   >>> slider_settings_url = self.portal['test-page'].absolute_url()+'/@@slider-settings'
-   >>> browser.open(slider_settings_url)
-   >>> browser.getLink(url=page_url + '/--slides--/2/@@move-slide-down').click()
+   >>> tiles_settings_url = self.portal['test-page'].absolute_url()+'/@@tiles-settings'
+   >>> browser.open(tiles_settings_url)
+   >>> browser.getLink(url=page_url + '/--tiles--/2/@@move-tile-down').click()
    Traceback (most recent call last):
        ...
    HTTPError: HTTP Error 403: Forbidden
    
-Attempt to move the first slide up - this should fail.
+Attempt to move the first tile up - this should fail.
 
-   >>> browser.open(slider_settings_url)
-   >>> browser.getLink(url=page_url + '/--slides--/0/@@move-slide-up').click()
+   >>> browser.open(tiles_settings_url)
+   >>> browser.getLink(url=page_url + '/--tiles--/0/@@move-tile-up').click()
    Traceback (most recent call last):
        ...
    HTTPError: HTTP Error 403: Forbidden
 
-Attempt to delete a non-existant slide - this should fail.
+Attempt to delete a non-existant tile - this should fail.
 
-   >>> browser.open(self.portal['test-page'].absolute_url() + '/--slides--/99/@@remove-slide')
+   >>> browser.open(self.portal['test-page'].absolute_url() + '/--tiles--/99/@@remove-tile')
    Traceback (most recent call last):
        ...
    HTTPError: HTTP Error 403: Forbidden
 
-Check that the slides are still all in the same positions as before.
+Check that the tiles are still all in the same positions as before.
 
-   >>> settings = PageSliderSettings(self.portal['test-page'])
-   >>> settings.slides[1] == 'my third slide'
+   >>> settings = PageTilesSettings(self.portal['test-page'])
+   >>> settings.tiles[1] == 'my third tile'
    True
-   >>> settings.slides[2] == 'my first slide'
+   >>> settings.tiles[2] == 'my first tile'
    True
    
 Return back to normality and carry on
  
-   >>> browser.open(slider_settings_url)
+   >>> browser.open(tiles_settings_url)
 
-Now remove the last slide which was the first...
+Now remove the last tile which was the first...
 
-   >>> browser.getLink(url=page_url + '/--slides--/2/@@remove-slide').click()
-   >>> settings = PageSliderSettings(self.portal['test-page'])
-   >>> "2 total slides" in browser.contents
+   >>> browser.getLink(url=page_url + '/--tiles--/2/@@remove-tile').click()
+   >>> settings = PageTilesSettings(self.portal['test-page'])
+   >>> "2 total tiles" in browser.contents
    True
-   >>> len(settings.slides) == 2
+   >>> len(settings.tiles) == 2
    True
     
-Should only show 2 slides now
+Should only show 2 tiles now
 
    >>> browser.open(page_url)
-   >>> 'my first slide' in browser.contents
+   >>> 'my first tile' in browser.contents
    False
-   >>> 'my second slide' in browser.contents
+   >>> 'my second tile' in browser.contents
    True
-   >>> 'my third slide' in browser.contents
+   >>> 'my third tile' in browser.contents
    True
 
-Check the slider effect settings defaults.
+Check the tiles effect settings defaults.
    
-   >>> settings = PageSliderSettings(self.portal['test-page'])
+   >>> settings = PageTilesSettings(self.portal['test-page'])
    >>> print settings.effect
-   Slide
+   Tile
 
    >>> browser.open(page_url)
-   >>> "effect: 'Slide'," in browser.contents
+   >>> "effect: 'Tile'," in browser.contents
    True
 
 Try changing the effect settings
@@ -286,18 +286,18 @@ Try changing the effect settings
    >>> settings.effect = 'Crossfade'
    >>> transaction.commit()
    >>> browser.open(page_url)
-   >>> "effect: 'Slide'," in browser.contents
+   >>> "effect: 'Tile'," in browser.contents
    False
    >>> "effect: 'Crossfade'," in browser.contents
    True
 
-Okay, backup and remove the whole easy slider
+Okay, backup and remove the whole easy tiles
 
    >>> browser.open(page_url)
-   >>> browser.getLink(text="Remove Slider").click()
-   >>> "Add Slider" in browser.contents
+   >>> browser.getLink(text="Remove Tiles").click()
+   >>> "Add Tiles" in browser.contents
    True
-   >>> '<div id="slider-container">' in browser.contents
+   >>> '<div id="tiles-container">' in browser.contents
    False
    
    
