@@ -1,9 +1,8 @@
 function tx_tile_remove() {
-  if (!window.confirm("Are you sure you want to remove this tile?"))
+  if (!window.confirm($(this).attr('data-confirm-text')))
     return false;
 
-  $.get($(this).attr('href') + '?ajax=true', {}, function(data, status) {
-  });
+  $.get($(this).attr('href') + '?ajax=true', {}, function(data, status) { });
   $(this).closest("li").remove();
   return false;
 }
@@ -20,7 +19,6 @@ function tx_tile_sortable() {
       for(var i=0; i<tiles.length; i++){
         order.push(tiles.eq(i).attr('data-index'));
       }
-      console.log(order);
       $.ajax({
         url: $('base').attr('href') + '/../@@tx-tiles/all/@@order-tiles',
         type: 'POST',

@@ -104,23 +104,31 @@ class ITile(Interface):
     link_reference = schema.Choice(
         title=_(u"Link to content"),
         description=_(u"Choose a content item to link this tile to."),
+        required=False,
         source=SearchableTextSourceBinder({},
                                           default_query='path:')
+    )
+
+    url = schema.URI(
+        title=_(u'External link'),
+        description=_(u'Please enter a full URL. Has precedence before the above field.'),
+        required=False,
     )
     
     image = schema.Bytes(
         title=_(u"Image"),
-        required=False
+        description=_(u"You can drag and drop a file to this field."),
+        required=False,
     )
 
     tile = schema.Text(
         title=_(u"Text"),
-        required=False
+        required=False,
     )
 
     index = schema.Int(
         title=u'',
-        required=False
+        required=False,
     )
 
 

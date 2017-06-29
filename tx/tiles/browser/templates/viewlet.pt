@@ -4,9 +4,9 @@
        tal:attributes="class string:tx-tiles-container tx-tiles-${uid} tx-tiles-${view/class_name};"
        i18n:domain="tx.tiles">
     <tal:repeat repeat="tile view/tiles">
-      <li>
+      <li tal:define="link python: tile.get('url') or view.portal_url + tile.get('link_reference', '')">
 	<div class="tx-tile">
-	  <a href="" tal:attributes="href string:${context/portal_url}${tile/link_reference}">
+	  <a href="" tal:attributes="href link">
 	    <tal:if tal:condition="tile/html">
 	      <div class="tx-tile-content" tal:content="structure tile/html">
 		Content

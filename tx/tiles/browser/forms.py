@@ -73,6 +73,12 @@ class AddTileAdapter(SchemaAdapterBase):
     def set_index(self, value):
         pass
 
+    def get_url(self):
+        return self.__get_property__('url')
+
+    def set_url(self, value):
+        pass
+
     def get_image(self):
         return self.__get_property__('image')
 
@@ -86,10 +92,11 @@ class AddTileAdapter(SchemaAdapterBase):
         pass
 
     link_reference = property(get_link_reference, set_link_reference)
+    url = property(get_url, set_url)
     tile = property(get_tile, set_tile)
     index = property(get_index, set_index)
     image = property(get_image, set_image)
-    
+
 class AddTileForm(formbase.EditFormBase):
     """
     The add/edit form for a tile
@@ -141,6 +148,7 @@ class AddTileForm(formbase.EditFormBase):
             'image': image,
             'image_type': image_type,
             'html': data.get('tile'),
+            'url': data.get('url'),
             'uuid': uuid
         }
 
