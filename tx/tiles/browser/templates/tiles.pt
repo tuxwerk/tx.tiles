@@ -10,7 +10,8 @@
   <ul>
     <tal:repeat repeat="tile view/tiles">
       <li tal:attributes="data-index tile/uuid"
-	  tal:define="link python: tile.get('url') or view.portal_url + tile.get('link_reference', '')">
+	  tal:define="show_link python: tile.get('url') or tile.get('link_reference');
+		      link python: tile.get('url') or view.portal_url + str(tile.get('link_reference') or '')">
 	<div class="tile-wrapper">
 	  <div class="tiles-container">
             <div class="tile">
@@ -26,6 +27,7 @@
             <a class="tile-link"
 	       title=""
 	       target="_blank"
+	       tal:condition="show_link"
 	       tal:attributes="href link;
 			       title link;">
 	      <img tal:attributes="src string:${view/portal_url}/link_icon.png"/>
