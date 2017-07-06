@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-06-29 11:11+0000\n"
+"POT-Creation-Date: 2017-07-06 14:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,12 @@ msgstr ""
 msgid "Add tiles to pages"
 msgstr ""
 
-#: ./browser/forms.py:112
+#: ./browser/forms.py:113
 msgid "Add/Update Tile"
+msgstr ""
+
+#: ./configlet.py:48
+msgid "All uploaded images will be scaled down to this value."
 msgstr ""
 
 #: ./browser/templates/tiles.pt:39
@@ -37,15 +41,15 @@ msgstr ""
 msgid "Below title"
 msgstr ""
 
-#: ./browser/forms.py:167
+#: ./browser/forms.py:169
 msgid "Cancel"
 msgstr ""
 
-#: ./browser/forms.py:172
+#: ./browser/forms.py:174
 msgid "Changes canceled."
 msgstr ""
 
-#: ./browser/forms.py:124
+#: ./browser/forms.py:125
 msgid "Changes saved."
 msgstr ""
 
@@ -57,24 +61,24 @@ msgstr ""
 msgid "Choose a content item to link this tile to."
 msgstr ""
 
-#: ./configlet.py:39
+#: ./configlet.py:40
 msgid "Configuration"
 msgstr ""
 
-#: ./configlet.py:50
+#: ./configlet.py:58
 msgid "Default settings to use for all tiles."
 msgstr ""
 
-#: ./browser/forms.py:197
+#: ./browser/forms.py:198
 msgid "Edit Tiles"
 msgstr ""
 
-#: ./browser/forms.py:110
+#: ./browser/forms.py:111
 msgid "Edit tile"
 msgstr ""
 
-#: ./configlet.py:40
-msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
+#: ./configlet.py:41
+msgid "Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."
 msgstr ""
 
 #: ./interfaces.py:113
@@ -89,11 +93,15 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
+#: ./configlet.py:47
+msgid "Image scale width"
+msgstr ""
+
 #: ./interfaces.py:105
 msgid "Link to content"
 msgstr ""
 
-#: ./browser/forms.py:128
+#: ./browser/forms.py:129
 msgid "No changes made."
 msgstr ""
 
@@ -109,11 +117,11 @@ msgstr ""
 msgid "Removes tx.tiles add-on"
 msgstr ""
 
-#: ./browser/forms.py:114
+#: ./browser/forms.py:115
 msgid "Save"
 msgstr ""
 
-#: ./browser/forms.py:187
+#: ./browser/forms.py:193
 msgid "Settings"
 msgstr ""
 
@@ -133,7 +141,7 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: ./browser/forms.py:191
+#: ./browser/forms.py:189
 #: ./interfaces.py:96
 msgid "Tiles"
 msgstr ""
@@ -142,7 +150,7 @@ msgstr ""
 msgid "Tiles configuration"
 msgstr ""
 
-#: ./configlet.py:49
+#: ./configlet.py:57
 msgid "Tiles default settings"
 msgstr ""
 

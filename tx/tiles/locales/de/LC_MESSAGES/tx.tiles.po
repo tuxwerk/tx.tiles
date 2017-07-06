@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tx.tiles\n"
-"POT-Creation-Date: 2017-06-29 11:11+0000\n"
+"POT-Creation-Date: 2017-07-06 14:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
 "Language-Team: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
@@ -18,9 +18,13 @@ msgstr ""
 msgid "Add tiles to pages"
 msgstr "Kacheln zu Seiten hinzufügen"
 
-#: ./browser/forms.py:112
+#: ./browser/forms.py:113
 msgid "Add/Update Tile"
 msgstr "Kachel hinzufügen/editieren"
+
+#: ./configlet.py:48
+msgid "All uploaded images will be scaled down to this value."
+msgstr "Alle Bilder werden auf folgende Breite skaliert."
 
 #: ./browser/templates/tiles.pt:39
 msgid "Are you sure you want to remove this tile?"
@@ -34,15 +38,15 @@ msgstr "Unter dem Inhalt"
 msgid "Below title"
 msgstr "Unter dem Titel"
 
-#: ./browser/forms.py:167
+#: ./browser/forms.py:169
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ./browser/forms.py:172
+#: ./browser/forms.py:174
 msgid "Changes canceled."
 msgstr "Änderung abgebrochen."
 
-#: ./browser/forms.py:124
+#: ./browser/forms.py:125
 msgid "Changes saved."
 msgstr "Änderungen gespeichert."
 
@@ -54,25 +58,25 @@ msgstr "Wähle eine Konfiguration. Konfigurationen können vom Website-Administr
 msgid "Choose a content item to link this tile to."
 msgstr "Wählen Sie einen Inhalt, der mit dieser Kachel verknüpft wird."
 
-#: ./configlet.py:39
+#: ./configlet.py:40
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: ./configlet.py:50
+#: ./configlet.py:58
 msgid "Default settings to use for all tiles."
 msgstr "Standardeinstellungen für alle Kacheln."
 
-#: ./browser/forms.py:197
+#: ./browser/forms.py:198
 msgid "Edit Tiles"
 msgstr "Kacheln bearbeiten"
 
-#: ./browser/forms.py:110
+#: ./browser/forms.py:111
 msgid "Edit tile"
 msgstr "Kachel bearbeiten"
 
-#: ./configlet.py:40
-msgid "Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."
-msgstr "Eine Konfiguration pro Zeile anlegen. Format: 'Name:css-klassen-name:breite:höhe'. css-klassen-name bekommt 'tx-tiles-' als Prefix. Hochgeladene Bilder werden auf die Breite skaliert."
+#: ./configlet.py:41
+msgid "Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."
+msgstr "Eine Konfiguration pro Zeile. Format: 'Name:css-class-name'. Erster Eintrag ist Standard-Einstellung."
 
 #: ./interfaces.py:113
 msgid "External link"
@@ -86,11 +90,15 @@ msgstr "Wenn abgewählt, werden die Kacheln auch auf Unterseiten angezeigt."
 msgid "Image"
 msgstr "Bild"
 
+#: ./configlet.py:47
+msgid "Image scale width"
+msgstr "Bild-Skalierungs Breite"
+
 #: ./interfaces.py:105
 msgid "Link to content"
 msgstr "Verknüpfung zum Inhalt"
 
-#: ./browser/forms.py:128
+#: ./browser/forms.py:129
 msgid "No changes made."
 msgstr "Keine Änderungen."
 
@@ -106,11 +114,11 @@ msgstr "Im Kopf der Seite"
 msgid "Removes tx.tiles add-on"
 msgstr "Entfernt die tx.tiles Erweiterung"
 
-#: ./browser/forms.py:114
+#: ./browser/forms.py:115
 msgid "Save"
 msgstr "Speichern"
 
-#: ./browser/forms.py:187
+#: ./browser/forms.py:193
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -130,7 +138,7 @@ msgstr "TX Tiles"
 msgid "Text"
 msgstr "Text"
 
-#: ./browser/forms.py:191
+#: ./browser/forms.py:189
 #: ./interfaces.py:96
 msgid "Tiles"
 msgstr "Kacheln"
@@ -139,7 +147,7 @@ msgstr "Kacheln"
 msgid "Tiles configuration"
 msgstr "Konfiguration der Kacheln"
 
-#: ./configlet.py:49
+#: ./configlet.py:57
 msgid "Tiles default settings"
 msgstr "Konfiguration der Kacheln"
 
