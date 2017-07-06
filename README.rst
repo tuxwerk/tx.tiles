@@ -9,13 +9,8 @@ On a page, click actions -> Add tiles. This opens a setting page for your tiles.
 
 Examples
 --------
-Examples of this being used in the wild.
 
-* http://www.fbi.gov/
-* http://www.chicagohistory.org
-* http://www.reamp.org
-* http://www.rehabpro.org
-* http://swca.org/
+TODO
 
 Installation
 ------------
@@ -30,4 +25,5 @@ Uninstall
 Credits and Contributions
 -------------------------
 * tx.tiles is based on collective.easyslider. Thanks for the ideas!
-  
+* University of Freiburg for sponsoring the package
+    
