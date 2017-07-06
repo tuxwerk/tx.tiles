@@ -1,17 +1,16 @@
 from Products.CMFCore.utils import getToolByName
-from tx.tiles.testing import \
-    Tiles_INTEGRATION_TESTING, \
-    Tiles_FUNCTIONAL_TESTING
+from tx.tiles.testing import TILES_INTEGRATION_TESTING, TILES_FUNCTIONAL_TESTING
 from plone.app.testing import setRoles
 import unittest
+import Testing
 from plone.app.testing import TEST_USER_ID
 from tx.tiles.interfaces import ITilesLayer
 from zope.interface import alsoProvides
-
+from Testing.ZopeTestCase import Functional
 
 class BaseTest(unittest.TestCase):
 
-    layer = Tiles_INTEGRATION_TESTING
+    layer = TILES_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
@@ -36,5 +35,6 @@ class BaseTest(unittest.TestCase):
                 type_name=type_name, id=id)]
 
 
-class BaseFunctionalTest(BaseTest):
-    layer = Tiles_FUNCTIONAL_TESTING
+class BaseFunctionalTest(BaseTest, Functional):
+
+    layer = TILES_FUNCTIONAL_TESTING

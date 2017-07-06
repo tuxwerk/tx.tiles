@@ -60,7 +60,7 @@ class ITilesSettings(Interface):
         source="tiles_configuration_choices",
         title=_(u"Tiles configuration"),
         description=_(u"Choose a configuration. Configurations can be added by the Site Manager in the control panel."),
-        required=True
+        required=False
     )
 
     only_here = schema.Bool(

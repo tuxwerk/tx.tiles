@@ -23,29 +23,37 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
 def configuration_choices(context):
-    configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanelSchema.configuration']
-    items = ()
+    configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.configuration']
+    items = []
     for config in configs:
-        t = config.split(":")[0]
-        items = ((t,t),) + items
-    return SimpleVocabulary.fromItems(items)
+        t = config.split(":")
+        items = items + [(t[1],t[0]),]
+    terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
+    return SimpleVocabulary(terms)
 
-class ITilesControlPanelSchema(Interface):
+class ITilesControlPanel(Interface):
     """
     The actual tiles settings
     """
 
     configuration = schema.List(
         title=_(u'Configuration'),
-        description=_(u"Enter one configuration per line. Format: 'Name:css-class-name:width:height'. css-class-name will be prefixed with 'tx-tiles-'. Uploaded images will be scaled down to width."),
+        description=_(u"Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."),
         value_type=schema.TextLine(),
+        required=True
+    )
+
+    image_scale_width = schema.Int(
+        title=_(u"Image scale width"),
+        description=_(u"All uploaded images will be scaled down to this value."),
+        default=1000,
         required=True
     )
 
 class ControlPanelForm(RegistryEditForm):
 
     form.extends(RegistryEditForm)
-    schema = ITilesControlPanelSchema
+    schema = ITilesControlPanel
     label = _(u"Tiles default settings")
     description = _(u'Default settings to use for all tiles.')
     

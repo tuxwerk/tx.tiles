@@ -30,15 +30,17 @@ class BaseTilesViewlet(ViewletBase):
 
     @memoize
     def registry(self, key):
-        return getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanelSchema.' + key]
+        return getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.' + key]
 
     @memoize
     def configuration(self):
+        #return self.settings.configuration
         configs = self.registry('configuration')
         for config in configs:
             t = config.split(":")
-            if t[0] == self.settings.configuration:
+            if t[1] == self.settings.configuration:
                 return t
+        return configs[0].split(":")
     
     @memoize
     def show(self):
@@ -60,17 +62,16 @@ class BaseTilesViewlet(ViewletBase):
 
     @memoize
     def class_name(self):
+        #return self.settings.configuration
         c = self.configuration()
         if c:
             return c[1]
-        return "default"
 
     @memoize
     def ratio(self):
         c = self.configuration()
         if c:
             return c[2] + ":" + c[3]
-        return "1000:400"
 
     @property
     def tiles(self):
@@ -115,15 +116,3 @@ class TilesBelowContent(BaseTilesViewlet):
         else:
             return ""
     
-class TilesHead(BaseTilesViewlet, AbstractTilesView):
-
-    index = ViewPageTemplateFile('templates/headviewlet.pt')
-
-    def is_enabled(self):
-        return self.show()
-
-    def render(self):
-        if self.is_enabled():
-            return super(TilesHead, self).render()
-        else:
-            return ""

@@ -13,28 +13,29 @@ from plone.testing import z2
 
 
 class Tiles(PloneSandboxLayer):
+
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # load ZCML
         import tx.tiles
-        xmlconfig.file('configure.zcml', tx.tiles,
+        xmlconfig.file('configure.zcml',
+                       tx.tiles,
                        context=configurationContext)
         z2.installProduct(app, 'tx.tiles')
 
     def setUpPloneSite(self, portal):
-        # install into the Plone site
         applyProfile(portal, 'tx.tiles:default')
         setRoles(portal, TEST_USER_ID, ('Member', 'Manager'))
         workflowTool = getToolByName(portal, 'portal_workflow')
         workflowTool.setDefaultChain('plone_workflow')
 
 
-Tiles_FIXTURE = Tiles()
-Tiles_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(Tiles_FIXTURE,), name="Tiles:Integration")
-Tiles_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(Tiles_FIXTURE,), name="Tiles:Functional")
+TILES_FIXTURE = Tiles()
+TILES_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(TILES_FIXTURE,), name="Tiles:Integration")
+TILES_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(TILES_FIXTURE,), name="Tiles:Functional")
 
 
 def browserLogin(portal, browser, username=None, password=None):

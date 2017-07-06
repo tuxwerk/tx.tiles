@@ -12,7 +12,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <include package="Products.CMFCore" file="permissions.zcml" />
-
+  
   <!-- Zope 2.10 / 3.3 support -->
   <configure zcml:condition="installed zope.annotation">
     <include package="zope.annotation" />

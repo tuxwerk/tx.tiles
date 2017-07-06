@@ -8,9 +8,6 @@ except ImportError:
     from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 
 
-from tx.tiles.utils import tiles_settings_css
-
-
 class HiddenWidget(IntWidget):
 
     def __call__(self):
@@ -36,7 +33,6 @@ class TilesWidget(SimpleInputWidget):
         # field/settings
         self.settings = self.context.context
         # since this uses the same .pt file
-        self.css = tiles_settings_css(self.settings)
         self.tiles = self.settings.tiles
 
     def __call__(self):

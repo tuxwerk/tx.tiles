@@ -18,6 +18,10 @@
   cursor: grab;
 }
 
+#tx-tiles-widget ul li {
+  padding-bottom: 50%;
+}
+
 #tx-tiles-widget img.tile-image {
   min-width: 100%;
   max-width: 100%;

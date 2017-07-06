@@ -19,14 +19,15 @@ from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from five.formlib import formbase
 
-from tx.tiles.interfaces import ITilesPage, ITile, \
-    IPageTilesSettings, ITilesSettings
+from tx.tiles.interfaces import ITilesPage, ITile, IPageTilesSettings, ITilesSettings
 from tx.tiles import message_factory as _
 from tx.tiles.widgets import TilesWidget, HiddenWidget
 from tx.tiles.settings import PageTilesSettings
-from zope.publisher.interfaces import NotFound
 from plone.app.form.validators import null_validator
 from Products.statusmessages.interfaces import IStatusMessage
+
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
 
 class AddTileAdapter(SchemaAdapterBase):
     """
@@ -133,8 +134,9 @@ class AddTileForm(formbase.EditFormBase):
 
         image = data.get('image')
         image_type = None
+        scale_width = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.image_scale_width']
         if image != None:
-            (image, image_type, image_size) = scaleImage(image, width=500, height=500)
+            (image, image_type, image_size) = scaleImage(image, width=scale_width)
         else:
             if index != -1:
                 image      = tiles[index].get('image')
@@ -182,16 +184,15 @@ class TilesPageSettingsForm(FieldsetsEditForm):
     """
     The page that holds all the tiles settings
     """
-    settings = FormFieldsets(ITilesSettings)
-    settings.id = 'settings'
-    settings.label = _(u'Settings')
-
     tiles = FormFieldsets(IPageTilesSettings)
     tiles.id = 'tiles'
     tiles.label = _(u'Tiles')
 
+    settings = FormFieldsets(ITilesSettings)
+    settings.id = 'settings'
+    settings.label = _(u'Settings')
+    
     form_fields = FormFieldsets(tiles, settings)
-
     #our revised TilesWidget that only displays tiles really
     form_fields['tiles'].custom_widget = TilesWidget
     label = _(u"Edit Tiles")

@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 
 <object>
-  <order manager="plone.portaltop">
+  <order manager="plone.portaltop" skinname="*">
     <viewlet name="tx.tiles.portaltop" remove="True" />
   </order>
-  <order manager="plone.belowcontenttitle">
+  <order manager="plone.belowcontenttitle" skinname="*">
     <viewlet name="tx.tiles.belowcontenttitle" remove="True" />
   </order>  
-  <order manager="plone.belowcontent">
+  <order manager="plone.belowcontent" skinname="*">
     <viewlet name="tx.tiles.belowcontent" remove="True" />
-  </order>
-  <order manager="plone.htmlhead.links">
-    <viewlet name="tx.tiles.head" remove="True" />
   </order>
 </object>

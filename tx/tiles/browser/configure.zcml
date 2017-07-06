@@ -77,13 +77,6 @@
     layer="tx.tiles.interfaces.ITilesLayer"
     permission="zope2.View" />
         
-  <browser:viewlet
-    name="tx.tiles.head"
-    manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
-    class=".viewlet.TilesHead"
-    layer="tx.tiles.interfaces.ITilesLayer"
-    permission="zope2.View" />
-  
   <adapter factory=".forms.AddTileAdapter" />
 
   <browser:page

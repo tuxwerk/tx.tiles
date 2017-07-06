@@ -1,7 +1,7 @@
 <tal:show tal:define="uid         context/UID|string:nouid;
 		      ">
   <ul class="tx-tiles-container"
-       tal:attributes="class string:tx-tiles-container tx-tiles-${uid} tx-tiles-${view/class_name};"
+       tal:attributes="class string:tx-tiles-container tx-tiles-${uid} ${view/class_name};"
        i18n:domain="tx.tiles">
     <tal:repeat repeat="tile view/tiles">
       <li tal:define="show_link python:  tile.get('url') or tile.get('link_reference');

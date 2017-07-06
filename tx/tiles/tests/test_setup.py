@@ -1,4 +1,5 @@
-import unittest2 as unittest
+#import unittest2 as unittest
+import unittest
 from tx.tiles.tests import BaseTest
 from zope.component import getUtilitiesFor, queryUtility
 from Products.CMFCore.utils import getToolByName
@@ -11,72 +12,64 @@ class TestSetup(BaseTest):
 
     def test_css_registry(self):
         pcss = self.portal.portal_css
-        self.failUnless('++resource++easyTiles.css' in
+        self.failUnless('++resource++tx-tiles-settings.css' in
                         [css.getId() for css in pcss.getResources()])
-        self.failUnless('++resource++tiles-settings.css' in
+        self.failUnless('++resource++tx-tiles-viewlet.css' in
                         [css.getId() for css in pcss.getResources()])
 
     def test_css_registry_uninstalls(self):
         self.uninstall()
         pcss = self.portal.portal_css
-        self.failUnless('++resource++easyTiles.css' not in
+        self.failUnless('++resource++tx-tiles-settings.css' not in
                         [css.getId() for css in pcss.getResources()])
-        self.failUnless('++resource++tiles-settings.css' not in
+        self.failUnless('++resource++tx-tiles-viewlet.css' not in
                         [css.getId() for css in pcss.getResources()])
 
     def test_js_added(self):
         pjavascripts = getToolByName(self.portal, 'portal_javascripts')
-        self.failUnless('++resource++easyTiles.js' in
-                        [js.getId() for js in pjavascripts.getResources()])
-        self.failUnless('++resource++tiles-settings.js' in
+        self.failUnless('++resource++tx-tiles-settings.js' in
                         [js.getId() for js in pjavascripts.getResources()])
 
     def test_js_uninstalls(self):
         self.uninstall()
         pjavascripts = getToolByName(self.portal, 'portal_javascripts')
-        self.failUnless('++resource++easyTiles.js' not in
-                        [js.getId() for js in pjavascripts.getResources()])
-        self.failUnless('++resource++tiles-settings.js' not in
+        self.failUnless('++resource++tx-tiles-settings.js' not in
                         [js.getId() for js in pjavascripts.getResources()])
 
     def test_actions_install(self):
         actionTool = self.portal.portal_actions
-
         #these would throw an exception if they weren't there..
         actionTool.getActionInfo(['object_buttons/enable_tiles'])
         actionTool.getActionInfo(['object_buttons/disable_tiles'])
         actionTool.getActionInfo(['object/tiles_settings'])
-        actionTool.getActionInfo(['object/view_tiles_settings'])
 
     def test_actions_uninstall(self):
         self.uninstall()
         actionTool = self.portal.portal_actions
-
         ob = actionTool['object_buttons']
-        os = actionTool['object']
+        o = actionTool['object']
         #these would throw an exception if they weren't there..
         self.failUnless('enable_tiles' not in ob.objectIds())
         self.failUnless('disable_tiles' not in ob.objectIds())
-        self.failUnless('tiles_settings' not in os.objectIds())
-        self.failUnless('view_tiles_settings' not in os.objectIds())
+        self.failUnless('tiles_settings' not in o.objectIds())
 
     def test_viewlet_installs(self):
         storage = queryUtility(IViewletSettingsStorage)
-        self.failUnless('tx.tiles' in
+        self.failUnless('tx.tiles.portaltop' in
+                        storage.getOrder('plone.portaltop', None))
+        self.failUnless('tx.tiles.belowcontenttitle' in
                         storage.getOrder('plone.belowcontenttitle', None))
-        self.failUnless('tx.tiles.head' in
-                        storage.getOrder('plone.htmlhead.links', None))
-        self.failUnless('tx.tiles' in
+        self.failUnless('tx.tiles.belowcontent' in
                         storage.getOrder('plone.belowcontent', None))
 
     def test_viewlet_uninstalls(self):
         self.uninstall()
         storage = queryUtility(IViewletSettingsStorage)
-        self.failUnless('tx.tiles' not in
+        self.failUnless('tx.tiles.portaltop' not in
+                        storage.getOrder('plone.portaltop', None))
+        self.failUnless('tx.tiles.belowcontenttitle' not in
                         storage.getOrder('plone.belowcontenttitle', None))
-        self.failUnless('tx.tiles.head' not in
-                        storage.getOrder('plone.htmlhead.links', None))
-        self.failUnless('tx.tiles' not in
+        self.failUnless('tx.tiles.belowcontent' not in
                         storage.getOrder('plone.belowcontent', None))
 
     def test_permissions(self):
