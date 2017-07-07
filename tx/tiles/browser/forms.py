@@ -80,6 +80,12 @@ class AddTileAdapter(SchemaAdapterBase):
     def set_url(self, value):
         pass
 
+    def get_configuration(self):
+        return self.__get_property__('configuration')
+
+    def set_configuration(self, value):
+        pass
+
     def get_heading(self):
         return self.__get_property__('heading')
 
@@ -100,6 +106,7 @@ class AddTileAdapter(SchemaAdapterBase):
 
     link_reference = property(get_link_reference, set_link_reference)
     url = property(get_url, set_url)
+    configuration = property(get_configuration, set_configuration)
     heading = property(get_heading, set_heading)
     tile = property(get_tile, set_tile)
     index = property(get_index, set_index)
@@ -156,6 +163,7 @@ class AddTileForm(formbase.EditFormBase):
             'link_reference': data.get('link_reference'),
             'image': image,
             'image_type': image_type,
+            'configuration': data.get('configuration'),
             'heading': data.get('heading'),
             'html': data.get('tile'),
             'url': data.get('url'),

@@ -84,7 +84,7 @@ Tiles should not be in the page contents yet because there are no tiles yet.
 add one tile so it'll actually show.
 
    >>> settings = PageTilesSettings(self.portal['test-page'])
-   >>> settings.tiles = [{'link_reference': None, 'image': None, 'image_type': None, 'html': 'a tile text', 'url': None, 'uuid': 'uuidabcdefg'}]
+   >>> settings.tiles = [{'link_reference': None, 'image': None, 'image_type': None, 'html': 'a tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuidabcdefg'}]
    >>> transaction.commit()
     
 Tiles should now show.
@@ -120,7 +120,7 @@ Add some tiles now shall we? Well, can't do it with the browser testing here bec
    >>> settings = PageTilesSettings(self.portal['test-page'])
     
 Set the tiles...
-   >>> settings.tiles = [{'link_reference': None, 'image': None, 'image_type': None, 'html': 'first tile text', 'url': None, 'uuid': 'uuid111111'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'second tile text', 'url': None, 'uuid': 'uuid222222'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'third tile text', 'url': None, 'uuid': 'uuid333333'}]
+   >>> settings.tiles = [{'link_reference': None, 'image': None, 'image_type': None, 'html': 'first tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid111111'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'second tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid222222'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'third tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid333333'}]
    >>> transaction.commit()
 
 Render the page again and make sure the tiles are there.
@@ -136,16 +136,14 @@ Go to the settings page and check a few things about our expected tiles.
 
    >>> browser.getLink(text='Tiles').click()
 
-Check the wrapper structures are present for each of the tiles.
+Check if the structures are present for each of the tiles.
 
    >>> browser.contents.count('div id="tx-tiles-widget"')
    1
-   >>> browser.contents.count('div class="tile-wrapper"')
+   >>> browser.contents.count('div class="tx-tile"')
    3
-   >>> browser.contents.count('div class="tile"')
-   3
-   >>> browser.contents.count('div class="tile-text"')
-   3
+   >>> browser.contents.count('div class="tx-tile-text"')
+   6
 
 Make sure all the tile manipulation links are there...
 

@@ -58,8 +58,8 @@ class ITilesSettings(Interface):
 
     configuration = schema.Choice(
         source="tiles_configuration_choices",
-        title=_(u"Tiles configuration"),
-        description=_(u"Choose a configuration. Configurations can be added by the Site Manager in the control panel."),
+        title=_(u"Tiles layout"),
+        description=_(u"Choose a layout for all tiles."),
         required=False
     )
 
@@ -101,6 +101,29 @@ class IPageTilesSettings(Interface):
 
 class ITile(Interface):
 
+    configuration = schema.Choice(
+        source="tile_configuration_choices",
+        title=_(u"Layout"),
+        description=_(u"Choose a layout for this tile."),
+        required=False
+    )
+
+    heading = schema.TextLine(
+        title=_(u"Heading"),
+        required=False,
+    )
+
+    image = schema.Bytes(
+        title=_(u"Image"),
+        description=_(u"You can drag and drop a file to this field."),
+        required=False,
+    )
+
+    tile = schema.Text(
+        title=_(u"Text"),
+        required=False,
+    )
+
     link_reference = schema.Choice(
         title=_(u"Link to content"),
         description=_(u"Choose a content item to link this tile to."),
@@ -115,22 +138,6 @@ class ITile(Interface):
         required=False,
     )
     
-    image = schema.Bytes(
-        title=_(u"Image"),
-        description=_(u"You can drag and drop a file to this field."),
-        required=False,
-    )
-
-    heading = schema.TextLine(
-        title=_(u"Heading"),
-        required=False,
-    )
-
-    tile = schema.Text(
-        title=_(u"Text"),
-        required=False,
-    )
-
     index = schema.Int(
         title=u'',
         required=False,

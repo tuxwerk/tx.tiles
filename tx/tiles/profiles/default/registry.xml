@@ -7,6 +7,9 @@
       <element>3 Columns:tx-tiles-3-columns</element>
       <element>4 Columns:tx-tiles-4-columns</element>
     </value>
+    <value key="tile_configuration" purge="false">
+      <element>Important:tx-tile-important</element>
+    </value>
     <value key="image_scale_width">1000</value>
   </records>
   

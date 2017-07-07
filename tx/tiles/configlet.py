@@ -22,8 +22,17 @@ from z3c.form import form
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
-def configuration_choices(context):
+def tiles_configuration_choices(context):
     configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.configuration']
+    items = []
+    for config in configs:
+        t = config.split(":")
+        items = items + [(t[1],t[0]),]
+    terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
+    return SimpleVocabulary(terms)
+
+def tile_configuration_choices(context):
+    configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.tile_configuration']
     items = []
     for config in configs:
         t = config.split(":")
@@ -39,6 +48,13 @@ class ITilesControlPanel(Interface):
     configuration = schema.List(
         title=_(u'Configuration'),
         description=_(u"Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."),
+        value_type=schema.TextLine(),
+        required=True
+    )
+
+    tile_configuration = schema.List(
+        title=_(u'Tile configuration'),
+        description=_(u"Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."),
         value_type=schema.TextLine(),
         required=True
     )
