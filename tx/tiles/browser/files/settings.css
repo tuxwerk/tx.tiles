@@ -18,17 +18,13 @@
   cursor: grab;
 }
 
-#tx-tiles-widget ul li {
-  padding-bottom: 50%;
-}
-
-#tx-tiles-widget img.tile-image {
+#tx-tiles-widget img.tx-tile-image {
   min-width: 100%;
   max-width: 100%;
   width: 100%;
 }
 
-#tx-tiles-widget div.tile-text {
+#tx-tiles-widget div.tx-tile-content {
   position: absolute;
   bottom: 0px;
   background-color: rgba(255,255,255,0.8);
@@ -36,23 +32,18 @@
   padding: 5px 10px;
 }
 
-#tx-tiles-widget div.tile-text h2 {
-  border-bottom: 0;
-  margin: 0.5em 0;
-}
-
-#tx-tiles-widget div.tile-text p {
+#tx-tiles-widget div.tx-tile-text p {
   margin: 0.375em 0;
 }
 
-#tx-tiles-widget div.tile-buttons {
+#tx-tiles-widget div.tx-tile-buttons {
   position: absolute;
   top: 0px;
   right: 0px;
   padding: 5px;
 }
 
-#tx-tiles-widget div.tile-buttons a {
+#tx-tiles-widget div.tx-tile-buttons a {
   background: #f2f3f1;
   border: 1px solid #fff;
   border-radius: 20px;
@@ -64,31 +55,31 @@
   width: 20px;
 }
 
-#tx-tiles-widget .tile-buttons a:hover {
+#tx-tiles-widget .tx-tile-buttons a:hover {
   background-color: yellow;
 }
 
-#tx-tiles-widget .tile-add-buttons {
+#tx-tiles-widget .tx-tile-add-buttons {
   padding: 5px;
   margin: 5px;
 }
 
-#tx-tiles-widget a.tile-add {
-  background: #f2f3f1 url('data:image/gif;base64,R0lGODlhCAAMAJEAALCxstzd3JqbnfLz8SH5BAAAAAAALAAAAAAIAAwAAAIUnI85ECrC0HtxzMkuDbduVCmiWAAAOw==') no-repeat scroll 8px center;
-  padding: 2px 2px 2px 20px;
+#tx-tiles-widget a.tx-tile-add {
+  background: #fff url('data:image/gif;base64,R0lGODlhCAAMAKEDAJqbnbCxst7f3v///yH5BAEKAAMALAAAAAAIAAwAAAIUnI85IQrA0HtxzMkuFbduVCmiWAAAOw==') no-repeat scroll 8px center;
+  padding: 4px 8px 4px 20px;
   border: 1px solid #c9cac8;
   color: #363534;
   cursor: pointer;
   text-decoration:none;
 }
 
-#tx-tiles-widget a.tile-add:hover {
+#tx-tiles-widget a.tx-tile-add:hover {
   text-decoration:none;
 }
 
 #tx-tiles-widget li.sortable-placeholder {
   border: 2px dashed black;
-  width: 100%;
+  width: 50%;
   display:block;
   margin-bottom: 5px;
   background-color: #fff;
@@ -103,4 +94,9 @@ div#formfield-form-tiles {
   border-left: 0;
   border-right: 0;
   padding: 6px 0;
+}
+
+#tx-tiles-widget ul li {
+  width: 50%;
+  padding-bottom: 25%;
 }

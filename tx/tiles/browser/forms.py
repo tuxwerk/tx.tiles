@@ -80,6 +80,12 @@ class AddTileAdapter(SchemaAdapterBase):
     def set_url(self, value):
         pass
 
+    def get_heading(self):
+        return self.__get_property__('heading')
+
+    def set_heading(self, value):
+        pass
+
     def get_image(self):
         return self.__get_property__('image')
 
@@ -94,6 +100,7 @@ class AddTileAdapter(SchemaAdapterBase):
 
     link_reference = property(get_link_reference, set_link_reference)
     url = property(get_url, set_url)
+    heading = property(get_heading, set_heading)
     tile = property(get_tile, set_tile)
     index = property(get_index, set_index)
     image = property(get_image, set_image)
@@ -134,8 +141,8 @@ class AddTileForm(formbase.EditFormBase):
 
         image = data.get('image')
         image_type = None
-        scale_width = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.image_scale_width']
         if image != None:
+            scale_width = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.image_scale_width']
             (image, image_type, image_size) = scaleImage(image, width=scale_width)
         else:
             if index != -1:
@@ -149,6 +156,7 @@ class AddTileForm(formbase.EditFormBase):
             'link_reference': data.get('link_reference'),
             'image': image,
             'image_type': image_type,
+            'heading': data.get('heading'),
             'html': data.get('tile'),
             'url': data.get('url'),
             'uuid': uuid

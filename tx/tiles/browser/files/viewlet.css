@@ -20,28 +20,28 @@ ul.tx-tiles-container > li > div.tx-tile {
   overflow: hidden;
 }
 
-ul.tx-tiles-container > li > div.tx-tile img {
+ul.tx-tiles-container > li img.tx-tile-image {
   position: absolute;
   top: 0;
 }
 
-ul.tx-tiles-container > li > div.tx-tile div.tx-tile-content {
+ul.tx-tiles-container > li div.tx-tile-content {
   position: absolute;
   bottom: 0px;
-  right: 0px;
+  left: 0px;
   margin: 10px;
   padding: 0 0.375em;
   background: rgb(255,255,255,0.5);
   z-index: 10;
 }
 
-ul.tx-tiles-container > li > div.tx-tile div.tx-tile-content p {
+ul.tx-tiles-container > li div.tx-tile-content p {
   line-height: 1.2em;
   margin: 0.375em 0;
   color: #000;
 }
 
-ul.tx-tiles-container > li > div.tx-tile a {
+ul.tx-tiles-container > li div.tx-tile > a {
   color: #000;
 }
 

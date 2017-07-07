@@ -121,6 +121,11 @@ class ITile(Interface):
         required=False,
     )
 
+    heading = schema.TextLine(
+        title=_(u"Heading"),
+        required=False,
+    )
+
     tile = schema.Text(
         title=_(u"Text"),
         required=False,

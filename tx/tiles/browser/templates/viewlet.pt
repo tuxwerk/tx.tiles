@@ -8,14 +8,11 @@
 		      link python: tile.get('url') or view.portal_url + (tile.get('link_reference') or '')">
 	<div class="tx-tile">
 	  <a href="" tal:attributes="href link" tal:omit-tag="not:show_link">
-	    <tal:if tal:condition="tile/html">
-	      <div class="tx-tile-content" tal:content="structure tile/html">
-		Content
-	      </div>
-	    </tal:if>
-	    <tal:if tal:condition="tile/image_type">
-	      <img tal:attributes="src string:${view/absolute_url}/@@tx-tiles/${tile/uuid}/@@image;" />
-	    </tal:if>
+	    <div class="tx-tile-content">
+	      <h2 class="tx-tile-heading" tal:content="tile/heading" tal:condition="tile/heading" />
+	      <div class="tx-tile-text" tal:content="structure tile/html" tal:condition="tile/html" />
+	    </div>
+	    <img class="tx-tile-image" tal:attributes="src string:${view/absolute_url}/@@tx-tiles/${tile/uuid}/@@image;" tal:condition="tile/image_type" />
 	  </a>
 	</div>
       </li>

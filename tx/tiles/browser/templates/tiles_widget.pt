@@ -1,0 +1,49 @@
+<div id="tx-tiles-widget"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="tx.tiles">
+     
+  <ul>
+    <tal:repeat repeat="tile view/tiles">
+      <li tal:attributes="data-index tile/uuid"
+	  tal:define="show_link python: tile.get('url') or tile.get('link_reference');
+		      link python: tile.get('url') or view.portal_url + str(tile.get('link_reference') or '')">
+        <div class="tx-tile">
+	  <div class="tx-tile-content">
+	    <h2 class="tx-tile-heading" tal:content="tile/heading" tal:condition="tile/heading" />
+	    <div class="tx-tile-text" tal:content="structure tile/html" tal:condition="tile/html" />
+	  </div>
+	  <img class="tx-tile-image" alt="" tal:attributes="src string:${view/tiles_url}/@@tx-tiles/${tile/uuid}/@@image" tal:condition="tile/image_type" />
+	</div>
+	<div class="tx-tile-buttons">
+          <a class="tx-tile-link"
+	     title=""
+	     target="_blank"
+	     tal:condition="show_link"
+	     tal:attributes="href link;
+			     title link;">
+	    <img tal:attributes="src string:${view/portal_url}/link_icon.png"/>
+	  </a>
+          <a class="tx-tile-edit"
+	     title="edit tile"
+	     tal:attributes="href string:${view/tiles_url}/@@tx-tiles-edit?index=${tile/uuid}"
+	     i18n:attributes="title;">
+	    <img tal:attributes="src string:${view/portal_url}/edit.png"/>
+	  </a>
+          <a class="tx-tile-remove"
+	     data-confirm-text="Are you sure you want to remove this tile?"
+	     title="remove tile"
+	     tal:attributes="href string:${view/tiles_url}/@@tx-tiles/${tile/uuid}/@@remove-tile"
+	     i18n:attributes="data-confirm-text; title;">
+	    <img tal:attributes="src string:${view/portal_url}/delete_icon.png"/>
+	  </a>
+	</div>
+      </li>
+    </tal:repeat>
+  </ul>
+  <div class="tx-tile-add-buttons">
+    <a class="tx-tile-add" tal:attributes="href string:${view/tiles_url}/@@tx-tiles-edit" i18n:translate="">add new tile</a>
+  </div>
+</div>

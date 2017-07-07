@@ -56,11 +56,6 @@ class TileImageView(TileBaseView):
         return self.tiles[index].get('image')
 
 class RemoveTileView(TileBaseView):
-    """
-    For doing operations on a tile
-    """
-
-    tiles_template = ViewPageTemplateFile('templates/tiles.pt')
 
     def __init__(self, context, request):
         super(RemoveTileView, self).__init__(context, request)

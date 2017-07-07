@@ -22,7 +22,7 @@ class TilesWidget(SimpleInputWidget):
     for each tile
     """
 
-    template = ViewPageTemplateFile('browser/templates/tiles.pt')
+    template = ViewPageTemplateFile('browser/templates/tiles_widget.pt')
 
     def __init__(self, field, request):
         SimpleInputWidget.__init__(self, field, request)
