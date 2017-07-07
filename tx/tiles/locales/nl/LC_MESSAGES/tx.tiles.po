@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-07-06 14:31+0000\n"
+"POT-Creation-Date: 2017-07-07 12:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,23 @@ msgstr ""
 "Domain: tx.tiles\n"
 "Language: nl\n"
 
-#: ./configure.zcml:39
+#: ./configure.zcml:43
 msgid "Add tiles to pages"
 msgstr ""
 
-#: ./browser/forms.py:113
+#: ./browser/forms.py:127
 msgid "Add/Update Tile"
 msgstr ""
 
-#: ./configlet.py:48
+#: ./configlet.py:57
+msgid "Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."
+msgstr ""
+
+#: ./configlet.py:64
 msgid "All uploaded images will be scaled down to this value."
 msgstr ""
 
-#: ./browser/templates/tiles.pt:39
+#: ./browser/templates/tiles_widget.pt:35
 msgid "Are you sure you want to remove this tile?"
 msgstr ""
 
@@ -42,71 +46,83 @@ msgstr ""
 msgid "Below title"
 msgstr ""
 
-#: ./browser/forms.py:169
+#: ./browser/forms.py:185
 msgid "Cancel"
 msgstr ""
 
-#: ./browser/forms.py:174
+#: ./browser/forms.py:190
 msgid "Changes canceled."
 msgstr ""
 
-#: ./browser/forms.py:125
+#: ./browser/forms.py:139
 msgid "Changes saved."
 msgstr ""
 
-#: ./interfaces.py:62
-msgid "Choose a configuration. Configurations can be added by the Site Manager in the control panel."
-msgstr ""
-
-#: ./interfaces.py:106
+#: ./interfaces.py:129
 msgid "Choose a content item to link this tile to."
 msgstr ""
 
-#: ./configlet.py:40
+#: ./interfaces.py:62
+msgid "Choose a layout for all tiles."
+msgstr ""
+
+#: ./interfaces.py:107
+msgid "Choose a layout for this tile."
+msgstr ""
+
+#: ./configlet.py:49
 msgid "Configuration"
 msgstr ""
 
-#: ./configlet.py:58
+#: ./configlet.py:74
 msgid "Default settings to use for all tiles."
 msgstr ""
 
-#: ./browser/forms.py:198
+#: ./browser/forms.py:214
 msgid "Edit Tiles"
 msgstr ""
 
-#: ./browser/forms.py:111
+#: ./browser/forms.py:125
 msgid "Edit tile"
 msgstr ""
 
-#: ./configlet.py:41
+#: ./configlet.py:50
 msgid "Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."
 msgstr ""
 
-#: ./interfaces.py:113
+#: ./interfaces.py:136
 msgid "External link"
+msgstr ""
+
+#: ./interfaces.py:112
+msgid "Heading"
 msgstr ""
 
 #: ./interfaces.py:68
 msgid "If unchecked tiles will be shown on subpages"
 msgstr ""
 
-#: ./interfaces.py:119
+#: ./interfaces.py:117
 msgid "Image"
 msgstr ""
 
-#: ./configlet.py:47
+#: ./configlet.py:63
 msgid "Image scale width"
 msgstr ""
 
-#: ./interfaces.py:105
+#: ./interfaces.py:106
+msgid "Layout"
+msgstr ""
+
+#: ./interfaces.py:128
 msgid "Link to content"
 msgstr ""
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:143
 msgid "No changes made."
 msgstr ""
 
-#: ./interfaces.py:114
+#: ./interfaces.py:137
 msgid "Please enter a full URL. Has precedence before the above field."
 msgstr ""
 
@@ -114,15 +130,15 @@ msgstr ""
 msgid "Portal top"
 msgstr ""
 
-#: ./configure.zcml:47
+#: ./configure.zcml:51
 msgid "Removes tx.tiles add-on"
 msgstr ""
 
-#: ./browser/forms.py:115
+#: ./browser/forms.py:129
 msgid "Save"
 msgstr ""
 
-#: ./browser/forms.py:193
+#: ./browser/forms.py:209
 msgid "Settings"
 msgstr ""
 
@@ -134,25 +150,29 @@ msgstr ""
 msgid "Show the tiles"
 msgstr ""
 
-#: ./configure.zcml:39
+#: ./configure.zcml:43
 msgid "TX Tiles"
 msgstr ""
 
-#: ./interfaces.py:125
+#: ./interfaces.py:123
 msgid "Text"
 msgstr ""
 
-#: ./browser/forms.py:189
+#: ./configlet.py:56
+msgid "Tile configuration"
+msgstr ""
+
+#: ./browser/forms.py:205
 #: ./interfaces.py:96
 msgid "Tiles"
 msgstr ""
 
-#: ./interfaces.py:61
-msgid "Tiles configuration"
+#: ./configlet.py:73
+msgid "Tiles default settings"
 msgstr ""
 
-#: ./configlet.py:57
-msgid "Tiles default settings"
+#: ./interfaces.py:61
+msgid "Tiles layout"
 msgstr ""
 
 #: ./interfaces.py:86
@@ -163,7 +183,7 @@ msgstr ""
 msgid "Uncheck to hide the tiles."
 msgstr ""
 
-#: ./configure.zcml:47
+#: ./configure.zcml:51
 msgid "Uninstall TX Tiles"
 msgstr ""
 
@@ -171,18 +191,18 @@ msgstr ""
 msgid "Use drag and drop to rearrange the tiles."
 msgstr ""
 
-#: ./interfaces.py:120
+#: ./interfaces.py:118
 msgid "You can drag and drop a file to this field."
 msgstr ""
 
-#: ./browser/templates/tiles.pt:52
+#: ./browser/templates/tiles_widget.pt:47
 msgid "add new tile"
 msgstr ""
 
-#: ./browser/templates/tiles.pt:33
+#: ./browser/templates/tiles_widget.pt:29
 msgid "edit tile"
 msgstr ""
 
-#: ./browser/templates/tiles.pt:39
+#: ./browser/templates/tiles_widget.pt:35
 msgid "remove tile"
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tx.tiles\n"
-"POT-Creation-Date: 2017-07-06 14:31+0000\n"
+"POT-Creation-Date: 2017-07-07 12:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
 "Language-Team: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
@@ -14,19 +14,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tx.tiles\n"
 
-#: ./configure.zcml:39
+#: ./configure.zcml:43
 msgid "Add tiles to pages"
 msgstr "Kacheln zu Seiten hinzufügen"
 
-#: ./browser/forms.py:113
+#: ./browser/forms.py:127
 msgid "Add/Update Tile"
 msgstr "Kachel hinzufügen/editieren"
 
-#: ./configlet.py:48
+#: ./configlet.py:57
+msgid "Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."
+msgstr "Zusätzliche konfigurationen für einzelne Kacheln. Format: 'Name:css-class-name'."
+
+#: ./configlet.py:64
 msgid "All uploaded images will be scaled down to this value."
 msgstr "Alle Bilder werden auf folgende Breite skaliert."
 
-#: ./browser/templates/tiles.pt:39
+#: ./browser/templates/tiles_widget.pt:35
 msgid "Are you sure you want to remove this tile?"
 msgstr "Wollen Sie die Kachel wirklich entfernen?"
 
@@ -38,71 +42,83 @@ msgstr "Unter dem Inhalt"
 msgid "Below title"
 msgstr "Unter dem Titel"
 
-#: ./browser/forms.py:169
+#: ./browser/forms.py:185
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ./browser/forms.py:174
+#: ./browser/forms.py:190
 msgid "Changes canceled."
 msgstr "Änderung abgebrochen."
 
-#: ./browser/forms.py:125
+#: ./browser/forms.py:139
 msgid "Changes saved."
 msgstr "Änderungen gespeichert."
 
-#: ./interfaces.py:62
-msgid "Choose a configuration. Configurations can be added by the Site Manager in the control panel."
-msgstr "Wähle eine Konfiguration. Konfigurationen können vom Website-Administrator im Plone Control Panel hinzugefügt werden."
-
-#: ./interfaces.py:106
+#: ./interfaces.py:129
 msgid "Choose a content item to link this tile to."
-msgstr "Wählen Sie einen Inhalt, der mit dieser Kachel verknüpft wird."
+msgstr "Einen Inhalt wählen, der mit dieser Kachel verknüpft wird."
 
-#: ./configlet.py:40
+#: ./interfaces.py:62
+msgid "Choose a layout for all tiles."
+msgstr "Ein Layout für alle Kacheln wählen."
+
+#: ./interfaces.py:107
+msgid "Choose a layout for this tile."
+msgstr "Ein Layout für diese Kachel wählen."
+
+#: ./configlet.py:49
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: ./configlet.py:58
+#: ./configlet.py:74
 msgid "Default settings to use for all tiles."
 msgstr "Standardeinstellungen für alle Kacheln."
 
-#: ./browser/forms.py:198
+#: ./browser/forms.py:214
 msgid "Edit Tiles"
 msgstr "Kacheln bearbeiten"
 
-#: ./browser/forms.py:111
+#: ./browser/forms.py:125
 msgid "Edit tile"
 msgstr "Kachel bearbeiten"
 
-#: ./configlet.py:41
+#: ./configlet.py:50
 msgid "Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."
 msgstr "Eine Konfiguration pro Zeile. Format: 'Name:css-class-name'. Erster Eintrag ist Standard-Einstellung."
 
-#: ./interfaces.py:113
+#: ./interfaces.py:136
 msgid "External link"
 msgstr "Externer Link"
+
+#: ./interfaces.py:112
+msgid "Heading"
+msgstr "Überschrift"
 
 #: ./interfaces.py:68
 msgid "If unchecked tiles will be shown on subpages"
 msgstr "Wenn abgewählt, werden die Kacheln auch auf Unterseiten angezeigt."
 
-#: ./interfaces.py:119
+#: ./interfaces.py:117
 msgid "Image"
 msgstr "Bild"
 
-#: ./configlet.py:47
+#: ./configlet.py:63
 msgid "Image scale width"
 msgstr "Bild-Skalierungs Breite"
 
-#: ./interfaces.py:105
+#: ./interfaces.py:106
+msgid "Layout"
+msgstr "Layout"
+
+#: ./interfaces.py:128
 msgid "Link to content"
 msgstr "Verknüpfung zum Inhalt"
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:143
 msgid "No changes made."
 msgstr "Keine Änderungen."
 
-#: ./interfaces.py:114
+#: ./interfaces.py:137
 msgid "Please enter a full URL. Has precedence before the above field."
 msgstr "Bitte einen volständigen Link angeben. Hat Vorrang vor dem obigen Feld."
 
@@ -110,15 +126,15 @@ msgstr "Bitte einen volständigen Link angeben. Hat Vorrang vor dem obigen Feld.
 msgid "Portal top"
 msgstr "Im Kopf der Seite"
 
-#: ./configure.zcml:47
+#: ./configure.zcml:51
 msgid "Removes tx.tiles add-on"
 msgstr "Entfernt die tx.tiles Erweiterung"
 
-#: ./browser/forms.py:115
+#: ./browser/forms.py:129
 msgid "Save"
 msgstr "Speichern"
 
-#: ./browser/forms.py:193
+#: ./browser/forms.py:209
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -130,26 +146,30 @@ msgstr "Nur auf dieser Seite anzeigen"
 msgid "Show the tiles"
 msgstr "Kacheln anzeigen"
 
-#: ./configure.zcml:39
+#: ./configure.zcml:43
 msgid "TX Tiles"
 msgstr "TX Tiles"
 
-#: ./interfaces.py:125
+#: ./interfaces.py:123
 msgid "Text"
 msgstr "Text"
 
-#: ./browser/forms.py:189
+#: ./configlet.py:56
+msgid "Tile configuration"
+msgstr "Konfiguration einzelner Kacheln"
+
+#: ./browser/forms.py:205
 #: ./interfaces.py:96
 msgid "Tiles"
 msgstr "Kacheln"
 
-#: ./interfaces.py:61
-msgid "Tiles configuration"
-msgstr "Konfiguration der Kacheln"
-
-#: ./configlet.py:57
+#: ./configlet.py:73
 msgid "Tiles default settings"
 msgstr "Konfiguration der Kacheln"
+
+#: ./interfaces.py:61
+msgid "Tiles layout"
+msgstr "Kachel-Layout"
 
 #: ./interfaces.py:86
 msgid "Tiles position"
@@ -159,7 +179,7 @@ msgstr "Position der Kacheln"
 msgid "Uncheck to hide the tiles."
 msgstr "Abwählen um die Kacheln zu verstecken."
 
-#: ./configure.zcml:47
+#: ./configure.zcml:51
 msgid "Uninstall TX Tiles"
 msgstr "TX Tiles deinstallieren"
 
@@ -167,18 +187,18 @@ msgstr "TX Tiles deinstallieren"
 msgid "Use drag and drop to rearrange the tiles."
 msgstr "Sie können die Kacheln per Drag & Drop anordnen."
 
-#: ./interfaces.py:120
+#: ./interfaces.py:118
 msgid "You can drag and drop a file to this field."
 msgstr "Sie können eine Datei per Drag & Drop in dieses Feld ziehen."
 
-#: ./browser/templates/tiles.pt:52
+#: ./browser/templates/tiles_widget.pt:47
 msgid "add new tile"
 msgstr "Neue Kachel hinzufügen"
 
-#: ./browser/templates/tiles.pt:33
+#: ./browser/templates/tiles_widget.pt:29
 msgid "edit tile"
 msgstr "Kachel bearbeiten"
 
-#: ./browser/templates/tiles.pt:39
+#: ./browser/templates/tiles_widget.pt:35
 msgid "remove tile"
 msgstr "Kachel entfernen"
