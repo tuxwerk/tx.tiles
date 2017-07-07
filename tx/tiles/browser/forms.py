@@ -10,7 +10,6 @@ from plone.fieldsets.form import FieldsetsEditForm
 from plone.scale.scale import scaleImage
 
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
-from plone.app.controlpanel.widgets import MultiCheckBoxVocabularyWidget
 from plone.app.form import base as ploneformbase
 from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
 #FIXME: add a nice widget for image upload

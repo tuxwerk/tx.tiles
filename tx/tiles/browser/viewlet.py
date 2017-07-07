@@ -5,7 +5,6 @@ from plone.memoize.instance import memoize
 
 from tx.tiles.settings import PageTilesSettings
 from tx.tiles.interfaces import ITilesPage
-from tx.tiles.browser.base import AbstractTilesView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from zope.component import getUtility
@@ -34,7 +33,6 @@ class BaseTilesViewlet(ViewletBase):
 
     @memoize
     def configuration(self):
-        #return self.settings.configuration
         configs = self.registry('configuration')
         for config in configs:
             t = config.split(":")
@@ -62,16 +60,9 @@ class BaseTilesViewlet(ViewletBase):
 
     @memoize
     def class_name(self):
-        #return self.settings.configuration
         c = self.configuration()
         if c:
             return c[1]
-
-    @memoize
-    def ratio(self):
-        c = self.configuration()
-        if c:
-            return c[2] + ":" + c[3]
 
     @property
     def tiles(self):

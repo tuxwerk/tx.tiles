@@ -10,7 +10,7 @@
     <value key="tile_configuration" purge="false">
       <element>Important:tx-tile-important</element>
     </value>
-    <value key="image_scale_width">1000</value>
+    <value key="image_scale_width" purge="false">1000</value>
   </records>
   
 </registry>

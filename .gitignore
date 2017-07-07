@@ -5,6 +5,8 @@
 .egg-info
 PKG-INFO
 *.egg-info/*
+/build
+/dist
 
 
 *.gz

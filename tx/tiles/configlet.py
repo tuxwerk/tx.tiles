@@ -54,9 +54,9 @@ class ITilesControlPanel(Interface):
 
     tile_configuration = schema.List(
         title=_(u'Tile configuration'),
-        description=_(u"Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."),
+        description=_(u"Additional configuration for individual tiles. Format: 'Name:css-class-name'."),
         value_type=schema.TextLine(),
-        required=True
+        required=False
     )
 
     image_scale_width = schema.Int(
