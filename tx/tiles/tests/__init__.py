@@ -2,11 +2,11 @@ from Products.CMFCore.utils import getToolByName
 from tx.tiles.testing import TILES_INTEGRATION_TESTING, TILES_FUNCTIONAL_TESTING
 from plone.app.testing import setRoles
 import unittest
-import Testing
 from plone.app.testing import TEST_USER_ID
 from tx.tiles.interfaces import ITilesLayer
 from zope.interface import alsoProvides
 from Testing.ZopeTestCase import Functional
+
 
 class BaseTest(unittest.TestCase):
 

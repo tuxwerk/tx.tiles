@@ -12,7 +12,7 @@ This file demonstrates how you go about adding and removing an tiles to differen
    >>> browserLogin(self.portal, browser)
    >>> from tx.tiles.settings import PageTilesSettings
 
-Lets make sure that links to add tiles are added across the board on all different content types. Should go to tiles settings after you've added the tiles
+Lets make sure that links to add tiles are added across the board on all different content types. Should go to tiles settings after you've added the tiles.
 
 Check Page type first,
 
@@ -23,6 +23,8 @@ Check Page type first,
    >>> browser.getLink("Add tiles").click()
    >>> browser.url
    'http://nohost/plone/test-page/@@tx-tiles-settings'
+
+Save the page url for later use
 
    >>> page_url = self.portal['test-page'].absolute_url()
     
@@ -77,7 +79,7 @@ Go to the tiles settings, saving should stay on the form
     
 Tiles should not be in the page contents yet because there are no tiles yet.
 
-   >>> browser.open(self.portal['test-page'].absolute_url())
+   >>> browser.open(page_url)
    >>> '<ul class="tx-tiles-container ' in browser.contents
    False
     
@@ -89,7 +91,7 @@ add one tile so it'll actually show.
     
 Tiles should now show.
 
-   >>> browser.open(self.portal['test-page'].absolute_url())
+   >>> browser.open(page_url)
    >>> '<ul class="tx-tiles-container ' in browser.contents
    True
     
@@ -101,7 +103,7 @@ Edit it again and hide it this time.
 
 It is hidden now.
 
-   >>> browser.open(self.portal['test-page'].absolute_url())
+   >>> browser.open(page_url)
    >>> '<ul class="tx-tiles-container ' in browser.contents
    False
     
@@ -110,6 +112,8 @@ Show it again now
    >>> browser.getLink(text="Tiles").click()
    >>> browser.getControl(name="form.show").value = "on"
    >>> browser.getControl(name="form.actions.apply").click()
+   >>> '<ul class="tx-tiles-container ' in browser.contents
+   True
     
 Add some tiles now shall we? Well, can't do it with the browser testing here because the kupu widget we use doesn't have support without ajax.  So we'll just do some programming for it...
 
@@ -120,11 +124,12 @@ Add some tiles now shall we? Well, can't do it with the browser testing here bec
    >>> settings = PageTilesSettings(self.portal['test-page'])
     
 Set the tiles...
+
    >>> settings.tiles = [{'link_reference': None, 'image': None, 'image_type': None, 'html': 'first tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid111111'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'second tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid222222'}, {'link_reference': None, 'image': None, 'image_type': None, 'html': 'third tile text', 'url': None, 'configuration': '', 'heading': '', 'uuid': 'uuid333333'}]
    >>> transaction.commit()
 
 Render the page again and make sure the tiles are there.
-   >>> browser.open(self.portal['test-page'].absolute_url())
+   >>> browser.open(page_url)
    >>> 'first tile text' in browser.contents
    True
    >>> 'second tile text' in browser.contents
@@ -171,7 +176,7 @@ Now remove the last tile which was the first...
     
 Should only show 2 tiles now
 
-   >>> browser.open(self.portal['test-page'].absolute_url())
+   >>> browser.open(page_url)
    >>> 'first tile text' in browser.contents
    True
    >>> 'second tile text' in browser.contents

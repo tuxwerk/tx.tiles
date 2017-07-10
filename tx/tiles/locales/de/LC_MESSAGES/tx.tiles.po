@@ -24,7 +24,7 @@ msgstr "Kachel hinzufügen/editieren"
 
 #: ./configlet.py:57
 msgid "Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."
-msgstr "Zusätzliche konfigurationen für einzelne Kacheln. Format: 'Name:css-class-name'."
+msgstr "Zusätzliche Konfigurationen für einzelne Kacheln. Format: 'Name:css-class-name'."
 
 #: ./configlet.py:64
 msgid "All uploaded images will be scaled down to this value."
