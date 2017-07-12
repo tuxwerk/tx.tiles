@@ -41,7 +41,7 @@ function tx_tile_sortable() {
 }
 
 $(document).ready(function(){
-  $("#tx-tiles-widget a.tile-remove").click(tx_tile_remove);
+  $("#tx-tiles-widget a.tx-tile-remove").click(tx_tile_remove);
   tx_tile_sortable();
   // $('.tile-buttons a.tile-edit, .tile-add-buttons a.tile-add').prepOverlay({
   //   subtype: 'ajax',
