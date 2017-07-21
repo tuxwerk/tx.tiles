@@ -80,7 +80,7 @@ class TestSetup(BaseTest):
         if mtool and 'Site Administrator' in mtool.getPortalRoles():
             roles = [r['name'] for r in roles(perm) if r['selected']]
             self.assertEqual(roles, ['Site Administrator'])
-
+        # FIXME: test permissions for editors
 
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)

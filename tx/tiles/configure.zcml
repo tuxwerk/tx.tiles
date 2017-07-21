@@ -18,10 +18,15 @@
     <include package="zope.annotation" />
   </configure>
 
-  <!-- permission for managing tiles settings -->
+  <!-- permission for tiles -->
   <permission
     id="tx.tiles.ManageTilesSettings"
     title="tx.tiles: Manage tiles settings"
+    />
+
+  <permission
+    id="tx.tiles.EditTiles"
+    title="tx.tiles: Edit tiles"
     />
 
   <utility provides="zope.schema.interfaces.IVocabularyFactory"
@@ -56,7 +61,7 @@
     name="tx-tiles-controlpanel"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".configlet.ControlPanel"
-    permission="plone.app.controlpanel.Site"
+    permission="tx.tiles.ManageTilesSettings"
     />
 
 </configure>

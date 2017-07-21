@@ -21,7 +21,7 @@
     for="tx.tiles.interfaces.ITilesPage"
     class=".forms.TilesPageSettingsForm"
     layer="tx.tiles.interfaces.ITilesLayer"
-    permission="tx.tiles.ManageTilesSettings" />
+    permission="tx.tiles.EditTiles" />
     
   <browser:page
     name="image"
@@ -33,7 +33,7 @@
   <browser:page 
     name="tx-tiles-enable"
     for="*"
-    permission="tx.tiles.ManageTilesSettings"
+    permission="tx.tiles.EditTiles"
     allowed_interface="tx.tiles.interfaces.ITilesUtilProtected"
     attribute="enable"
     layer="tx.tiles.interfaces.ITilesLayer"
@@ -42,7 +42,7 @@
   <browser:page 
     name="tx-tiles-disable"
     for="*"
-    permission="tx.tiles.ManageTilesSettings"
+    permission="tx.tiles.EditTiles"
     allowed_interface="tx.tiles.interfaces.ITilesUtilProtected"
     attribute="disable"
     layer="tx.tiles.interfaces.ITilesLayer"
@@ -84,21 +84,21 @@
     for="tx.tiles.interfaces.ITilesPage"
     class=".forms.AddTileForm"
     layer="tx.tiles.interfaces.ITilesLayer"
-    permission="tx.tiles.ManageTilesSettings" />
+    permission="tx.tiles.EditTiles" />
   
   <browser:page
     name="remove-tile"
     for="tx.tiles.interfaces.ITileContext"
     class=".views.RemoveTileView"
     layer="tx.tiles.interfaces.ITilesLayer"
-    permission="tx.tiles.ManageTilesSettings" />
+    permission="tx.tiles.EditTiles" />
 
   <browser:page
     name="order-tiles"
     for="tx.tiles.interfaces.ITileContext"
     class=".views.OrderTiles"
     layer="tx.tiles.interfaces.ITilesLayer"
-    permission="tx.tiles.ManageTilesSettings" />
+    permission="tx.tiles.EditTiles" />
 
   <browser:page
     name="tx-tiles"

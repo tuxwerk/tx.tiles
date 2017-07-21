@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <rolemap>
   <permissions>
-    <permission name="tx.tiles: Manage tiles settings"
-                acquire="True">
+    <permission name="tx.tiles: Manage tiles settings" acquire="True">
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="tx.tiles: Edit tiles" acquire="True">
+      <role name="Editor"/>
       <role name="Site Administrator"/>
     </permission>
   </permissions>

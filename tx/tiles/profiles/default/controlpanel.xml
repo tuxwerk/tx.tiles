@@ -6,7 +6,7 @@
     category="Products" condition_expr=""
     url_expr="string:${portal_url}/@@tx-tiles-controlpanel" visible="True"
     i18n:attributes="title">
-  <permission>Manage Site</permission>
+  <permission>tx.tiles: Manage tiles settings</permission>
  </configlet>
 
 </object>
