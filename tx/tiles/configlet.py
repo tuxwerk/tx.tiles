@@ -26,7 +26,7 @@ def tiles_configuration_choices(context):
     configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.configuration']
     items = []
     for config in configs:
-        t = config.split(":")
+        t = config.split("|")
         items = items + [(t[1],t[0]),]
     terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
     return SimpleVocabulary(terms)
@@ -35,7 +35,7 @@ def tile_configuration_choices(context):
     configs = getUtility(IRegistry)['tx.tiles.configlet.ITilesControlPanel.tile_configuration']
     items = []
     for config in configs:
-        t = config.split(":")
+        t = config.split("|")
         items = items + [(t[1],t[0]),]
     terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
     return SimpleVocabulary(terms)

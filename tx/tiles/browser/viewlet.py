@@ -35,10 +35,10 @@ class BaseTilesViewlet(ViewletBase):
     def configuration(self):
         configs = self.registry('configuration')
         for config in configs:
-            t = config.split(":")
+            t = config.split("|")
             if t[1] == self.settings.configuration:
                 return t
-        return configs[0].split(":")
+        return configs[0].split("|")
     
     @memoize
     def show(self):
