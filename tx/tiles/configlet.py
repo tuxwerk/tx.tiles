@@ -47,14 +47,14 @@ class ITilesControlPanel(Interface):
 
     configuration = schema.List(
         title=_(u'Configuration'),
-        description=_(u"Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."),
+        description=_(u"Enter one configuration per line. Format: 'Name|css-class-name'. First entry is default."),
         value_type=schema.TextLine(),
         required=True
     )
 
     tile_configuration = schema.List(
         title=_(u'Tile configuration'),
-        description=_(u"Additional configuration for individual tiles. Format: 'Name:css-class-name'."),
+        description=_(u"Additional configuration for individual tiles. Format: 'Name|css-class-name'."),
         value_type=schema.TextLine(),
         required=False
     )

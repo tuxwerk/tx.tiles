@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tx.tiles\n"
-"POT-Creation-Date: 2017-07-07 12:29+0000\n"
+"POT-Creation-Date: 2017-07-21 17:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
 "Language-Team: CMS HU Berlin <plone@cms.hu-berlin.de>\n"
@@ -18,13 +18,13 @@ msgstr ""
 msgid "Add tiles to pages"
 msgstr "Kacheln zu Seiten hinzufügen"
 
-#: ./browser/forms.py:127
+#: ./browser/forms.py:126
 msgid "Add/Update Tile"
 msgstr "Kachel hinzufügen/editieren"
 
 #: ./configlet.py:57
-msgid "Additional tile configuration for individual tiles. Format: 'Name:css-class-name'."
-msgstr "Zusätzliche Konfigurationen für einzelne Kacheln. Format: 'Name:css-class-name'."
+msgid "Additional configuration for individual tiles. Format: 'Name|css-class-name'."
+msgstr "Zusätzliche Konfigurationen für einzelne Kacheln. Format: 'Name|css-class-name'."
 
 #: ./configlet.py:64
 msgid "All uploaded images will be scaled down to this value."
@@ -42,15 +42,15 @@ msgstr "Unter dem Inhalt"
 msgid "Below title"
 msgstr "Unter dem Titel"
 
-#: ./browser/forms.py:185
+#: ./browser/forms.py:184
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ./browser/forms.py:190
+#: ./browser/forms.py:189
 msgid "Changes canceled."
 msgstr "Änderung abgebrochen."
 
-#: ./browser/forms.py:139
+#: ./browser/forms.py:138
 msgid "Changes saved."
 msgstr "Änderungen gespeichert."
 
@@ -74,17 +74,17 @@ msgstr "Konfiguration"
 msgid "Default settings to use for all tiles."
 msgstr "Standardeinstellungen für alle Kacheln."
 
-#: ./browser/forms.py:214
+#: ./browser/forms.py:213
 msgid "Edit Tiles"
 msgstr "Kacheln bearbeiten"
 
-#: ./browser/forms.py:125
+#: ./browser/forms.py:124
 msgid "Edit tile"
 msgstr "Kachel bearbeiten"
 
 #: ./configlet.py:50
-msgid "Enter one configuration per line. Format: 'Name:css-class-name'. First entry is default."
-msgstr "Eine Konfiguration pro Zeile. Format: 'Name:css-class-name'. Erster Eintrag ist Standard-Einstellung."
+msgid "Enter one configuration per line. Format: 'Name|css-class-name'. First entry is default."
+msgstr "Eine Konfiguration pro Zeile. Format: 'Name|css-class-name'. Erster Eintrag ist Standard-Einstellung."
 
 #: ./interfaces.py:136
 msgid "External link"
@@ -114,7 +114,7 @@ msgstr "Layout"
 msgid "Link to content"
 msgstr "Verknüpfung zum Inhalt"
 
-#: ./browser/forms.py:143
+#: ./browser/forms.py:142
 msgid "No changes made."
 msgstr "Keine Änderungen."
 
@@ -130,11 +130,11 @@ msgstr "Im Kopf der Seite"
 msgid "Removes tx.tiles add-on"
 msgstr "Entfernt die tx.tiles Erweiterung"
 
-#: ./browser/forms.py:129
+#: ./browser/forms.py:128
 msgid "Save"
 msgstr "Speichern"
 
-#: ./browser/forms.py:209
+#: ./browser/forms.py:208
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -158,7 +158,7 @@ msgstr "Text"
 msgid "Tile configuration"
 msgstr "Konfiguration einzelner Kacheln"
 
-#: ./browser/forms.py:205
+#: ./browser/forms.py:204
 #: ./interfaces.py:96
 msgid "Tiles"
 msgstr "Kacheln"
