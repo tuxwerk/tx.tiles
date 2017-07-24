@@ -5,13 +5,13 @@
     <action title="Add tiles" action_id="enable_tiles" category="object_buttons"
             condition_expr="not: object/@@tiles_util/enabled_here"
             url_expr="string:${object_url}/@@tx-tiles-enable" visible="True">
-      <permission>tx.tiles: Edit tiles</permission>
+      <permission>tx.tiles: Add tiles</permission>
     </action>
 
     <action title="Remove tiles" action_id="disable_tiles" category="object_buttons"
             condition_expr="object/@@tiles_util/enabled_here"
             url_expr="string:${object_url}/@@tx-tiles-disable" visible="True">
-      <permission>tx.tiles: Edit tiles</permission>
+      <permission>tx.tiles: Add tiles</permission>
     </action>
 
     <action title="Tiles" action_id="tiles_settings" category="object"

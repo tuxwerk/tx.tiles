@@ -19,15 +19,14 @@
   </configure>
 
   <!-- permission for tiles -->
-  <permission
-    id="tx.tiles.ManageTilesSettings"
-    title="tx.tiles: Manage tiles settings"
-    />
+  <permission id="tx.tiles.ManageTilesSettings"
+    title="tx.tiles: Manage tiles settings" />
 
-  <permission
-    id="tx.tiles.EditTiles"
-    title="tx.tiles: Edit tiles"
-    />
+  <permission id="tx.tiles.EditTiles"
+    title="tx.tiles: Edit tiles" />
+
+  <permission id="tx.tiles.AddTiles"
+    title="tx.tiles: Add tiles" />
 
   <utility provides="zope.schema.interfaces.IVocabularyFactory"
            component=".configlet.tiles_configuration_choices"

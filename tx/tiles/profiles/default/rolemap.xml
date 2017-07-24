@@ -8,5 +8,9 @@
       <role name="Editor"/>
       <role name="Site Administrator"/>
     </permission>
+    <permission name="tx.tiles: Add tiles" acquire="True">
+      <role name="Editor"/>
+      <role name="Site Administrator"/>
+    </permission>
   </permissions>
 </rolemap>

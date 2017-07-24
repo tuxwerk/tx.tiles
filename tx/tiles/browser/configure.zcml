@@ -33,7 +33,7 @@
   <browser:page 
     name="tx-tiles-enable"
     for="*"
-    permission="tx.tiles.EditTiles"
+    permission="tx.tiles.AddTiles"
     allowed_interface="tx.tiles.interfaces.ITilesUtilProtected"
     attribute="enable"
     layer="tx.tiles.interfaces.ITilesLayer"
@@ -42,7 +42,7 @@
   <browser:page 
     name="tx-tiles-disable"
     for="*"
-    permission="tx.tiles.EditTiles"
+    permission="tx.tiles.AddTiles"
     allowed_interface="tx.tiles.interfaces.ITilesUtilProtected"
     attribute="disable"
     layer="tx.tiles.interfaces.ITilesLayer"
