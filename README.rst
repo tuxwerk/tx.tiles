@@ -1,7 +1,7 @@
 
 Introduction
 ============
-This product allows you to add tiles to any page on a plone site.
+This product allows you to add tiles to any page on a plone (version 4.3) site.
 
 How-to
 ------
