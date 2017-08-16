@@ -120,7 +120,7 @@ msgstr "Keine Änderungen."
 
 #: ./interfaces.py:137
 msgid "Please enter a full URL. Has precedence before the above field."
-msgstr "Bitte einen volständigen Link angeben. Hat Vorrang vor dem obigen Feld."
+msgstr "Bitte einen vollständigen Link angeben. Hat Vorrang vor dem obigen Feld."
 
 #: ./interfaces.py:89
 msgid "Portal top"
