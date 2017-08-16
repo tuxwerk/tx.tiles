@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.0
+------------------
+
+- Copy tiles from translation original when translations available
+
 1.0.0 
 ------------------
 

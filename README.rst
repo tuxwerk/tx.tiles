@@ -25,5 +25,5 @@ Uninstall
 Credits and Contributions
 -------------------------
 * tx.tiles is based on collective.easyslider. Thanks for the ideas!
-* University of Freiburg for sponsoring the package
+* University of Freiburg (Technische Fakultät) for sponsoring the package
     

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.5'
+version = '1.1.0'
 
 setup(name='tx.tiles',
       version=version,
@@ -12,8 +12,6 @@ setup(name='tx.tiles',
       ),
       classifiers=[
           "Framework :: Plone",
-          "Programming Language :: Python",
-          "Topic :: Software Development :: Libraries :: Python Modules",
           "Framework :: Plone :: 4.3"
       ],
       keywords='plone tiles',
@@ -33,7 +31,8 @@ setup(name='tx.tiles',
       install_requires=[
           'setuptools',
           'plone.app.z3cform',
-          'collective.js.jqueryui'
+          'collective.js.jqueryui',
+          'Products.CMFPlone >=4.3, <5.0'
       ],
       entry_points="""
       # -*- Entry points: -*-
