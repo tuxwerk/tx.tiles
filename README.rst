@@ -7,10 +7,9 @@ How-to
 ------
 On a page, click actions -> Add tiles. This opens a setting page for your tiles. Tiles can be added by clicking ``add new tile``.
 
-Examples
---------
-
 TODO
+----
+As of now only english and german translation is available.
 
 Installation
 ------------

@@ -9,8 +9,8 @@
 	<div class="tx-tile" tal:attributes="class string:tx-tile ${tile_class}">
 	  <a href="" tal:attributes="href link" tal:omit-tag="not:show_link">
 	    <div class="tx-tile-content">
-	      <h2 class="tx-tile-heading" tal:content="tile/heading" tal:condition="tile/heading" />
-	      <div class="tx-tile-text" tal:content="structure tile/html" tal:condition="tile/html" />
+	      <h2 class="tx-tile-heading" tal:content="tile/heading" tal:condition="tile/heading"></h2>
+	      <div class="tx-tile-text" tal:content="structure tile/html" tal:condition="tile/html"></div>
 	    </div>
 	    <img class="tx-tile-image" tal:attributes="src string:${view/absolute_url}/@@tx-tiles/${tile/uuid}/@@image;" tal:condition="tile/image_type" />
 	  </a>

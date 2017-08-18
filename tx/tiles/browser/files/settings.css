@@ -4,8 +4,9 @@
   overflow: hidden;
 }
 
-#tx-tiles-widget ul {
+#content #tx-tiles-widget ul {
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 #tx-tiles-widget ul li {
