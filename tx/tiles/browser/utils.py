@@ -27,14 +27,15 @@ class TilesUtilProtected(BrowserView):
             self.request.response.redirect(self.context.absolute_url())
         else:            
             alsoProvides(self.context, ITilesPage)
-            canonical = self.context.getCanonical()
-            if self.context != canonical and ITilesPage.providedBy(canonical):
-                # we copy the fields from the translation original
-                annotations = IAnnotations(canonical)
-                settings = copy.deepcopy(annotations.get('tx.tiles', {}))
-                settings['show'] = False
-                annotations_new = IAnnotations(self.context)
-                annotations_new['tx.tiles'] = settings
+            if getattr(self.context, 'getCanonical', None) is not None:
+                canonical = self.context.getCanonical()
+                if self.context != canonical and ITilesPage.providedBy(canonical):
+                    # we copy the fields from the translation original
+                    annotations = IAnnotations(canonical)
+                    settings = copy.deepcopy(annotations.get('tx.tiles', {}))
+                    settings['show'] = False
+                    annotations_new = IAnnotations(self.context)
+                    annotations_new['tx.tiles'] = settings
             self.context.reindexObject(idxs=['object_provides'])
             utils.addPortalMessage("Tiles added.")
             self.request.response.redirect('%s/@@tx-tiles-settings' % (
