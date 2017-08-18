@@ -22,6 +22,8 @@ class Tiles(PloneSandboxLayer):
         xmlconfig.file('configure.zcml',
                        tx.tiles,
                        context=configurationContext)
+        import collective.js.jqueryui
+        self.loadZCML(package=collective.js.jqueryui)
         z2.installProduct(app, 'tx.tiles')
 
     def setUpPloneSite(self, portal):
