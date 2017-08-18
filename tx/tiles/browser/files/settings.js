@@ -20,21 +20,11 @@ function tx_tile_sortable() {
         order.push(tiles.eq(i).attr('data-index'));
       }
       $.ajax({
-        url: $('base').attr('href') + '/../@@tx-tiles/all/@@order-tiles',
+        url: $('#tx-tiles-widget').attr('data-order-tiles-url'),
         type: 'POST',
         data: {
           order: order
-        },
-        // success: function(data){
-        //     $.ajax({
-        //         url: window.location.toString(),
-        //         success: function(data){
-        //             var dom = $(data);
-        //             $('#tilelist').replaceWith(dom.find('#tilelist'));
-        //             enableTiles();
-        //         }
-        //     });
-        // }
+        }
       }); 
     }
   });

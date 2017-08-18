@@ -1,4 +1,5 @@
 <div id="tx-tiles-widget"
+     tal:attributes="data-order-tiles-url string:${view/tiles_url}/@@tx-tiles/all/@@order-tiles"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:metal="http://xml.zope.org/namespaces/metal"
