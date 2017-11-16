@@ -23,6 +23,7 @@ ul.tx-tiles-container > li > div.tx-tile {
 ul.tx-tiles-container > li img.tx-tile-image {
   position: absolute;
   top: 0;
+  max-width: 100%;
 }
 
 ul.tx-tiles-container > li div.tx-tile-content {
