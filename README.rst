@@ -2,7 +2,9 @@ TX Tiles
 ============
 This product allows you to add tiles to any page on a plone (version 4.3) site.
 
-See also configuration and layout README
+See also configuration and layout `README`_:
+
+.. _README: tx/tiles/README.rst
 
 How to use
 ----------
