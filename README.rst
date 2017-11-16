@@ -1,11 +1,29 @@
-
-Introduction
+TX Tiles
 ============
 This product allows you to add tiles to any page on a plone (version 4.3) site.
 
-How-to
-------
-On a page, click actions -> Add tiles. This opens a setting page for your tiles. Tiles can be added by clicking ``add new tile``.
+See also configuration and layout README
+
+How to use
+----------
+On a page, click actions -> Add tiles.
+
+.. image:: docs/images/add-tiles.png
+   :width: 50%
+
+This opens a setting page for your tiles. Tiles can be added by clicking ``add new tile``.
+
+.. image:: docs/images/add-new-tile.png
+
+Access the slider configuration through the ``Tiles`` tab.
+
+.. image:: docs/images/tiles-configuration.png
+   :width: 50%
+
+The slides are rendered by viewlets (at portaltop, belowcontenttitle or belowcontent).
+	   
+.. image:: docs/images/view-tiles.png
+   :width: 50%
 
 TODO
 ----
