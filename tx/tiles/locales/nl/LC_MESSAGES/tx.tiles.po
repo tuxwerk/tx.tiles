@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-07-21 17:58+0000\n"
+"POT-Creation-Date: 2017-11-16 14:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Domain: tx.tiles\n"
 "Language: nl\n"
 
-#: ./configure.zcml:43
+#: ./configure.zcml:47
 msgid "Add tiles to pages"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgstr ""
 msgid "All uploaded images will be scaled down to this value."
 msgstr ""
 
-#: ./browser/templates/tiles_widget.pt:35
+#: ./browser/templates/tiles_widget.pt:36
 msgid "Are you sure you want to remove this tile?"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Portal top"
 msgstr ""
 
-#: ./configure.zcml:51
+#: ./configure.zcml:55
 msgid "Removes tx.tiles add-on"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Show the tiles"
 msgstr ""
 
-#: ./configure.zcml:43
+#: ./configure.zcml:47
 msgid "TX Tiles"
 msgstr ""
 
@@ -183,7 +183,7 @@ msgstr ""
 msgid "Uncheck to hide the tiles."
 msgstr ""
 
-#: ./configure.zcml:51
+#: ./configure.zcml:55
 msgid "Uninstall TX Tiles"
 msgstr ""
 
@@ -195,14 +195,14 @@ msgstr ""
 msgid "You can drag and drop a file to this field."
 msgstr ""
 
-#: ./browser/templates/tiles_widget.pt:47
+#: ./browser/templates/tiles_widget.pt:48
 msgid "add new tile"
 msgstr ""
 
-#: ./browser/templates/tiles_widget.pt:29
+#: ./browser/templates/tiles_widget.pt:30
 msgid "edit tile"
 msgstr ""
 
-#: ./browser/templates/tiles_widget.pt:35
+#: ./browser/templates/tiles_widget.pt:36
 msgid "remove tile"
 msgstr ""
